@@ -8,11 +8,11 @@ import {
     postUser,
     patchUser
 } from './controllers'
-import makeCallback from './express-callback'
+import makeExpressCallback from './express-callback/'
 
 dotenv.config()
 
-// const apiRoot = process.env.DM_API_ROOT
+const apiRoot = process.env.BASE_URL
 const app = express()
 app.use(bodyParser.json())
 app.use((_, res, next) => {
