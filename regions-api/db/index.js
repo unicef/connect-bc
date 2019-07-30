@@ -6,7 +6,7 @@ dotenv.config()
     console.log('Setting up database...')
     const db = await makeDb()
     const result = await db
-        .collection('users')
+        .collection('regions')
         .createIndexes([
 
         ])

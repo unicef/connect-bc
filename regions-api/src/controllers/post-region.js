@@ -1,14 +1,14 @@
-export default function makePostUser ({ addUser }) {
-    return async function postUser (httpRequest) {
+export default function makePostRegion ({ addRegion }) {
+    return async function postRegion (httpRequest) {
       try {
-        const { source = {}, ...userInfo } = httpRequest.body
-        source.ip = httpRequest.ip
-        source.browser = httpRequest.headers['User-Agent']
+        const { source = {}, ...regionInfo } = httpRequest.body
+        // source.ip = httpRequest.ip
+        source.browser = httpRequest.headers['Region-Agent']
         if (httpRequest.headers['Referer']) {
           source.referrer = httpRequest.headers['Referer']
         }
-        const posted = await addUser({
-          ...userInfo,
+        const posted = await addRegion({
+          ...regionInfo,
           source
         })
         return {
