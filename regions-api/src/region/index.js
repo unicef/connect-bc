@@ -6,7 +6,7 @@ import buildMakeSource from './source'
 import bcrypt from 'bcrypt'
 
 const makeSource = buildMakeSource({ isValidIp })
-const makeRegion = buildMakeRegion({ Id, sanitize, makeSource, encryptPassword })
+const makeRegion = buildMakeRegion({ Id, sanitize, makeSource })
 
 export default makeRegion
 
@@ -19,8 +19,4 @@ function sanitize (text) {
   return sanitizeHtml(text, {
     allowedIframeHostnames: ['codesandbox.io', 'repl.it']
   })
-}
-
-async function encryptPassword (password) {
-  return await bcrypt.hash(password, 10)
 }

@@ -1,11 +1,25 @@
-export default function buildMakeRegion ({ Id, sanitize, makeSource, encryptPassword }) {
+export default function buildMakeRegion ({ Id, sanitize, makeSource }) {
     return async function makeRegion ({
       id = Id.makeId(),
-      email,
       name,
-      bio,
-      role,
-      password,
+      population,
+      numberOfSchools,
+      blockchainAddress,
+      smartContractAddress,
+      sizeX,
+      sizeY,
+      regionOwner,
+      landArea,
+      totalArea,
+      leader,
+      languages,
+      internetUsers,
+      fixedLines,
+      cellPhones,
+      railways,
+      roads,
+      waterways,
+      airports,
       createdOn = Date.now(),
       modifiedOn = Date.now(),
       active = true,
@@ -13,48 +27,40 @@ export default function buildMakeRegion ({ Id, sanitize, makeSource, encryptPass
       if (!Id.isValidId(id)) {
         throw new Error('Region must have a valid id.')
       }
-      if (!email) {
-        console.log(email)
-        throw new Error('Region must have an email.')
-      } 
       if (!name) {
         throw new Error('Region must have an name.')
       }
-      if(!bio) {
-        throw new Error('Region must have a bio.')
-      }
-      if(!role) {
-        throw new Error('Region must have a role.')
-      }
-      if(!password) {
-        throw new Error('Region must provide a password.')
-      }
-      console.log(
-        email,
-        name,
-        password,
-        id,
-        role,
-        bio,
-        createdOn,
-        modifiedOn,
-        active
-      )
-      let sanitizedEmail = sanitize(email).trim()
+      
       let sanitizedName = sanitize(name).trim()
-      let sanitizedBio = sanitize(bio).trim()
-      let hashedPassword = await encryptPassword(password)
       
       return Object.freeze({
-        getEmail: () => sanitizedEmail,
-        getSanitizedName: () => sanitizedName,
-        getPassword: () => hashedPassword,
         getId: () => id,
-        getRole: () => role,
-        getBio: () => sanitizedBio,
+        getSanitizedName: () => name,
         getCreatedOn: () => createdOn,
         getModifiedOn: () => modifiedOn,
-        getStatus: () => active
+        // details for regions... may change later
+        getPopulation: () => population,
+        getNumberOfSchools: () => numberOfSchools,
+        // this will be an address that is specific to the region
+        getBlockchainAddress: () => blockchainAddress,
+        // this will be a smart contract address that is specific to the region
+        getSmartContractAddress: () => smartContractAddress,
+        getSizeX: () => sizeX,
+        getSizeY: () => sizeY,
+        // This is the person that is responsible for the region
+        getRegionOwner: () => regionOwner,
+        // other details re. the region
+        getLandArea: () => landArea,
+        getTotalArea: () => totalArea,
+        getLeader: () => leader,
+        getLanguages: () => languages,
+        getInternetUsers: () => internetUsers,
+        getFixedLines: () => fixedLines,
+        getCellPhones: () => cellPhones,
+        getRailways: () => railways,
+        getRoads: () => roads,
+        getWaterways: () => waterways,
+        getAirports: () => airports
       })
 
     // Any functions that you need can be defined below this:
