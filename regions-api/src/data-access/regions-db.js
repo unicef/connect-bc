@@ -3,7 +3,7 @@ import Id from '../Id'
 export default function makeRegionsDb ({ makeDb }) {
     return Object.freeze({
         findAll,
-        findByEmail,
+        findByName,
         findById,
         insert,
         remove,
@@ -29,15 +29,15 @@ export default function makeRegionsDb ({ makeDb }) {
         const { _id: id, ...info } = found[0]
         return { id, ...info }
     }
-    async function findByEmail ({ email: _email }) {
+    async function findByName ({ name: _name }) {
         const db = await makeDb()
-        const result = await db.collection('regions').find( {email: _email } )
+        const result = await db.collection('regions').find( {name: _name } )
         const found = await result.toArray()
         if(found.length === 0) {
             return null
         }
-        const { _email: email, ...info } = found[0]
-        return { email, ...info }
+        const { _name: name, ...info } = found[0]
+        return { name, ...info }
     }
     async function insert ({ id: _id = Id.makeId(), ...regionInfo }) {
         const db = await makeDb()

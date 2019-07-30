@@ -1,12 +1,6 @@
 export default function makeListRegions ({ regionsDb }) {
-    return async function listRegions ({ postId } = {}) {
-      if (!postId) {
-        throw new Error('You must supply a post id.')
-      }
-      const regions = await regionsDb.findByPostId({
-        postId,
-        omitReplies: false
-      })
+    return async function listRegions ({ } = {}) {
+      const regions = await regionsDb.findAll({})
       const nestedRegions = nest(regions)
       return nestedRegions
   

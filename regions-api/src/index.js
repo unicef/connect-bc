@@ -22,13 +22,12 @@ app.use((_, res, next) => {
     res.set({ Tk: '!'})
     next()
 })
+
 // CRUD for the regions
 app.post(`/regions`, makeExpressCallback(postRegion))
-app.delete(`/regions/:id`, makeExpressCallback(deleteRegion))
-app.delete(`/regions`, makeExpressCallback(deleteRegion))
-app.patch(`/regions/:id`, makeExpressCallback(patchRegion))
-app.patch(`/regions`, makeExpressCallback(patchRegion))
 app.get(`/regions`, makeExpressCallback(getRegions))
+app.delete(`/regions/:id`, makeExpressCallback(deleteRegion))
+app.patch(`/regions/:id`, makeExpressCallback(patchRegion))
 app.use(makeExpressCallback(notFound))
 
 if(process.env.ENV === 'dev') {
