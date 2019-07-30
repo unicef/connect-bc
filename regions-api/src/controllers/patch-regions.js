@@ -1,18 +1,18 @@
-export default function makePatchUser ({ editUser }) {
-    return async function patchUser (httpRequest) {
+export default function makePatchRegion ({ editRegion }) {
+    return async function patchRegion (httpRequest) {
       try {
-        const { source = {}, ...userInfo } = httpRequest.body
+        const { source = {}, ...regionInfo } = httpRequest.body
         // source.ip = httpRequest.ip
-        source.browser = httpRequest.headers['User-Agent']
+        source.browser = httpRequest.headers['Region-Agent']
         if (httpRequest.headers['Referer']) {
           source.referrer = httpRequest.headers['Referer']
         }
         const toEdit = {
-          ...userInfo,
+          ...regionInfo,
           source,
           id: httpRequest.params.id
         }
-        const patched = await editUser(toEdit)
+        const patched = await editRegion(toEdit)
         return {
           headers: {
             'Content-Type': 'application/json',

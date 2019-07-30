@@ -2,10 +2,10 @@ export default function buildMakeSource ({ isValidIp }) {
     return function makeSource ({ ip, browser, referrer } = {}) {
       console.log(ip)
       if (!ip) {
-        throw new Error('User source must contain an IP.')
+        throw new Error('Region source must contain an IP.')
       }
       if (!isValidIp(ip)) {
-        throw new RangeError('User source must contain a valid IP.')
+        throw new RangeError('Region source must contain a valid IP.')
       }
       return Object.freeze({
         getIp: () => ip,

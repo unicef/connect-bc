@@ -1,5 +1,5 @@
-export default function buildMakeUser ({ Id, sanitize, makeSource, encryptPassword }) {
-    return async function makeUser ({
+export default function buildMakeRegion ({ Id, sanitize, makeSource, encryptPassword }) {
+    return async function makeRegion ({
       id = Id.makeId(),
       email,
       name,
@@ -11,23 +11,23 @@ export default function buildMakeUser ({ Id, sanitize, makeSource, encryptPasswo
       active = true,
     } = {}) {
       if (!Id.isValidId(id)) {
-        throw new Error('User must have a valid id.')
+        throw new Error('Region must have a valid id.')
       }
       if (!email) {
         console.log(email)
-        throw new Error('User must have an email.')
+        throw new Error('Region must have an email.')
       } 
       if (!name) {
-        throw new Error('User must have an name.')
+        throw new Error('Region must have an name.')
       }
       if(!bio) {
-        throw new Error('User must have a bio.')
+        throw new Error('Region must have a bio.')
       }
       if(!role) {
-        throw new Error('User must have a role.')
+        throw new Error('Region must have a role.')
       }
       if(!password) {
-        throw new Error('User must provide a password.')
+        throw new Error('Region must provide a password.')
       }
       console.log(
         email,
@@ -44,6 +44,7 @@ export default function buildMakeUser ({ Id, sanitize, makeSource, encryptPasswo
       let sanitizedName = sanitize(name).trim()
       let sanitizedBio = sanitize(bio).trim()
       let hashedPassword = await encryptPassword(password)
+      
       return Object.freeze({
         getEmail: () => sanitizedEmail,
         getSanitizedName: () => sanitizedName,

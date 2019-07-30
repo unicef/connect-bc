@@ -1,10 +1,10 @@
-export default function makeDeleteUser ({ removeUser }) {
-    return async function deleteUser (httpRequest) {
+export default function makeDeleteRegion ({ removeRegion }) {
+    return async function deleteRegion (httpRequest) {
         const headers = {
             'Content-Type': 'application/json'
         }
         try { 
-            const deleted = await removeUser({ id: httpRequest.params.id })
+            const deleted = await removeRegion({ id: httpRequest.params.id })
             return {
                 headers,
                 statusCode: deleted.deletedCount === 0 ? 404 : 200,

@@ -1,4 +1,4 @@
-import makeUsersDb from './users-db'
+import makeRegionsDb from './regions-db'
 import mongodb from 'mongodb'
 
 const MongoClient = mongodb.MongoClient
@@ -13,5 +13,5 @@ export async function makeDb () {
     return client.db(dbName)
 }
 
-const usersDb = makeUsersDb({ makeDb })
-export default usersDb
+const regionsDb = makeRegionsDb({ makeDb })
+export default regionsDb

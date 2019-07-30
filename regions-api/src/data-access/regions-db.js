@@ -1,18 +1,19 @@
 import Id from '../Id'
 
-export default function makeUsersDb ({ makeDb }) {
+export default function makeRegionsDb ({ makeDb }) {
     return Object.freeze({
         findAll,
         findByEmail,
         findById,
         insert,
         remove,
-        update
+        update,
+        // login
     })
     async function findAll({}) {
         const db = await makeDb()
         const query = {}
-        const result = await db.collection('users').find(query)
+        const result = await db.collection('regions').find(query)
         return (await result.toArray()).map(({ _id: id, ...found }) => ({
             id,
             ...found
@@ -20,7 +21,7 @@ export default function makeUsersDb ({ makeDb }) {
     }
     async function findById ({ id: _id }) {
         const db = await makeDb()
-        const result = await db.collection('users').find( {_id } )
+        const result = await db.collection('regions').find( {_id } )
         const found = await result.toArray()
         if(found.length === 0) {
             return null
@@ -30,7 +31,7 @@ export default function makeUsersDb ({ makeDb }) {
     }
     async function findByEmail ({ email: _email }) {
         const db = await makeDb()
-        const result = await db.collection('users').find( {email: _email } )
+        const result = await db.collection('regions').find( {email: _email } )
         const found = await result.toArray()
         if(found.length === 0) {
             return null
@@ -38,24 +39,24 @@ export default function makeUsersDb ({ makeDb }) {
         const { _email: email, ...info } = found[0]
         return { email, ...info }
     }
-    async function insert ({ id: _id = Id.makeId(), ...userInfo }) {
+    async function insert ({ id: _id = Id.makeId(), ...regionInfo }) {
         const db = await makeDb()
         const result = await db
-            .collection('users')
-            .insertOne({ _id, ...userInfo })
+            .collection('regions')
+            .insertOne({ _id, ...regionInfo })
         const { _id: id, ...insertedInfo } = result.ops[0]
         return { id, ...insertedInfo }
     }
     async function remove ({ id: _id }) {
         const db = await makeDb()
-        const result = await db.collection('users').deleteOne({ _id })
+        const result = await db.collection('regions').deleteOne({ _id })
         return result.deletedCount
     }
-    async function update ({ id: _id, ...userInfo }) {
+    async function update ({ id: _id, ...regionInfo }) {
         const db = await makeDb()
         const result = await db
-            .collection('users')
-            .updateOne({ _id }, { $set: { ...userInfo } })
-        return result.modifiedCount > 0 ? { id: _id, ...userInfo } : null
+            .collection('regions')
+            .updateOne({ _id }, { $set: { ...regionInfo } })
+        return result.modifiedCount > 0 ? { id: _id, ...regionInfo } : null
     }
 }

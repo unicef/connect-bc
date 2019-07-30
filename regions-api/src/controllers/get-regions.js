@@ -1,17 +1,17 @@
-export default function makeGetUsers({ listUsers }) {
-    return async function getUsers(httpRequest) {
+export default function makeGetRegions({ listRegions }) {
+    return async function getRegions(httpRequest) {
         const headers = {
             'Content-Type': 'application/json'
         }
         try {
-            const postUsers = await listUsers({
+            const postRegions = await listRegions({
                 // This might not apply... unless we do organization or something 
                 postId: httpRequest.query.postId
             })
             return {
                 headers,
                 statusCode: 200,
-                body: postUsers
+                body: postRegions
             }
         } catch (e) {
             console.log(e)
