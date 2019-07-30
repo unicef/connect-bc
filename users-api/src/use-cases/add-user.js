@@ -2,15 +2,15 @@ import makeUser from '../user'
 export default function makeAddUser ({ usersDb, handleModeration }) {
   return async function addUser (userInfo) {
     const user = makeUser(userInfo)
-    const exists = await usersDb.findByHash({ hash: user.getHash() })
+    // Cannot find users by hash u idiot
+    const exists = await usersDb.findById({ id: user.getId() })
     if (exists) {
       return exists
     }
 
     return usersDb.insert({
-      author: user.getAuthor(),
+      email: user.getEmail(),
       createdOn: user.getCreatedOn(),
-      hash: user.getHash(),
       id: user.getId(),
       modifiedOn: user.getModifiedOn(),
     })

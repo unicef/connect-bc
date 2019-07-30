@@ -32,7 +32,7 @@ export default function makeUsersDb ({ makeDb }) {
         const result = await db
             .collection('users')
             .insertOne({ _id, ...userInfo })
-        const { _id: id, ...insertedInfo } = results.opts[0]
+        const { _id: id, ...insertedInfo } = result.ops[0]
         return { id, ...insertedInfo }
     }
     async function remove ({ id: _id }) {

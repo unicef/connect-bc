@@ -20,7 +20,6 @@ export default function makeEditUser({ usersDb  }) {
         // and changed user that was passed in)
         const user = makeUser({...existing, ...changes, modifiedOn: null })
         if(user.getHash() === existing.hash) {
-            console.log(user)
             return existing
         }
         const updated = await usersDb.update({
