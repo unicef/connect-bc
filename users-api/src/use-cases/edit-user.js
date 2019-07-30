@@ -15,19 +15,16 @@ export default function makeEditUser({ usersDb  }) {
         if(!existing) {
             throw new RangeError('User not found')
         }
-        // This is to confirm that the meta data associated
-        // with a user is actually legit / the same (between existing user
-        // and changed user that was passed in)
-        const user = makeUser({...existing, ...changes, modifiedOn: null })
-        if(user.getHash() === existing.hash) {
-            return existing
-        }
+        const user = await makeUser({...existing, ...changes, modifiedOn: null })
         const updated = await usersDb.update({
+            email: user.getEmail(),
+            name: user.getSanitizedName(),
+            bio: user.getBio(),
+            role: user.getRole(),
+            password: user.getPassword(),
+            createdOn: user.getCreatedOn(),
             id: user.getId(),
-            // pass in other fields
-            // the are relevant to the user
             modifiedOn: user.getModifiedOn(),
-            hash: user.getHash()
         })
         return { ...existing, ...updated }
     }

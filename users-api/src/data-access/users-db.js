@@ -3,6 +3,7 @@ import Id from '../Id'
 export default function makeUsersDb ({ makeDb }) {
     return Object.freeze({
         findAll,
+        findByEmail,
         findById,
         insert,
         remove,
@@ -27,6 +28,16 @@ export default function makeUsersDb ({ makeDb }) {
         const { _id: id, ...info } = found[0]
         return { id, ...info }
     }
+    async function findByEmail ({ email: _email }) {
+        const db = await makeDb()
+        const result = await db.collection('users').find( {email: _email } )
+        const found = await result.toArray()
+        if(found.length === 0) {
+            return null
+        }
+        const { _email: email, ...info } = found[0]
+        return { email, ...info }
+    }
     async function insert ({ id: _id = Id.makeId(), ...userInfo }) {
         const db = await makeDb()
         const result = await db
@@ -40,7 +51,7 @@ export default function makeUsersDb ({ makeDb }) {
         const result = await db.collection('users').deleteOne({ _id })
         return result.deletedCount
     }
-    async function update ({ id: _id }) {
+    async function update ({ id: _id, ...userInfo }) {
         const db = await makeDb()
         const result = await db
             .collection('users')

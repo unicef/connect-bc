@@ -1,13 +1,11 @@
-export default function buildMakeUser ({ Id, sanitize, makeSource }) {
-    return function makeUser ({
+export default function buildMakeUser ({ Id, sanitize, makeSource, encryptPassword }) {
+    return async function makeUser ({
       id = Id.makeId(),
       email,
       name,
       bio,
       role,
-      hash,
-      salt,
-      source,
+      password,
       createdOn = Date.now(),
       modifiedOn = Date.now(),
       active = true,
@@ -28,31 +26,36 @@ export default function buildMakeUser ({ Id, sanitize, makeSource }) {
       if(!role) {
         throw new Error('User must have a role.')
       }
-      if(!hash) {
-        throw new Error('User must have a hash.')
-      }      
-      if(!salt) {
-        throw new Error('User must have a salt.')
+      if(!password) {
+        throw new Error('User must provide a password.')
       }
-      // Remove whitespaces from the text (if any)
+      console.log(
+        email,
+        name,
+        password,
+        id,
+        role,
+        bio,
+        createdOn,
+        modifiedOn,
+        active
+      )
       let sanitizedEmail = sanitize(email).trim()
       let sanitizedName = sanitize(name).trim()
       let sanitizedBio = sanitize(bio).trim()
-      
-      // const validSource = makeSource(source)
-  
+      let hashedPassword = await encryptPassword(password)
       return Object.freeze({
         getEmail: () => sanitizedEmail,
         getSanitizedName: () => sanitizedName,
-        getSalt: () => salt,
+        getPassword: () => hashedPassword,
         getId: () => id,
-        getSource: () => validSource,
+        getRole: () => role,
         getBio: () => sanitizedBio,
         getCreatedOn: () => createdOn,
         getModifiedOn: () => modifiedOn,
         getStatus: () => active
       })
-  
+
     // Any functions that you need can be defined below this:
     }
   }

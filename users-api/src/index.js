@@ -47,23 +47,8 @@ app.post('/login', checkNotAuthenticated, passport.authenticate('local', {
 // Need Logout
 app.delete('/logout', (req, res) => {
     req.logOut()
-    // Redirect here or send back a url that they 
-    // can visit once they are kicked out of the site
 })
-// Need Register; actually we don't need this because we already have the /users post request
-app.post('/register', checkNotAuthenticated, async (req, res) => {
-    try {
-        const hashedPassword = await bcrypt.hash(req.body.password, 10)
-        users.push({
-            id: Date.now().toString(),
-            name: req.body.name,
-            email: req.body.email,
-            password: hashedPassword
-        })
-    } catch {
-        console.log('Error creating the user!')
-    }
-})
+
 app.use(makeExpressCallback(notFound))
 
 function checkNotAuthenticated(req, res, next) {

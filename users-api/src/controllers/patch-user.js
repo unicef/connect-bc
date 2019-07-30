@@ -2,7 +2,7 @@ export default function makePatchUser ({ editUser }) {
     return async function patchUser (httpRequest) {
       try {
         const { source = {}, ...userInfo } = httpRequest.body
-        source.ip = httpRequest.ip
+        // source.ip = httpRequest.ip
         source.browser = httpRequest.headers['User-Agent']
         if (httpRequest.headers['Referer']) {
           source.referrer = httpRequest.headers['Referer']
