@@ -1,6 +1,6 @@
 pragma solidity ^0.5.0;
 import "./roles/WhitelistedRole.sol";
-import "./MultiSigWallet.sol";
+import "./multisig/MultiSigWallet.sol";
 import './math/SafeMath.sol';
 /**
  * @title Region
