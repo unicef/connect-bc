@@ -140,7 +140,28 @@ exports._removeWhitelisted = (regionName, addressToRemoveToWhitelist) => {
 
 // multi-sig activities: 
 
-exports._fallbackFromMultiSig = (regionName, deposit) => {}
+exports._fallbackFromMultiSig = (regionName, deposit) => {
+    let source = fs.readFileSync('./build/contracts/Region.json', 'utf8')
+    let abi = JSON.parse(source)['abi']
+    return ContractCreationController._get(regionName)
+    .then(result => {
+        let RegionContract = new web3.eth.Contract(abi, result[0].contractAddress)
+        RegionContract.methods.renounceWhitelistAdmin(addressToRenounce).send({
+            from: result[0].createdBy
+        })
+        .then(receipt => {
+            // Have to figure out what you want to save in the database
+            return receipt
+        })
+        .catch(err => {
+            throw err
+        })
+    })
+    .catch(err => {
+        console.log('Error getting contract details from the database')
+        throw err
+    })
+}
 exports._addOwnerFromMultiSig = (regionName, addressToAddToMultiSig) => {}
 exports._removeOwnerFromMultiSig = (regionName, addressToRemoveFromMultiSig) => {}
 exports._replaceOwnerFromMultiSig = (regionName, addressToReplaceInMultiSig) => {}
@@ -151,4 +172,4 @@ exports._revokeConfirmationFromMultiSig = () => {}
 exports._executeTransactionFromMultiSig = () => {}
 exports._isConfirmedFromMultiSig = () => {}
 
-// 
+// other activities

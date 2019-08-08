@@ -15,7 +15,7 @@ const db = process.env.MONGO_URI
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use("/api/contract-creations", contractCreations)
 app.use("/api/blockchain-requests", blockchainRequests)
-app.listen(port, () => console.log(`Server is up and running on port ${port}`))
+app.listen(port, () => console.log(`Server for regions blockchain api is up and running on port ${port}`))
 mongoose.connect( db + db_name, {useNewUrlParser: true})
     .then(() => console.log('Connection to Mongo DB is confirmed on port 27017'))
     .catch(err => console.log(err))
