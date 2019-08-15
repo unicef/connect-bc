@@ -11,7 +11,7 @@ const from = process.env.REGION_CONTRACT_DEPLOYING_ADDRESS
     , web3 = new Web3(Web3.givenProvider || process.env.BLOCKCHAIN_PROVIDER)
 
 exports.list = (req, res) => {
-    this._list()
+    _list()
     .then(result => {
         console.log(result)
         res.json(result)
@@ -21,7 +21,7 @@ exports.list = (req, res) => {
     })
 }    
 exports.get = (req, res) => {
-    this._get(req.params.regionName)
+    _get(req.params.regionName)
     .then(result => {
         console.log(result)
         res.json(result)
@@ -31,7 +31,7 @@ exports.get = (req, res) => {
     })
 }
 exports.post = (req, res) => {
-    this._post(
+    _post(
         req.body.region
         , req.body.numberOfSchools
         , req.body.areaOfRegion
@@ -49,7 +49,7 @@ exports.post = (req, res) => {
     })
 }
 
-exports._list = () => {
+_list = () => {
     return ContractCreation.find()
         .then(contracts => {
             return contracts
@@ -58,7 +58,7 @@ exports._list = () => {
             throw err
         })
 }
-exports._get = (regionName) => {
+_get = (regionName) => {
     return ContractCreation.find({regionName})
         .then(contractInfo => {
             return contractInfo
@@ -67,7 +67,7 @@ exports._get = (regionName) => {
             throw err
         })
 }
-exports._post = (region, numberOfSchools, areaOfRegion, addressForMultiSig1, addressForMultiSig2, addressForMultiSig3, confirmationsRequiredForMultiSig) => {
+_post = (region, numberOfSchools, areaOfRegion, addressForMultiSig1, addressForMultiSig2, addressForMultiSig3, confirmationsRequiredForMultiSig) => {
     let source = fs.readFileSync('./build/contracts/Region.json', 'utf8')
     let abi = JSON.parse(source)['abi']
     let code = JSON.parse(source)['bytecode']
