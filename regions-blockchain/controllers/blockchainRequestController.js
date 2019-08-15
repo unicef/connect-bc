@@ -1,7 +1,7 @@
 const Web3 = require('web3')
 , fs = require('fs')
 , dotenv = require('dotenv')
-, BlockchainRequest = require('../models/blockchainRequest')
+, BlockchainRequest = require('../models/blockchainRequest') // need to save all blockchain requests
 , ContractCreationController = require('../controllers/contractCreationController')
 
 dotenv.config()
@@ -24,7 +24,6 @@ exports.addWhitelisted = (req, res) => {
             console.log(err)
         })
 }
-
 _addWhitelisted = (regionName, addressToAddToWhitelist) => {
     return ContractCreationController._get(regionName)
     .then(result => {
@@ -45,7 +44,6 @@ _addWhitelisted = (regionName, addressToAddToWhitelist) => {
         throw err
     })
 }
-
 exports.addWhitelistAdmin = (req, res) => {
     _addWhitelistAdmin(req.body.regionName, req.body.addressToAddToAdminWhiteList) 
         .then(methodResponse => {
@@ -162,7 +160,6 @@ _removeWhitelisted = (regionName, addressToRemoveToWhitelist) => {
         throw err
     })
 }
-
 // multi-sig activities: 
 exports.fallbackFromMultiSig = (req, res) => {
     _fallbackFromMultiSig(req.body.regionName, req.body.deposit) 
@@ -460,5 +457,90 @@ _isConfirmedFromMultiSig = (regionName, transactionNumber) => {
         throw err
     })    
 }
-
-// other activities
+exports.getOwnersOfMultiSig = (req, res) => {
+    _getOwnersOfMultiSig(req.body.regionName)
+        .then(methodResponse => {
+            res.json(methodResponse)
+        })
+        .catch(err => {
+            console.log(err)
+        })
+}
+_getOwnersOfMultiSig = (regionName) => {
+    return ContractCreationController._get(regionName)
+    .then(result => {
+        let RegionContract = new web3.eth.Contract(abi, result[0].contractAddress)
+        RegionContract.methods.getOwners().send({
+            from: result[0].createdBy
+        })
+        .then(receipt => {
+            // Have to figure out what you want to save in the database
+            return receipt
+        })
+        .catch(err => {
+            throw err
+        })
+    })
+    .catch(err => {
+        console.log('Error getting contract details from the database')
+        throw err
+    })    
+}
+exports.getConfirmationCount = (req, res) => {
+    _getConfirmationCount(req.body.regionName, req.body.transactionNumber)
+        .then(methodResponse => {
+            res.json(methodResponse)
+        })
+        .catch(err => {
+            console.log(err)
+        })
+}
+_getConfirmationCount = (regionName, transactionNumber) => {
+    return ContractCreationController._get(regionName)
+    .then(result => {
+        let RegionContract = new web3.eth.Contract(abi, result[0].contractAddress)
+        RegionContract.methods.getConfirmationCount(transactionNumber).send({
+            from: result[0].createdBy
+        })
+        .then(receipt => {
+            // Have to figure out what you want to save in the database
+            return receipt
+        })
+        .catch(err => {
+            throw err
+        })
+    })
+    .catch(err => {
+        console.log('Error getting contract details from the database')
+        throw err
+    })        
+}
+exports.getConfirmations = (req, res) => {
+    _getConfirmations(req.body.regionName, req.body.transactionNumber)
+        .then(methodResponse => {
+            res.json(methodResponse)
+        })
+        .catch(err => {
+            console.log(err)
+        })
+}
+_getConfirmations = (regionName, transactionNumber) => {
+    return ContractCreationController._get(regionName)
+    .then(result => {
+        let RegionContract = new web3.eth.Contract(abi, result[0].contractAddress)
+        RegionContract.methods.getConfirmations(transactionNumber).send({
+            from: result[0].createdBy
+        })
+        .then(receipt => {
+            // Have to figure out what you want to save in the database
+            return receipt
+        })
+        .catch(err => {
+            throw err
+        })
+    })
+    .catch(err => {
+        console.log('Error getting contract details from the database')
+        throw err
+    })        
+}

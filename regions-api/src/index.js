@@ -31,8 +31,8 @@ app.patch(`/regions/:id`, makeExpressCallback(patchRegion))
 app.use(makeExpressCallback(notFound))
 
 if(process.env.ENV === 'dev') {
-    app.listen(3000, () => {
-        console.log('Server for regions api is listening to port 3000')
+    app.listen(3003, () => {
+        console.log('Server for regions api is listening to port 3003')
     })
 }
 
