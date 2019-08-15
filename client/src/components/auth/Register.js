@@ -53,7 +53,7 @@ class Register extends Component {
   };
 
   render() {
-    const { errors } = this.state;
+    // const { errors } = this.state;
 
     return (
       <RegisterTemplate
@@ -62,7 +62,7 @@ class Register extends Component {
         password={this.state.password}
         password2={this.state.password2}
         blockchainAddress={this.state.blockchainAddress}
-        errors={this.state.errors}
+        // errors={this.state.errors}
         onChange={this.onChange}
         onSubmit={this.onSubmit}
       />

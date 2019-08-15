@@ -162,9 +162,9 @@ exports._fallbackFromMultiSig = (regionName, deposit) => {
         throw err
     })
 }
-exports._addOwnerFromMultiSig = (regionName, addressToAddToMultiSig) => {}
+exports._addOwnerToMultiSig = (regionName, addressToAddToMultiSig) => {}
 exports._removeOwnerFromMultiSig = (regionName, addressToRemoveFromMultiSig) => {}
-exports._replaceOwnerFromMultiSig = (regionName, addressToReplaceInMultiSig) => {}
+exports._replaceOwnerInMultiSig = (regionName, addressToReplaceInMultiSig) => {}
 exports._changeRequirementFromMultiSig = (regionName, newNumberOfConfirmationsRequiredForMultiSig) => {}
 exports._submitTransactionFromMultiSig = () => {}
 exports._confirmTransactionFromMultiSig = () => {}

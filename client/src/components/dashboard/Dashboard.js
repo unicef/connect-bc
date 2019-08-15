@@ -3,6 +3,33 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
 
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Container from '@material-ui/core/Container';
+import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
+
+
+import { withStyles } from '@material-ui/core/styles';
+
+
+const useStyles = (theme => ({
+  '@global': {
+    body: {
+      backgroundColor: theme.palette.common.white,
+    },
+  },
+  paper: {
+    marginTop: theme.spacing(8),
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+  },
+  map: {
+    width: '200%', // Fix IE 11 issue.
+    marginTop: theme.spacing(3),
+  },
+}));
+
 class Dashboard extends Component {
   onLogoutClick = e => {
     e.preventDefault();
@@ -11,40 +38,36 @@ class Dashboard extends Component {
 
   render() {
     const { user } = this.props.auth;
+    const { classes } = this.props;
 
     return (
-      <div style={{ height: "75vh" }} className="container valign-wrapper">
-        <div className="row">
-          <div className="landing-copy col s12 center-align">
-            <h4>
-              <b>Hey there,</b> {user.name.split(" ")[0]}
-              <p className="flow-text grey-text text-darken-1">
-                You are logged into a full-stack{" "}
-                <span style={{ fontFamily: "monospace" }}>MERN</span> app 👏
-              </p>
-            </h4>
-            <button
-              style={{
-                width: "150px",
-                borderRadius: "3px",
-                letterSpacing: "1.5px",
-                marginTop: "1rem"
-              }}
-              onClick={this.onLogoutClick}
-              className="btn btn-large waves-effect waves-light hoverable blue accent-3"
-            >
-              Logout
-            </button>
-          </div>
+      <Container component='main' maxWidth='xs'>
+        <CssBaseline />
+        <div className={classes.paper}>
+          <Typography component='h1' variant='h5'>
+            Hi, <b>{user.name.split(" ")[0]}</b>, welcome to <b>Connect</b>
+          </Typography>
+          <Typography component='h3' variant='p'>
+            Select a country to see more details.
+          </Typography>
+          <Button
+            fullWidth
+            variant="contained"
+            color="default"
+            onClick={this.onLogoutClick}
+          >
+            Logout
+          </Button>
         </div>
-      </div>
+      </Container>
     );
   }
 }
 
 Dashboard.propTypes = {
   logoutUser: PropTypes.func.isRequired,
-  auth: PropTypes.object.isRequired
+  auth: PropTypes.object.isRequired,
+  classes: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
@@ -54,4 +77,4 @@ const mapStateToProps = state => ({
 export default connect(
   mapStateToProps,
   { logoutUser }
-)(Dashboard);
+) (withStyles(useStyles)(Dashboard));

@@ -23,7 +23,7 @@ export const loginUser = userData => dispatch => {
     .post("/api/users/login", userData)
     .then(res => {
       // Save to localStorage
-      console.log(res)
+      
       // Set token to localStorage
       const { token } = res.data
       localStorage.setItem("jwtToken", token)

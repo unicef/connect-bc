@@ -49,7 +49,7 @@ class Login extends Component {
   };
 
   render() {
-    const { errors } = this.state;
+    // const { errors } = this.state;
 
     return (
       <LoginTemplate
@@ -57,7 +57,7 @@ class Login extends Component {
         onChange={this.onChange}
         email={this.state.email}
         password={this.state.password}
-        errors={this.state.errors}
+        // errors={this.state.errors}
       />
     );
   }
