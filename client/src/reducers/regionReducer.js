@@ -6,14 +6,12 @@ import {
 } from '../actions/types'
 
 const initialState = {
-    
+    list: []
 }
 
 export default function(state = initialState, action) {
     switch(action.type) {
         case REMOVE_REGION: 
-            return {...state,}
-        case LIST_REGIONS: 
             return {...state,}
         case UPDATE_REGION: 
             return {...state,}

@@ -31,8 +31,9 @@ exports.get = (req, res) => {
     })
 }
 exports.post = (req, res) => {
+    console.log(req.body)
     _post(
-        req.body.region
+        req.body.name
         , req.body.numberOfSchools
         , req.body.areaOfRegion
         , req.body.addressForMultiSig1
@@ -80,7 +81,7 @@ _post = (region, numberOfSchools, areaOfRegion, addressForMultiSig1, addressForM
             , numberOfSchools
             , areaOfRegion
             , [addressForMultiSig1, addressForMultiSig2, addressForMultiSig3]
-            , confirmationsRequiredForMultiSig
+            , 2
         ]
     })
     .send({

@@ -2,6 +2,7 @@ const express = require("express")
 , mongoose = require("mongoose")
 , bodyParser = require("body-parser")
 , dotenv = require('dotenv')
+, cors = require('cors')
 , app = express()
 , contractCreations = require("./routes/contractCreationRoutes")
 , blockchainRequests = require("./routes/blockchainRequestRoutes")
@@ -12,7 +13,9 @@ const db = process.env.MONGO_URI
 , db_name = process.env.DB_NAME
 , port = process.env.PORT
 
+app.use(cors())
 app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json());
 app.use("/api/contract-creations", contractCreations)
 app.use("/api/blockchain-requests", blockchainRequests)
 app.listen(port, () => console.log(`Server for regions blockchain api is up and running on port ${port}`))

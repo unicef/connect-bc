@@ -1,0 +1,102 @@
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { listRegions, getRegion } from "../../actions/regionActions";
+
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Container from '@material-ui/core/Container';
+import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
+import Link from '@material-ui/core/Link';
+
+
+import { withStyles } from '@material-ui/core/styles';
+import RegionsTable from "./RegionsTable";
+
+
+const useStyles = (theme => ({
+  '@global': {
+    body: {
+      backgroundColor: theme.palette.common.white,
+    },
+  },
+  paper: {
+    marginTop: theme.spacing(8),
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+  },
+  map: {
+    width: '200%', // Fix IE 11 issue.
+    marginTop: theme.spacing(3),
+  },
+}));
+
+class ManageRegions extends Component {
+  constructor() {
+    super()
+    this.state = {
+      name: '',
+      regions: []
+    }
+  }
+  componentDidMount = () => {
+    this.listRegions()
+  }
+  getRegion = () => {
+    this.props.getRegion(this.state.name)
+  }
+  
+  listRegions = () => {
+    this.props.listRegions()
+    .then(response => {
+      this.setState({
+        regions: response
+      })
+    })
+  }
+  render() {
+    const { classes } = this.props;
+    
+    return (
+      <Container component='main' maxWidth='xs'>
+        <CssBaseline />
+        <div className={classes.paper}>
+          <Typography component='h1' variant='h5'>
+            Manage <b>Regions</b>
+          </Typography>
+          <Typography component='h3' variant='body1'>
+            Fund regions, see school connectivity, monitor service providers.
+          </Typography>
+          <Typography component='h3' variant='body1'>
+            <Link href="/create-regions" variant="body2">
+              Want to add more regions? Create Region
+            </Link>
+          </Typography>
+          <RegionsTable
+            rows={this.state.regions}
+          />
+          
+        </div>
+      </Container>
+    );
+  }
+}
+
+ManageRegions.propTypes = {
+  auth: PropTypes.object.isRequired,
+  region: PropTypes.object.isRequired,
+  classes: PropTypes.object.isRequired,
+  listRegions: PropTypes.func.isRequired,
+  getRegion: PropTypes.func.isRequired,
+};
+
+const mapStateToProps = state => ({
+  auth: state.auth,
+  region: state.region
+});
+
+export default connect(
+  mapStateToProps,
+  { listRegions, getRegion }
+) (withStyles(useStyles)(ManageRegions));

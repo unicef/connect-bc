@@ -13,6 +13,10 @@ import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 import PrivateRoute from "./components/private-route/PrivateRoute";
 import Dashboard from "./components/dashboard/Dashboard";
+// Regions flow
+import Regions from "./components/regions/Regions";
+import CreateRegions from "./components/regions/CreateRegions";
+import ManageRegions from "./components/regions/ManageRegions";
 
 import "./App.css";
 
@@ -47,6 +51,9 @@ class App extends Component {
             <Route exact path="/login" component={Login} />
             <Switch>
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
+              <PrivateRoute exact path="/regions" component={Regions} />
+              <PrivateRoute exact path="/create-regions" component={CreateRegions} />
+              <PrivateRoute exact path="/manage-regions" component={ManageRegions} />
             </Switch>
           </div>
         </Router>
