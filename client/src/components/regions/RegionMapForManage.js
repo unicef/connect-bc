@@ -87,19 +87,19 @@ export default function RegionMapForManage(props) {
                             style={{
                               default: {
                                   fill: "#FFF",
-                                  stroke: "#BBB",
+                                  stroke: "#000",
                                   strokeWidth: 0.75,
                                   outline: "none",
                               },
                               hover: {
                                 fill: "#FFF",
-                                stroke: "#BBB",
+                                stroke: "#000",
                                 strokeWidth: 0.75,
                                 outline: "none",
                               },
                               pressed: {
                                 fill: "#FFF",
-                                stroke: "#BBB",
+                                stroke: "#000",
                                 strokeWidth: 0.75,
                                 outline: "none",
                             },

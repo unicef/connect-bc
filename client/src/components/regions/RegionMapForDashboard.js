@@ -9,74 +9,66 @@ import {
 import chroma from "chroma-js"
 
 const wrapperStyles = {
-  // width: "200%",
-  // maxWidth: 980,
-  // margin: "0 auto",
+  width: "100%",
+  maxWidth: 980,
+  margin: "0 auto",
 }
 
 const colorScale = chroma
   .scale([
-    '#FF6E40',
-    '#FFD740',
-    '#00B8D4',
+    '#005840',
+    '#009840'
   ])
   .mode('lch')
   .colors(24)
 
-export default function RegionMapForCreate(props) {
+export default function RegionMapForDashboard(props) {
     
     return (
       <div style={wrapperStyles}>
           
         <ComposableMap
-          projectionConfig={{
-            scale: 200,
-            rotation: [-11,0,0],
-          }}
           width={980}
           height={551}
-          style={{
-            width: "100%",
-            height: "auto",
-          }}
+          // style={{
+          //   width: "100%",
+          //   height: "auto",
+          // }}
           >
-          <ZoomableGroup center={[0,20]}>
+          {/* <ZoomableGroup center={[0,20]}> */}
+          {/* <ZoomableGroup zoom={4} > */}
             <Geographies geography={ "/static/world.json" }>
             { 
               (geographies, projection) => {
                 return geographies.map((geography, i) =>  {
-                    if(geography.properties.name === props.countryName)
+                    if(props.countries.includes(geography.properties.name))
                     {
                       return (
+                        
                         <Geography
-                            id="name"
                             key={ i }
                             geography={ geography }
                             projection={ projection }
-                            value={geography.properties.name}
-                            onClick={ props.handleClick }
+                            // onClick={ this.handleClick }
                             style={{
                               default: {
-                                  // fill: colorScale[Math.floor(Math.random() * 23) + 1 ],
-                                  fill: colorScale[1],
+                                  fill: colorScale[11],
                                   stroke: "#000",
                                   strokeWidth: 0.75,
                                   outline: "none",
                               },
                               hover: {
-                                // fill: colorScale[Math.floor(Math.random() * 23) + 1 ],
-                                fill: colorScale[2],
+                                fill: colorScale[12],
                                 stroke: "#000",
                                 strokeWidth: 0.75,
                                 outline: "none",
                               },
-                              pressed: {
-                                // fill: colorScale[Math.floor(Math.random() * 23) + 1 ],
-                                fill: colorScale[3],
-                                stroke: "#000",
-                                strokeWidth: 0.75,
-                                outline: "none",
-                            },
+                            //   pressed: {
+                            //     fill: colorScale[22],
+                            //     stroke: "#000",
+                            //     strokeWidth: 0.75,
+                            //     outline: "none",
+                            // },
                             }}
                         />
                       )
@@ -86,8 +78,7 @@ export default function RegionMapForCreate(props) {
                             key={ props.countryName + i }
                             geography={ geography }
                             projection={ projection }
-                            value={geography.properties.name}
-                            onClick={ props.handleClick }
+                            // onClick={ this.handleClick }
                             style={{
                               default: {
                                   fill: "#FFF",
@@ -115,7 +106,7 @@ export default function RegionMapForCreate(props) {
                 }
             }
             </Geographies>
-          </ZoomableGroup>
+          {/* </ZoomableGroup> */}
         </ComposableMap>
       </div>
     )

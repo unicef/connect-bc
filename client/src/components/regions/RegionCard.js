@@ -36,7 +36,7 @@ export default function RegionCard(props) {
   const classes = useStyles();
   return (
     <Paper elevation={2} className={classes.root}>
-        <Card raised={true} >
+        <Card disableRipple={true} raised={true} >
             <CardActionArea className={classes.card}>
                 <CardContent className={classes.content}>
                     <Typography component='h3' variant='h5'>

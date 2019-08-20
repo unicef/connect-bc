@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
 import jwt_decode from "jwt-decode";
 import setAuthToken from "./utils/setAuthToken";
 
@@ -40,12 +42,18 @@ if (localStorage.jwtToken) {
   }
 }
 class App extends Component {
+  onLogoutClick = e => {
+    e.preventDefault();
+    store.dispatch(logoutUser());
+  };
   render() {
     return (
       <Provider store={store}>
         <Router>
           <div className="App">
-            <Navbar />
+            <Navbar 
+              logoutUser={this.onLogoutClick}
+            />
             <Route exact path="/" component={Landing} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
@@ -61,4 +69,5 @@ class App extends Component {
     );
   }
 }
-export default App;
+
+export default App

@@ -25,7 +25,7 @@ const useStyles = makeStyles(theme => ({
 export default function Landing() {
     const classes = useStyles();
     return (
-      <Container component='main' maxWidth='xs'>
+      <Container component='main' maxWidth='md'>
         <CssBaseline />
         <div className={classes.paper}>
           <Typography component='h1' variant='h5'>

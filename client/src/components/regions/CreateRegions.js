@@ -80,7 +80,6 @@ class CreateRegions extends Component {
   }
 
   render() {
-    // const { user } = this.props.auth;
     const { classes } = this.props;
 
     return (
@@ -90,7 +89,7 @@ class CreateRegions extends Component {
           <Typography component='h1' variant='h5'>
             Create <b>Regions</b>
           </Typography>
-          <Typography component='h3' variant='p'>
+          <Typography component='h3' variant='body1'>
             Fund regions, see school connectivity, monitor service providers.
           </Typography>
           <Typography component='h3' variant='body1'>
