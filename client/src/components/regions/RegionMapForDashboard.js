@@ -35,7 +35,7 @@ export default function RegionMapForDashboard(props) {
           //   height: "auto",
           // }}
           >
-          {/* <ZoomableGroup center={[0,20]}> */}
+          <ZoomableGroup center={[20,20]}>
           {/* <ZoomableGroup zoom={4} > */}
             <Geographies geography={ "/static/world.json" }>
             { 
@@ -106,7 +106,7 @@ export default function RegionMapForDashboard(props) {
                 }
             }
             </Geographies>
-          {/* </ZoomableGroup> */}
+          </ZoomableGroup>
         </ComposableMap>
       </div>
     )

@@ -83,7 +83,7 @@ class CreateRegions extends Component {
     const { classes } = this.props;
 
     return (
-      <Container component='main' maxWidth='sm'>
+      <Container component='main' maxWidth='md'>
         <CssBaseline />
         <div className={classes.paper}>
           <Typography component='h1' variant='h5'>
@@ -97,13 +97,14 @@ class CreateRegions extends Component {
               Already created this region? View regions
             </Link>
           </Typography>
-        </div>
-            <RegionMapForCreate
+          <RegionMapForCreate
               key={this.state.name}
               countryName={this.state.name}
               handleClick={this.changeNameOfRegionFromMap}
               className={classes.map}
             />
+        </div>
+
         <form 
           className={classes.form} 
           noValidate 

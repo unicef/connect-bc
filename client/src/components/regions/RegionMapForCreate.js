@@ -9,9 +9,9 @@ import {
 import chroma from "chroma-js"
 
 const wrapperStyles = {
-  // width: "200%",
-  // maxWidth: 980,
-  // margin: "0 auto",
+  width: "100%",
+  maxWidth: 980,
+  margin: "0 auto",
 }
 
 const colorScale = chroma
@@ -27,20 +27,19 @@ export default function RegionMapForCreate(props) {
     
     return (
       <div style={wrapperStyles}>
-          
         <ComposableMap
-          projectionConfig={{
-            scale: 200,
-            rotation: [-11,0,0],
-          }}
+          // projectionConfig={{
+          //   scale: 200,
+          //   rotation: [-11,0,0],
+          // }}
           width={980}
           height={551}
-          style={{
-            width: "100%",
-            height: "auto",
-          }}
+          // style={{
+          //   width: "100%",
+          //   height: "auto",
+          // }}
           >
-          <ZoomableGroup center={[0,20]}>
+          <ZoomableGroup center={[20,20]}>
             <Geographies geography={ "/static/world.json" }>
             { 
               (geographies, projection) => {

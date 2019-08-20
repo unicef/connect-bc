@@ -25,7 +25,7 @@ const useStyles = (theme => ({
     alignItems: 'center',
   },
   map: {
-    // width: '200%', // Fix IE 11 issue.
+    width: '200%', // Fix IE 11 issue.
     marginTop: theme.spacing(3),
   },
 }));
@@ -69,7 +69,7 @@ class Regions extends Component {
           <Typography component='h1' variant='h5'>
             Regions in <b>Connect</b>
           </Typography>
-          <Typography component='h3' variant='p'>
+          <Typography component='h3' variant='body1'>
             Fund regions, see school connectivity, monitor service providers.
           </Typography>
           <div>
