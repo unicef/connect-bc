@@ -6,13 +6,16 @@ import { listRegions, getRegion } from "../../actions/regionActions";
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
-import Grid from '@material-ui/core/Grid';
+// import Grid from '@material-ui/core/Grid';
 import Link from '@material-ui/core/Link';
 
 
 import { withStyles } from '@material-ui/core/styles';
 import RegionsTable from "./RegionsTable";
 
+import RegionCard from './RegionCard';
+
+// import RegionMap2 from './RegionMap2';
 
 const useStyles = (theme => ({
   '@global': {
@@ -27,26 +30,26 @@ const useStyles = (theme => ({
     alignItems: 'center',
   },
   map: {
-    width: '200%', // Fix IE 11 issue.
+    // width: '200%', // Fix IE 11 issue.
     marginTop: theme.spacing(3),
   },
+  
 }));
 
 class ManageRegions extends Component {
   constructor() {
     super()
     this.state = {
-      name: '',
-      regions: []
+      regions: [],
+      financialDetails: false
     }
   }
   componentDidMount = () => {
     this.listRegions()
   }
-  getRegion = () => {
-    this.props.getRegion(this.state.name)
+  getRegion = (regionName) => {
+    this.props.getRegion(regionName)
   }
-  
   listRegions = () => {
     this.props.listRegions()
     .then(response => {
@@ -54,12 +57,16 @@ class ManageRegions extends Component {
         regions: response
       })
     })
+  } 
+  // Still tbd
+  toggleFinancialState = () => {
+    console.log('Hi')
+    this.setState({financialDetails: !this.state.financialDetails})
   }
   render() {
     const { classes } = this.props;
-    
     return (
-      <Container component='main' maxWidth='xs'>
+      <Container component='main' maxWidth='sm'>
         <CssBaseline />
         <div className={classes.paper}>
           <Typography component='h1' variant='h5'>
@@ -73,10 +80,23 @@ class ManageRegions extends Component {
               Want to add more regions? Create Region
             </Link>
           </Typography>
-          <RegionsTable
-            rows={this.state.regions}
-          />
-          
+            <RegionsTable
+              rows={this.state.regions}
+              getRegion={this.getRegion}
+            />
+            <RegionCard
+              financialDetails={this.state.financialDetails}
+              toggleFinancialState={this.toggleFinancialState}
+
+              nameOfRegion={this.props.region.regionName}
+              numberOfSchools={this.props.region.numberOfSchools}
+              areaOfRegion={this.props.region.areaOfRegion}
+              // addr1={this.props.region.addressForMultiSig1}
+              // addr2={this.props.region.addressForMultiSig2}
+              // addr3={this.props.region.addressForMultiSig3}
+              dateCreated={this.props.region.dateCreated}
+            />
+    
         </div>
       </Container>
     );

@@ -1,9 +1,14 @@
 import axios from 'axios'
 
-import { GET_ERRORS, REMOVE_REGION, LIST_REGIONS, UPDATE_REGION, CREATE_REGION } from './types'
+import { 
+  GET_ERRORS, 
+  // REMOVE_REGION, 
+  // LIST_REGIONS, 
+  // UPDATE_REGION, 
+  // CREATE_REGION, 
+  GET_REGION } from './types'
 
 export const listRegions = () => dispatch => {
-  console.log('I am here first mate')
   return axios
     .get(`http://localhost:3001/api/contract-creations/region`)
     .then(res => res.data)
@@ -15,10 +20,22 @@ export const listRegions = () => dispatch => {
     })
 }
 export const getRegion = (regionName) => dispatch => {
+  console.log('Getting information about a region')
   axios
     .get(`http://localhost:3001/api/contract-creations/region/${regionName}`)
-    .then()
-    .catch()
+    .then(response => {
+      console.log(response)
+      dispatch({
+        type: GET_REGION,
+        payload: response.data[0]
+      })
+    })
+    .catch(err => {
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      })
+    })
 }
 export const postRegion = (regionData) => dispatch => {
   axios

@@ -13,12 +13,12 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
 import Checkbox from '@material-ui/core/Checkbox';
-import IconButton from '@material-ui/core/IconButton';
-import Tooltip from '@material-ui/core/Tooltip';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Switch from '@material-ui/core/Switch';
-import DeleteIcon from '@material-ui/icons/Delete';
-import FilterListIcon from '@material-ui/icons/FilterList';
+// import IconButton from '@material-ui/core/IconButton';
+// import Tooltip from '@material-ui/core/Tooltip';
+// import FormControlLabel from '@material-ui/core/FormControlLabel';
+// import Switch from '@material-ui/core/Switch';
+// import DeleteIcon from '@material-ui/icons/Delete';
+// import FilterListIcon from '@material-ui/icons/FilterList';
 
 function desc(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
@@ -48,11 +48,18 @@ const headRows = [
   { id: 'regionName', numeric: false, disablePadding: true, label: 'Name' },
   { id: 'numberOfSchools', numeric: true, disablePadding: false, label: '# of Schools' },
   { id: 'areaOfRegion', numeric: true, disablePadding: false, label: 'Area of Region' },
-  { id: 'contractAddress', numeric: false, disablePadding: false, label: 'Smart Contract Address' },
+  // { id: 'contractAddress', numeric: false, disablePadding: false, label: 'Smart Contract Address' },
 ];
 
 function EnhancedTableHead(props) {
-  const { classes, onSelectAllClick, order, orderBy, numSelected, rowCount, onRequestSort } = props;
+  const { 
+    classes, 
+    order, 
+    orderBy, 
+    // numSelected, 
+    // rowCount, 
+    onRequestSort 
+  } = props;
   const createSortHandler = property => event => {
     onRequestSort(event, property);
   };
@@ -61,12 +68,12 @@ function EnhancedTableHead(props) {
     <TableHead>
       <TableRow>
         <TableCell padding="checkbox">
-          <Checkbox
+          {/* <Checkbox
             indeterminate={numSelected > 0 && numSelected < rowCount}
             checked={numSelected === rowCount}
             onChange={onSelectAllClick}
             inputProps={{ 'aria-label': 'select all desserts' }}
-          />
+          /> */}
         </TableCell>
         {headRows.map(row => (
           <TableCell
@@ -98,7 +105,7 @@ EnhancedTableHead.propTypes = {
   classes: PropTypes.object.isRequired,
   numSelected: PropTypes.number.isRequired,
   onRequestSort: PropTypes.func.isRequired,
-  onSelectAllClick: PropTypes.func.isRequired,
+  // onSelectAllClick: PropTypes.func.isRequired,
   order: PropTypes.oneOf(['asc', 'desc']).isRequired,
   orderBy: PropTypes.string.isRequired,
   rowCount: PropTypes.number.isRequired,
@@ -141,18 +148,18 @@ const EnhancedTableToolbar = props => {
       })}
     >
       <div className={classes.title}>
-        {numSelected > 0 ? (
+        {/* {numSelected > 0 ? (
           <Typography color="inherit" variant="subtitle1">
             {numSelected} selected
           </Typography>
-        ) : (
+        ) : ( */}
           <Typography variant="h6" id="tableTitle">
             Regions
           </Typography>
-        )}
+        {/* )} */}
       </div>
       <div className={classes.spacer} />
-      <div className={classes.actions}>
+      {/* <div className={classes.actions}>
         {numSelected > 0 ? (
           <Tooltip title="Delete">
             <IconButton aria-label="delete">
@@ -166,7 +173,7 @@ const EnhancedTableToolbar = props => {
             </IconButton>
           </Tooltip>
         )}
-      </div>
+      </div> */}
     </Toolbar>
   );
 };
@@ -177,7 +184,7 @@ EnhancedTableToolbar.propTypes = {
 
 const useStyles = makeStyles(theme => ({
   root: {
-    width: '200%',
+    // width: '200%',
     marginTop: theme.spacing(3),
   },
   paper: {
@@ -185,7 +192,7 @@ const useStyles = makeStyles(theme => ({
     marginBottom: theme.spacing(2),
   },
   table: {
-    // minWidth: 750,
+    minWidth: 400,
   },
   tableWrapper: {
     overflowX: 'auto',
@@ -209,7 +216,10 @@ export default function RegionsTable(props) {
   const [orderBy, setOrderBy] = React.useState('calories');
   const [selected, setSelected] = React.useState([]);
   const [page, setPage] = React.useState(0);
-  const [dense, setDense] = React.useState(true);
+  const [
+    dense, 
+    // setDense
+  ] = React.useState(true);
   const [rowsPerPage, setRowsPerPage] = React.useState(3);
 
   function handleRequestSort(event, property) {
@@ -218,36 +228,36 @@ export default function RegionsTable(props) {
     setOrderBy(property);
   }
 
-  function handleSelectAllClick(event) {
-    if (event.target.checked) {
+  // function handleSelectAllClick(event) {
+  //   if (event.target.checked) {
       
-      const newSelecteds = props.rows.map(n => n.regionName);
-      setSelected(newSelecteds);
-      return;
-    }
-    setSelected([]);
-  }
+  //     const newSelecteds = props.rows.map(n => n.regionName);
+  //     setSelected(newSelecteds);
+  //     return;
+  //   }
+  //   setSelected([]);
+  // }
 
   function handleClick(event, name) {
     const selectedIndex = selected.indexOf(name);
     let newSelected = [];
-
     if (selectedIndex === -1) {
-      newSelected = newSelected.concat(selected, name);
+      newSelected = newSelected.concat([], name);
     } else if (selectedIndex === 0) {
-      newSelected = newSelected.concat(selected.slice(1));
-    } else if (selectedIndex === selected.length - 1) {
-      newSelected = newSelected.concat(selected.slice(0, -1));
+      newSelected = newSelected.concat([].slice(1));
+    } else if (selectedIndex === [].length - 1) {
+      newSelected = newSelected.concat([].slice(0, -1));
     } else if (selectedIndex > 0) {
       newSelected = newSelected.concat(
-        selected.slice(0, selectedIndex),
-        selected.slice(selectedIndex + 1),
+        [].slice(0, selectedIndex),
+        [].slice(selectedIndex + 1),
       );
     }
-
     setSelected(newSelected);
+    props.getRegion(name)
   }
 
+  
   function handleChangePage(event, newPage) {
     setPage(newPage);
   }
@@ -255,10 +265,6 @@ export default function RegionsTable(props) {
   function handleChangeRowsPerPage(event) {
     setRowsPerPage(+event.target.value);
     setPage(0);
-  }
-
-  function handleChangeDense(event) {
-    setDense(event.target.checked);
   }
 
   const isSelected = regionName => selected.indexOf(regionName) !== -1;
@@ -280,7 +286,6 @@ export default function RegionsTable(props) {
               numSelected={selected.length}
               order={order}
               orderBy={orderBy}
-              onSelectAllClick={handleSelectAllClick}
               onRequestSort={handleRequestSort}
               rowCount={props.rows.length}
             />
@@ -288,10 +293,8 @@ export default function RegionsTable(props) {
               {stableSort(props.rows, getSorting(order, orderBy))
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((row, index) => {
-                  console.log(row)
                   const isItemSelected = isSelected(row.regionName);
                   const labelId = `enhanced-table-checkbox-${index}`;
-
                   return (
                     <TableRow
                       hover
@@ -308,12 +311,11 @@ export default function RegionsTable(props) {
                           inputProps={{ 'aria-labelledby': labelId }}
                         />
                       </TableCell>
-                      <TableCell component="th" id={labelId} scope="row" padding="none">
+                      <TableCell align="left" component="th" id={labelId} scope="row" >
                         {row.regionName}
                       </TableCell>
                       <TableCell align="left">{row.numberOfSchools}</TableCell>
                       <TableCell align="left">{row.areaOfRegion}</TableCell>
-                      <TableCell align="left">{row.contractAddress}</TableCell>
                     </TableRow>
                   );
                 })}
@@ -341,10 +343,7 @@ export default function RegionsTable(props) {
           onChangeRowsPerPage={handleChangeRowsPerPage}
         />
       </Paper>
-      {/* <FormControlLabel
-        control={<Switch checked={dense} onChange={handleChangeDense} />}
-        label="Dense padding"
-      /> */}
+  
     </div>
   );
 }

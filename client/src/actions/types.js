@@ -8,7 +8,7 @@ export const REMOVE_REGION = "REMOVE_REGION"
 export const LIST_REGIONS = "LIST_REGIONS"
 export const UPDATE_REGION = "UPDATE_REGION"
 export const CREATE_REGION  = "CREATE_REGION"
-
+export const GET_REGION  = "GET_REGION"
 // For multi-sig actions
 export const DEPOSIT_FUNDS_TO_MULTI_SIG = "DEPOSIT_FUNDS_TO_MULTI_SIG"
 export const ADD_OWNER_TO_MULTI_SIG = "ADD_OWNER_TO_MULTI_SIG"

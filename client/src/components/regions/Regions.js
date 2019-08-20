@@ -11,7 +11,6 @@ import { Link } from "react-router-dom";
 
 import { withStyles } from '@material-ui/core/styles';
 
-
 const useStyles = (theme => ({
   '@global': {
     body: {
@@ -25,7 +24,7 @@ const useStyles = (theme => ({
     alignItems: 'center',
   },
   map: {
-    width: '200%', // Fix IE 11 issue.
+    // width: '200%', // Fix IE 11 issue.
     marginTop: theme.spacing(3),
   },
 }));
@@ -37,7 +36,7 @@ class Regions extends Component {
   };
 
   render() {
-    const { user } = this.props.auth;
+    // const { user } = this.props.auth;
     const { classes } = this.props;
 
     return (

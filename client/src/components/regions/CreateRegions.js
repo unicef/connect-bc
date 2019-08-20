@@ -14,6 +14,7 @@ import Link from '@material-ui/core/Link';
 
 import { withStyles } from '@material-ui/core/styles';
 
+import RegionMapForCreate from './RegionMapForCreate'
 
 const useStyles = (theme => ({
   '@global': {
@@ -32,7 +33,7 @@ const useStyles = (theme => ({
     marginTop: theme.spacing(3),
   },
   form: {
-    width: '100%', // Fix IE 11 issue.
+    // width: '100%', // Fix IE 11 issue.
     marginTop: theme.spacing(3),
   },
   submit: {
@@ -58,29 +59,14 @@ class CreateRegions extends Component {
       addressForMultiSig3: '',
     }
   }
-  // componentDidMount() {
-  //   // If logged in and user navigates to Login page, should redirect them to dashboard
-  //   if (this.props.auth.isAuthenticated) {
-  //     this.props.history.push("/create-regions");
-  //   }
-  // }
-
-  // componentWillReceiveProps(nextProps) {
-  //   if (nextProps.auth.isAuthenticated) {
-  //     this.props.history.push("/create-regions");
-  //   }
-
-  //   if (nextProps.errors) {
-  //     this.setState({
-  //       errors: nextProps.errors
-  //     });
-  //   }
-  // }
   onChange = e => {
     this.setState({ [e.target.id]: e.target.value });
   }
+  changeNameOfRegionFromMap = (e) => {
+    console.log(e.properties.name)
+    this.setState({ name: e.properties.name })
+  }
   onSubmit = e => {
-    console.log('Hi!')
     e.preventDefault()
     const regionData = {
       name: this.state.name,
@@ -92,12 +78,13 @@ class CreateRegions extends Component {
     }
     this.props.postRegion(regionData);
   }
+
   render() {
-    const { user } = this.props.auth;
+    // const { user } = this.props.auth;
     const { classes } = this.props;
 
     return (
-      <Container component='main' maxWidth='xs'>
+      <Container component='main' maxWidth='sm'>
         <CssBaseline />
         <div className={classes.paper}>
           <Typography component='h1' variant='h5'>
@@ -112,6 +99,12 @@ class CreateRegions extends Component {
             </Link>
           </Typography>
         </div>
+            <RegionMapForCreate
+              key={this.state.name}
+              countryName={this.state.name}
+              handleClick={this.changeNameOfRegionFromMap}
+              className={classes.map}
+            />
         <form 
           className={classes.form} 
           noValidate 
@@ -120,6 +113,7 @@ class CreateRegions extends Component {
           <Grid container spacing={2}>
             <Grid item xs={12}>
               <TextField
+                disabled
                 name="name"
                 variant="outlined"
                 required
@@ -127,11 +121,11 @@ class CreateRegions extends Component {
                 id="name"
                 label="Name of Region"
                 autoFocus
-                onChange={this.onChange}
+                // onChange={this.onChange}
                 value={this.state.name}
               />
             </Grid>
-            <Grid item xs={6}>
+            <Grid item xs={12}>
               <TextField
                 variant="outlined"
                 required
@@ -144,7 +138,7 @@ class CreateRegions extends Component {
                 value={this.state.numberOfSchools}
               />
             </Grid>            
-            <Grid item xs={6} >
+            <Grid item xs={12} >
               <TextField
                 variant="outlined"
                 required
@@ -168,7 +162,6 @@ class CreateRegions extends Component {
                 fullWidth
                 id="addressForMultiSig1"
                 label="Blockchain Address 1"
-                autoFocus
                 onChange={this.onChange}
                 value={this.state.addressForMultiSig1}
               />
@@ -181,7 +174,6 @@ class CreateRegions extends Component {
                 fullWidth
                 id="addressForMultiSig2"
                 label="Blockchain Address 2"
-                autoFocus
                 onChange={this.onChange}
                 value={this.state.addressForMultiSig2}
               />
@@ -194,7 +186,6 @@ class CreateRegions extends Component {
                 fullWidth
                 id="addressForMultiSig3"
                 label="Blockchain Address 3"
-                autoFocus
                 onChange={this.onChange}
                 value={this.state.addressForMultiSig3}
               />
@@ -206,7 +197,6 @@ class CreateRegions extends Component {
             fullWidth
             variant="contained"
             color="primary"
-            type="submit"
           >
             Create
           </Button>

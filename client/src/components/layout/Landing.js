@@ -18,7 +18,7 @@ const useStyles = makeStyles(theme => ({
     alignItems: 'center',
   },
   map: {
-    width: '200%', // Fix IE 11 issue.
+    // width: '200%', // Fix IE 11 issue.
     marginTop: theme.spacing(3),
   },
 }));
