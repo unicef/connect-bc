@@ -53,6 +53,7 @@ class ManageRegions extends Component {
   listRegions = () => {
     this.props.listRegions()
     .then(response => {
+      console.log(response)
       this.setState({
         regions: response
       })
@@ -66,8 +67,6 @@ class ManageRegions extends Component {
   render() {
     const { classes } = this.props;
     return (
-      <Container component='main' maxWidth='sm'>
-        <CssBaseline />
         <div className={classes.paper}>
           <Typography component='h1' variant='h5'>
             Manage <b>Regions</b>
@@ -84,21 +83,7 @@ class ManageRegions extends Component {
               rows={this.state.regions}
               getRegion={this.getRegion}
             />
-            {/* <RegionCard
-              financialDetails={this.state.financialDetails}
-              toggleFinancialState={this.toggleFinancialState}
-
-              nameOfRegion={this.props.region.regionName}
-              numberOfSchools={this.props.region.numberOfSchools}
-              areaOfRegion={this.props.region.areaOfRegion}
-              // addr1={this.props.region.addressForMultiSig1}
-              // addr2={this.props.region.addressForMultiSig2}
-              // addr3={this.props.region.addressForMultiSig3}
-              dateCreated={this.props.region.dateCreated}
-            /> */}
-    
         </div>
-      </Container>
     );
   }
 }

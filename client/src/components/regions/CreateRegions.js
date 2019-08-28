@@ -22,6 +22,9 @@ const useStyles = (theme => ({
       backgroundColor: theme.palette.common.white,
     },
   },
+  root: {
+    marginLeft: theme.spacing(2),
+  },
   paper: {
     marginTop: theme.spacing(8),
     display: 'flex',
@@ -29,7 +32,7 @@ const useStyles = (theme => ({
     alignItems: 'center',
   },
   map: {
-    width: '200%', // Fix IE 11 issue.
+    // // width: '200%', // Fix IE 11 issue.
     marginTop: theme.spacing(3),
   },
   form: {
@@ -83,125 +86,134 @@ class CreateRegions extends Component {
     const { classes } = this.props;
 
     return (
-      <Container component='main' maxWidth='md'>
-        <CssBaseline />
-        <div className={classes.paper}>
-          <Typography component='h1' variant='h5'>
-            Create <b>Regions</b>
-          </Typography>
-          <Typography component='h3' variant='body1'>
-            Fund regions, see school connectivity, monitor service providers.
-          </Typography>
-          <Typography component='h3' variant='body1'>
-            <Link href="/manage-regions" variant="body2">
-              Already created this region? View regions
-            </Link>
-          </Typography>
-          <RegionMapForCreate
-              key={this.state.name}
-              countryName={this.state.name}
-              handleClick={this.changeNameOfRegionFromMap}
-              className={classes.map}
-            />
-        </div>
-
-        <form 
-          className={classes.form} 
-          noValidate 
-          onSubmit={this.onSubmit}
-        >
-          <Grid container spacing={2}>
-            <Grid item xs={12}>
-              <TextField
-                disabled
-                name="name"
-                variant="outlined"
-                required
-                fullWidth
-                id="name"
-                label="Name of Region"
-                autoFocus
-                // onChange={this.onChange}
-                value={this.state.name}
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                id="numberOfSchools"
-                label="# of Schools in Region"
-                name="numberOfSchools"
-                type="number"
-                onChange={this.onChange}
-                value={this.state.numberOfSchools}
-              />
-            </Grid>            
-            <Grid item xs={12} >
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                id="areaOfRegion"
-                label="Area of Region (in sq km)"
-                name="areaOfRegion"
-                type="number"
-                onChange={this.onChange}
-                value={this.state.areaOfRegion}
-              />
-            </Grid>
-            <Typography component='h3' variant='p'>
-              Who should have control over this region's donations
+        <div className={classes.root}>
+          <div className={classes.paper}>
+            <Typography component='h1' variant='h5'>
+              Create <b>Regions</b>
             </Typography>
-            <Grid item xs={12}>
-              <TextField
-                name="addressForMultiSig1"
-                variant="outlined"
-                required
-                fullWidth
-                id="addressForMultiSig1"
-                label="Blockchain Address 1"
-                onChange={this.onChange}
-                value={this.state.addressForMultiSig1}
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                name="addressForMultiSig2"
-                variant="outlined"
-                required
-                fullWidth
-                id="addressForMultiSig2"
-                label="Blockchain Address 2"
-                onChange={this.onChange}
-                value={this.state.addressForMultiSig2}
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                name="addressForMultiSig3"
-                variant="outlined"
-                required
-                fullWidth
-                id="addressForMultiSig3"
-                label="Blockchain Address 3"
-                onChange={this.onChange}
-                value={this.state.addressForMultiSig3}
-              />
-            </Grid>                                    
-          </Grid>
-          <Button
-            type="submit"
-            className={classes.button}
-            fullWidth
-            variant="contained"
-            color="primary"
+            <Typography component='h3' variant='body1'>
+              Fund regions, see school connectivity, monitor service providers.
+            </Typography>
+            <Typography component='h3' variant='body1'>
+              <Link href="/manage-regions" variant="body2">
+                Already created this region? View regions
+              </Link>
+            </Typography>
+
+          </div>
+          <Grid container spacing={0}>
+            <Grid container xs={12}sm={12}md={3}lg={3}>
+            <form 
+            className={classes.form} 
+            noValidate 
+            onSubmit={this.onSubmit}
           >
-            Create
-          </Button>
-        </form>
-      </Container>
+            <Grid container spacing={2}>
+              <Typography component='h3' variant='body1'>
+                Add details about the country that needs funding here
+              </Typography>
+              <Grid item xs={12}>
+                <TextField
+                  disabled
+                  name="name"
+                  variant="outlined"
+                  required
+                  fullWidth
+                  id="name"
+                  label="Name of Region"
+                  autoFocus
+                  helperText="Select a region on the map to start"
+                  // onChange={this.onChange}
+                  value={this.state.name}
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  variant="outlined"
+                  required
+                  fullWidth
+                  id="numberOfSchools"
+                  label="# of Schools in Region"
+                  name="numberOfSchools"
+                  type="number"
+                  onChange={this.onChange}
+                  value={this.state.numberOfSchools}
+                />
+              </Grid>            
+              <Grid item xs={12} >
+                <TextField
+                  variant="outlined"
+                  required
+                  fullWidth
+                  id="areaOfRegion"
+                  label="Area of Region (in sq km)"
+                  name="areaOfRegion"
+                  type="number"
+                  onChange={this.onChange}
+                  value={this.state.areaOfRegion}
+                />
+              </Grid>
+              {/* <Typography component='h3' variant='body1'>
+                Who should have control over this region's donations
+              </Typography> */}
+              <Grid item xs={12}>
+                <TextField
+                  name="addressForMultiSig1"
+                  variant="outlined"
+                  required
+                  fullWidth
+                  id="addressForMultiSig1"
+                  label="Blockchain Address 1"
+                  onChange={this.onChange}
+                  value={this.state.addressForMultiSig1}
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  name="addressForMultiSig2"
+                  variant="outlined"
+                  required
+                  fullWidth
+                  id="addressForMultiSig2"
+                  label="Blockchain Address 2"
+                  onChange={this.onChange}
+                  value={this.state.addressForMultiSig2}
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  name="addressForMultiSig3"
+                  variant="outlined"
+                  required
+                  fullWidth
+                  id="addressForMultiSig3"
+                  label="Blockchain Address 3"
+                  onChange={this.onChange}
+                  value={this.state.addressForMultiSig3}
+                />
+              </Grid>                                    
+            </Grid>
+            <Button
+              type="submit"
+              className={classes.button}
+              fullWidth
+              variant="contained"
+              color="primary"
+            >
+              Create
+            </Button>
+          </form>
+            </Grid>
+            <Grid container xs={12}sm={12}md={9}lg={9}>
+              <RegionMapForCreate
+                key={this.state.name}
+                countryName={this.state.name}
+                handleClick={this.changeNameOfRegionFromMap}
+                className={classes.map}
+              />
+            </Grid>
+          </Grid>
+          </div>
     );
   }
 }

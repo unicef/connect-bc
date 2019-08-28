@@ -2,9 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { listRegions, getRegion } from "../../actions/regionActions";
-
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Container from '@material-ui/core/Container';
+import QRCode from 'qrcode.react';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
@@ -53,9 +51,14 @@ class RegionSpecific extends Component {
     this.setState({
       countryName
     })
+    this.getRegion(countryName)
+  }
+  getRegion = (regionName) => {
+    this.props.getRegion(regionName)
   }
   
   render() {
+    console.log(this.props)
     const { classes } = this.props;
     return (
         <div className={classes.root}>
@@ -72,7 +75,7 @@ class RegionSpecific extends Component {
                 </Link>
             </Typography>
             <Grid container spacing={0}>
-                <Grid container xs={6}>
+                <Grid container xs={12}sm={6}md={4}lg={4}>
                     <Card elevation={0} className={classes.card}>
                         <CardContent>
                             <Typography className={classes.title} color="textSecondary" gutterBottom>
@@ -105,14 +108,28 @@ class RegionSpecific extends Component {
                             <Button size="small">Learn More</Button>
                         </CardActions>
                     </Card>
+                    <Card elevation={0} className={classes.card}>
+                        <CardContent>
+                            <Typography className={classes.title} color="textSecondary" gutterBottom>
+                            Country public address 
+                            </Typography>
+                            {/* <Typography variant="h5" component="h2"> */}
+                              <QRCode value={this.props.region.contractAddress ? this.props.region.contractAddress : "0x1092361f4eAfDC6e4555Ee761E87Ef9c67b9e42f"} />
+                            {/* </Typography> */}
+                            <Typography className={classes.pos} color="textSecondary">
+                              Donate to this region
+                            </Typography>
+                        </CardContent>
+                        <CardActions>
+                            <Button href='#' style={{fontFamily:['Red Hat Text']}} size="small">{this.props.region.contractAddress}</Button>
+                        </CardActions>
+                    </Card>
                 </Grid>
-                <Grid container xs={6}>
-                  
+                <Grid container xs={12}sm={12}md={8}lg={8}>
                     <RegionMapForManage 
                         key={this.state.countryName}
                         countryName={this.state.countryName}
                     />
-                    
                 </Grid>
             </Grid>
 

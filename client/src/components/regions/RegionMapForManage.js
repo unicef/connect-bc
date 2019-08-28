@@ -24,7 +24,6 @@ const colorScale = chroma
   .colors(24)
 
 export default function RegionMapForManage(props) {
-    console.log(props)
     return (
       <div style={wrapperStyles}>
           
@@ -36,7 +35,7 @@ export default function RegionMapForManage(props) {
             height: "auto",
           }}
           >
-          {/* <ZoomableGroup center={[0,20]}> */}
+          <ZoomableGroup center={[0,20]}>
           {/* <ZoomableGroup zoom={4} > */}
             <Geographies geography={ "/static/world.json" }>
             { 
@@ -107,7 +106,7 @@ export default function RegionMapForManage(props) {
                 }
             }
             </Geographies>
-          {/* </ZoomableGroup> */}
+          </ZoomableGroup>
         </ComposableMap>
       </div>
     )
