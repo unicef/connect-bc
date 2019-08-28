@@ -26,7 +26,7 @@ const useStyles = (theme => ({
   },
   map: {
     width: '200%', // Fix IE 11 issue.
-    marginTop: theme.spacing(3),
+    marginTop: theme.spacing(1),
   },
 }));
 
@@ -67,17 +67,17 @@ class Regions extends Component {
         <CssBaseline />
         <div className={classes.paper}>
           <Typography component='h1' variant='h5'>
-            Regions in <b>Connect</b>
+            Regions in <b>Project Connect</b>
           </Typography>
           <Typography component='h3' variant='body1'>
             Fund regions, see school connectivity, monitor service providers.
           </Typography>
-          <div>
+          {/* <div>
             <Link to="/create-regions" variant="body2">Create Region</Link>
           </div>
           <div>
             <Link to="/manage-regions" variant="body2">Manage Regions</Link>
-          </div>
+          </div> */}
           <RegionMapForDashboard
             key={this.state.regions.length}
             countries={this.state.regions}

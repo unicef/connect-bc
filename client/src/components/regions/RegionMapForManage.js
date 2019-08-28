@@ -9,30 +9,26 @@ import {
 import chroma from "chroma-js"
 
 const wrapperStyles = {
-  width: "100%",
-  maxWidth: 980,
+  // width: "100%",
+  // maxWidth: 980,
   margin: "0 auto",
 }
 
 const colorScale = chroma
   .scale([
-    '#FF6E40',
-    '#FFD740',
-    '#00B8D4',
+    '#f48fb1',
+    '#ab47bc',
+    '#c62828',
   ])
   .mode('lch')
   .colors(24)
 
 export default function RegionMapForManage(props) {
-    
+    console.log(props)
     return (
       <div style={wrapperStyles}>
           
         <ComposableMap
-          // projectionConfig={{
-          //   scale: 205,
-          //   rotation: [-11,0,0],
-          // }}
           width={980}
           height={551}
           style={{

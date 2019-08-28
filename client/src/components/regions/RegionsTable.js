@@ -68,12 +68,6 @@ function EnhancedTableHead(props) {
     <TableHead>
       <TableRow>
         <TableCell padding="checkbox">
-          {/* <Checkbox
-            indeterminate={numSelected > 0 && numSelected < rowCount}
-            checked={numSelected === rowCount}
-            onChange={onSelectAllClick}
-            inputProps={{ 'aria-label': 'select all desserts' }}
-          /> */}
         </TableCell>
         {headRows.map(row => (
           <TableCell
@@ -148,32 +142,12 @@ const EnhancedTableToolbar = props => {
       })}
     >
       <div className={classes.title}>
-        {/* {numSelected > 0 ? (
-          <Typography color="inherit" variant="subtitle1">
-            {numSelected} selected
-          </Typography>
-        ) : ( */}
+
           <Typography variant="h6" id="tableTitle">
             Regions
           </Typography>
-        {/* )} */}
       </div>
       <div className={classes.spacer} />
-      {/* <div className={classes.actions}>
-        {numSelected > 0 ? (
-          <Tooltip title="Delete">
-            <IconButton aria-label="delete">
-              <DeleteIcon />
-            </IconButton>
-          </Tooltip>
-        ) : (
-          <Tooltip title="Filter list">
-            <IconButton aria-label="filter list">
-              <FilterListIcon />
-            </IconButton>
-          </Tooltip>
-        )}
-      </div> */}
     </Toolbar>
   );
 };
@@ -228,16 +202,6 @@ export default function RegionsTable(props) {
     setOrderBy(property);
   }
 
-  // function handleSelectAllClick(event) {
-  //   if (event.target.checked) {
-      
-  //     const newSelecteds = props.rows.map(n => n.regionName);
-  //     setSelected(newSelecteds);
-  //     return;
-  //   }
-  //   setSelected([]);
-  // }
-
   function handleClick(event, name) {
     const selectedIndex = selected.indexOf(name);
     let newSelected = [];
@@ -255,6 +219,7 @@ export default function RegionsTable(props) {
     }
     setSelected(newSelected);
     props.getRegion(name)
+    window.location.href = `/manage-regions/${name}`;
   }
 
   

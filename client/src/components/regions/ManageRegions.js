@@ -84,7 +84,7 @@ class ManageRegions extends Component {
               rows={this.state.regions}
               getRegion={this.getRegion}
             />
-            <RegionCard
+            {/* <RegionCard
               financialDetails={this.state.financialDetails}
               toggleFinancialState={this.toggleFinancialState}
 
@@ -95,7 +95,7 @@ class ManageRegions extends Component {
               // addr2={this.props.region.addressForMultiSig2}
               // addr3={this.props.region.addressForMultiSig3}
               dateCreated={this.props.region.dateCreated}
-            />
+            /> */}
     
         </div>
       </Container>

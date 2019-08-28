@@ -16,8 +16,8 @@ const wrapperStyles = {
 
 const colorScale = chroma
   .scale([
-    '#005840',
-    '#009840'
+    '#2962ff',
+    '#6200ea'
   ])
   .mode('lch')
   .colors(24)
@@ -30,13 +30,8 @@ export default function RegionMapForDashboard(props) {
         <ComposableMap
           width={980}
           height={551}
-          // style={{
-          //   width: "100%",
-          //   height: "auto",
-          // }}
           >
           <ZoomableGroup center={[20,20]}>
-          {/* <ZoomableGroup zoom={4} > */}
             <Geographies geography={ "/static/world.json" }>
             { 
               (geographies, projection) => {
@@ -63,12 +58,6 @@ export default function RegionMapForDashboard(props) {
                                 strokeWidth: 0.75,
                                 outline: "none",
                               },
-                            //   pressed: {
-                            //     fill: colorScale[22],
-                            //     stroke: "#000",
-                            //     strokeWidth: 0.75,
-                            //     outline: "none",
-                            // },
                             }}
                         />
                       )
@@ -78,7 +67,6 @@ export default function RegionMapForDashboard(props) {
                             key={ props.countryName + i }
                             geography={ geography }
                             projection={ projection }
-                            // onClick={ this.handleClick }
                             style={{
                               default: {
                                   fill: "#FFF",

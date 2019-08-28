@@ -16,9 +16,9 @@ const wrapperStyles = {
 
 const colorScale = chroma
   .scale([
-    '#FF6E40',
-    '#FFD740',
-    '#00B8D4',
+    '#f48fb1',
+    '#ab47bc',
+    '#c62828',
   ])
   .mode('lch')
   .colors(24)
@@ -39,7 +39,7 @@ export default function RegionMapForCreate(props) {
           //   height: "auto",
           // }}
           >
-          <ZoomableGroup center={[20,20]}>
+          <ZoomableGroup center={[20,0]}>
             <Geographies geography={ "/static/world.json" }>
             { 
               (geographies, projection) => {
