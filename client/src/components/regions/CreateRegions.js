@@ -43,7 +43,7 @@ const useStyles = (theme => ({
     margin: theme.spacing(3, 0, 2),
   },
   button: {
-    marginTop: theme.spacing(1),
+    marginTop: theme.spacing(2),
   },
   extraText: {
     marginTop: theme.spacing(1),
@@ -102,7 +102,7 @@ class CreateRegions extends Component {
 
           </div>
           <Grid container spacing={0}>
-            <Grid container xs={12}sm={12}md={3}lg={3}>
+            <Grid container xs={12}sm={12}md={4}lg={4}>
             <form 
             className={classes.form} 
             noValidate 
@@ -116,7 +116,7 @@ class CreateRegions extends Component {
                 <TextField
                   disabled
                   name="name"
-                  variant="outlined"
+                  // variant="outlined"
                   required
                   fullWidth
                   id="name"
@@ -129,7 +129,7 @@ class CreateRegions extends Component {
               </Grid>
               <Grid item xs={12}>
                 <TextField
-                  variant="outlined"
+                  // variant="outlined"
                   required
                   fullWidth
                   id="numberOfSchools"
@@ -142,7 +142,7 @@ class CreateRegions extends Component {
               </Grid>            
               <Grid item xs={12} >
                 <TextField
-                  variant="outlined"
+                  // variant="outlined"
                   required
                   fullWidth
                   id="areaOfRegion"
@@ -159,7 +159,7 @@ class CreateRegions extends Component {
               <Grid item xs={12}>
                 <TextField
                   name="addressForMultiSig1"
-                  variant="outlined"
+                  // variant="outlined"
                   required
                   fullWidth
                   id="addressForMultiSig1"
@@ -171,7 +171,7 @@ class CreateRegions extends Component {
               <Grid item xs={12}>
                 <TextField
                   name="addressForMultiSig2"
-                  variant="outlined"
+                  // variant="outlined"
                   required
                   fullWidth
                   id="addressForMultiSig2"
@@ -183,7 +183,7 @@ class CreateRegions extends Component {
               <Grid item xs={12}>
                 <TextField
                   name="addressForMultiSig3"
-                  variant="outlined"
+                  // variant="outlined"
                   required
                   fullWidth
                   id="addressForMultiSig3"
@@ -199,12 +199,13 @@ class CreateRegions extends Component {
               fullWidth
               variant="contained"
               color="primary"
+              style={{fontFamily:['Red Hat Text'], color:'white'}}
             >
               Create
             </Button>
           </form>
             </Grid>
-            <Grid container xs={12}sm={12}md={9}lg={9}>
+            <Grid container xs={12}sm={12}md={8}lg={8}>
               <RegionMapForCreate
                 key={this.state.name}
                 countryName={this.state.name}

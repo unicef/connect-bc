@@ -38,7 +38,7 @@ const useStyles = (theme => ({
   },
 }));
 
-class RegionSpecific extends Component {
+class RegionBidView extends Component {
   componentWillMount = () => {
     this.getRegion(this.props.countryName)
   }
@@ -52,23 +52,12 @@ class RegionSpecific extends Component {
     return (
         <div className={classes.root}>
             <div className={classes.paper}>
-            {/* <Typography component='h1' variant='h5'>
-                Details for {this.props.countryName}
-            </Typography>
-            <Typography component='h3' variant='body1'>
-                See the funding and connectivity details for this region.
-            </Typography>
-            <Typography component='h3' variant='body1'>
-                <Link href="/manage-regions" variant="body2">
-                Go back to view information for another region.
-                </Link>
-            </Typography> */}
             <Grid container spacing={0}>
-                <Grid container xs={12}sm={6}md={4}lg={4}>
+                <Grid container xs={12}sm={12}md={12}lg={12}>
                     <Card elevation={0} className={classes.card}>
                         <CardContent>
                             <Typography className={classes.title} color="textSecondary" gutterBottom>
-                            Donations raised
+                            Review current set of bids
                             </Typography>
                             <Typography variant="h5" component="h2">
                                 500 ETH
@@ -97,12 +86,22 @@ class RegionSpecific extends Component {
                             <Button size="small">Learn More</Button>
                         </CardActions>
                     </Card>
-                </Grid>
-                <Grid container xs={12}sm={12}md={8}lg={8}>
-                    <RegionMapForManage 
-                        key={this.props.countryName}
-                        countryName={this.props.countryName}
-                    />
+                    <Card elevation={0} className={classes.card}>
+                        <CardContent>
+                            <Typography className={classes.title} color="textSecondary" gutterBottom>
+                            Country public address 
+                            </Typography>
+                            {/* <Typography variant="h5" component="h2"> */}
+                              <QRCode value={this.props.region.contractAddress ? this.props.region.contractAddress : "0x1092361f4eAfDC6e4555Ee761E87Ef9c67b9e42f"} />
+                            {/* </Typography> */}
+                            <Typography className={classes.pos} color="textSecondary">
+                              Donate to this region
+                            </Typography>
+                        </CardContent>
+                        <CardActions>
+                            <Button href='#' style={{fontFamily:['Red Hat Text']}} size="small">{this.props.region.contractAddress}</Button>
+                        </CardActions>
+                    </Card>
                 </Grid>
             </Grid>
 
@@ -113,7 +112,7 @@ class RegionSpecific extends Component {
   }
 }
 
-RegionSpecific.propTypes = {
+RegionBidView.propTypes = {
   auth: PropTypes.object.isRequired,
   region: PropTypes.object.isRequired,
   classes: PropTypes.object.isRequired,
@@ -129,4 +128,4 @@ const mapStateToProps = state => ({
 export default connect(
   mapStateToProps,
   { listRegions, getRegion }
-) (withStyles(useStyles)(RegionSpecific));
+) (withStyles(useStyles)(RegionBidView));

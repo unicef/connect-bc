@@ -10,6 +10,7 @@ import PropTypes from "prop-types";
 import IconButton from '@material-ui/core/IconButton';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import MenuIcon from '@material-ui/icons/Menu';
+import { logoutUser } from "../../actions/authActions";
 
 const styles = (theme => ({
   root: {
@@ -85,11 +86,12 @@ class Navbar extends Component {
 
 Navbar.propTypes = {
   auth: PropTypes.object.isRequired,
-  classes: PropTypes.object.isRequired
+  classes: PropTypes.object.isRequired,
+  logoutUser: PropTypes.func.isRequired,
 }
 
 const mapStateToProps = state => ({
   auth: state.auth
 });
 
-export default connect(mapStateToProps)(withStyles(styles)(Navbar));
+export default connect(mapStateToProps, { logoutUser })(withStyles(styles)(Navbar));

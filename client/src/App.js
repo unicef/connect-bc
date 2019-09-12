@@ -25,7 +25,8 @@ import CreateRegions from "./components/regions/CreateRegions";
 import ManageRegions from "./components/regions/ManageRegions";
 
 import "./App.css";
-import RegionSpecific from "./components/regions/RegionSpecific";
+// import RegionSpecific from "./components/regions/RegionSpecific";
+import RegionDetailView from './components/regions/RegionDetailView';
 
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
@@ -56,7 +57,7 @@ const theme = createMuiTheme({
       contrastText: '#fff'
     },
     secondary: {
-      main: '#0d47a1'
+      main: '#536dfe'
     },    
   },
   typography: {  
@@ -113,7 +114,7 @@ class App extends Component {
                 <PrivateRoute exact path="/regions" component={Regions} />
                 <PrivateRoute exact path="/create-regions" component={CreateRegions} />
                 <PrivateRoute exact path="/manage-regions" component={ManageRegions} />
-                <PrivateRoute exact path="/manage-regions/:countryName" component={RegionSpecific} />
+                <PrivateRoute exact path="/manage-regions/:countryName" component={RegionDetailView} />
               </Switch>
             <BottomNavbar/>
             </div>

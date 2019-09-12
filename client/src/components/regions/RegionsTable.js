@@ -166,7 +166,8 @@ const useStyles = makeStyles(theme => ({
     marginBottom: theme.spacing(2),
   },
   table: {
-    minWidth: 400,
+    minWidth: 1000,
+    maxWidth: 1000,
   },
   tableWrapper: {
     overflowX: 'auto',
@@ -192,9 +193,8 @@ export default function RegionsTable(props) {
   const [page, setPage] = React.useState(0);
   const [
     dense, 
-    // setDense
   ] = React.useState(true);
-  const [rowsPerPage, setRowsPerPage] = React.useState(3);
+  const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
   function handleRequestSort(event, property) {
     const isDesc = orderBy === property && order === 'desc';
@@ -286,14 +286,14 @@ export default function RegionsTable(props) {
                 })}
               {emptyRows > 0 && (
                 <TableRow style={{ height: 49 * emptyRows }}>
-                  <TableCell colSpan={6} />
+                  <TableCell colSpan={12} />
                 </TableRow>
               )}
             </TableBody>
           </Table>
         </div>
         <TablePagination
-          rowsPerPageOptions={[3, 6, 9]}
+          rowsPerPageOptions={[5, 10, 15]}
           component="div"
           count={props.rows.length}
           rowsPerPage={rowsPerPage}
