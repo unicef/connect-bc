@@ -67,13 +67,14 @@ function EnhancedTableHead(props) {
   return (
     <TableHead>
       <TableRow>
-        <TableCell padding="checkbox">
-        </TableCell>
+        {/* <TableCell padding="checkbox">
+        </TableCell> */}
         {headRows.map(row => (
           <TableCell
+            padding="checkbox"
             key={row.id}
             // align={row.numeric ? 'right' : 'left'}
-            padding={row.disablePadding ? 'none' : 'default'}
+            // padding={row.disablePadding ? 'none' : 'default'}
             sortDirection={orderBy === row.id ? order : false}
           >
             <TableSortLabel
@@ -270,12 +271,12 @@ export default function RegionsTable(props) {
                       key={row.regionName}
                       selected={isItemSelected}
                     >
-                      <TableCell padding="checkbox">
+                      {/* <TableCell padding="checkbox">
                         <Checkbox
                           checked={isItemSelected}
                           inputProps={{ 'aria-labelledby': labelId }}
                         />
-                      </TableCell>
+                      </TableCell> */}
                       <TableCell align="left" component="th" id={labelId} scope="row" >
                         {row.regionName}
                       </TableCell>

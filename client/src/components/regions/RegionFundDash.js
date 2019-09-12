@@ -8,6 +8,11 @@ import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/styles';
 
 import OwnerTable from './fund/OwnerTable'
+import AddOwner from './fund/AddOwner'
+import RemoveOwner from './fund/RemoveOwner'
+import WhitelistTable from './fund/WhitelistTable'
+import AddWhiteList from './fund/AddWhiteList'
+import RemoveWhiteList from './fund/RemoveWhiteList'
 
 const useStyles = (theme => ({
     dashboard: {
@@ -33,15 +38,15 @@ class RegionFundDash extends Component {
                         this.props.viewOwnerFlag ? 
                             <OwnerTable />
                         : this.props.addOwnerFlag ? 
-                            ('Form to add owners will be here') 
+                            <AddOwner />
                         : this.props.removeOwnerFlag ? 
-                            ('Form to remove owners will be here') 
+                            <RemoveOwner />
                         : this.props.viewWhitelistFlag ? 
-                            ('List to view whitelist') 
+                            <WhitelistTable />
                         : this.props.addWhitelistFlag ? 
-                            ('Form to add whitelist will be here') 
+                            <AddWhiteList />
                         : this.props.removeWhitelistFlag ? 
-                            ('Form to remove whitelist will be here') 
+                            <RemoveWhiteList />
                     : ('Default View')}
                 </CardContent>
             </Card>
