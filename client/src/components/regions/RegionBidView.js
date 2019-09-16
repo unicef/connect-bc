@@ -27,14 +27,11 @@ const useStyles = (theme => ({
   paper: {
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'center',
   },
   map: {
-    // width: '200%', // Fix IE 11 issue.
     marginTop: theme.spacing(3),
   },
   card: {
-    // minWidth: 275,
   },
 }));
 
@@ -50,64 +47,17 @@ class RegionBidView extends Component {
     console.log(this.props)
     const { classes } = this.props;
     return (
-        <div className={classes.root}>
-            <div className={classes.paper}>
-            <Grid container spacing={0}>
-                <Grid container xs={12}sm={12}md={12}lg={12}>
-                    <Card elevation={0} className={classes.card}>
-                        <CardContent>
-                            <Typography className={classes.title} color="textSecondary" gutterBottom>
-                            Review current set of bids
-                            </Typography>
-                            <Typography variant="h5" component="h2">
-                                500 ETH
-                            </Typography>
-                            <Typography className={classes.pos} color="textSecondary">
-                                since 8 Aug 2019
-                            </Typography>
-                        </CardContent>
-                        <CardActions>
-                            <Button size="small">Learn More</Button>
-                        </CardActions>
-                    </Card>
-                    <Card elevation={0} className={classes.card}>
-                        <CardContent>
-                            <Typography className={classes.title} color="textSecondary" gutterBottom>
-                            Number of donors
-                            </Typography>
-                            <Typography variant="h5" component="h2">
-                                30
-                            </Typography>
-                            <Typography className={classes.pos} color="textSecondary">
-                                individuals from around the world
-                            </Typography>
-                        </CardContent>
-                        <CardActions>
-                            <Button size="small">Learn More</Button>
-                        </CardActions>
-                    </Card>
-                    <Card elevation={0} className={classes.card}>
-                        <CardContent>
-                            <Typography className={classes.title} color="textSecondary" gutterBottom>
-                            Country public address 
-                            </Typography>
-                            {/* <Typography variant="h5" component="h2"> */}
-                              <QRCode value={this.props.region.contractAddress ? this.props.region.contractAddress : "0x1092361f4eAfDC6e4555Ee761E87Ef9c67b9e42f"} />
-                            {/* </Typography> */}
-                            <Typography className={classes.pos} color="textSecondary">
-                              Donate to this region
-                            </Typography>
-                        </CardContent>
-                        <CardActions>
-                            <Button href='#' style={{fontFamily:['Red Hat Text']}} size="small">{this.props.region.contractAddress}</Button>
-                        </CardActions>
-                    </Card>
-                </Grid>
-            </Grid>
+      <div className={classes.root}>
+        <div className={classes.paper}>
+          <Typography component='h1' variant='h5'>
+              Bid page for {this.props.countryName}
+          </Typography>
+          <Typography component='h3' variant='body1'>
+              Upload bids from various internet service providers with this page. The bid is composed of the following parameters: bid (PDF), bid creator (text), etc.
+          </Typography>
 
-
-            </div>
         </div>
+      </div>
     );
   }
 }

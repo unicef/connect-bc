@@ -12,7 +12,7 @@ import AddOwner from './fund/AddOwner'
 import RemoveOwner from './fund/RemoveOwner'
 import WhitelistTable from './fund/WhitelistTable'
 import AddWhiteList from './fund/AddWhiteList'
-import RemoveWhiteList from './fund/RemoveWhiteList'
+import RemoveWhitelist from './fund/RemoveWhitelist'
 
 const useStyles = (theme => ({
     dashboard: {
@@ -46,8 +46,8 @@ class RegionFundDash extends Component {
                         : this.props.addWhitelistFlag ? 
                             <AddWhiteList />
                         : this.props.removeWhitelistFlag ? 
-                            <RemoveWhiteList />
-                    : ('Default View')}
+                            <RemoveWhitelist />
+                    : ('Please select one of the options on the left.')}
                 </CardContent>
             </Card>
         )

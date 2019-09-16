@@ -127,7 +127,7 @@ class CreateRegions extends Component {
                   value={this.state.name}
                 />
               </Grid>
-              <Grid item xs={12}>
+              {/* <Grid item xs={12}>
                 <TextField
                   // variant="outlined"
                   required
@@ -139,7 +139,7 @@ class CreateRegions extends Component {
                   onChange={this.onChange}
                   value={this.state.numberOfSchools}
                 />
-              </Grid>            
+              </Grid>             
               <Grid item xs={12} >
                 <TextField
                   // variant="outlined"
@@ -153,6 +153,7 @@ class CreateRegions extends Component {
                   value={this.state.areaOfRegion}
                 />
               </Grid>
+              */}
               {/* <Typography component='h3' variant='body1'>
                 Who should have control over this region's donations
               </Typography> */}
@@ -163,8 +164,9 @@ class CreateRegions extends Component {
                   required
                   fullWidth
                   id="addressForMultiSig1"
-                  label="Blockchain Address 1"
+                  label="User 1"
                   onChange={this.onChange}
+                  helperText="Blockchain address of user who has control over funds for this region"
                   value={this.state.addressForMultiSig1}
                 />
               </Grid>
@@ -175,8 +177,9 @@ class CreateRegions extends Component {
                   required
                   fullWidth
                   id="addressForMultiSig2"
-                  label="Blockchain Address 2"
+                  label="User 2"
                   onChange={this.onChange}
+                  helperText="Blockchain address of user who has control over funds for this region"
                   value={this.state.addressForMultiSig2}
                 />
               </Grid>
@@ -187,8 +190,9 @@ class CreateRegions extends Component {
                   required
                   fullWidth
                   id="addressForMultiSig3"
-                  label="Blockchain Address 3"
+                  label="User 3"
                   onChange={this.onChange}
+                  helperText="Blockchain address of user who has control over funds for this region"
                   value={this.state.addressForMultiSig3}
                 />
               </Grid>                                    
@@ -197,9 +201,9 @@ class CreateRegions extends Component {
               type="submit"
               className={classes.button}
               fullWidth
-              variant="contained"
+              variant="outlined"
               color="primary"
-              style={{fontFamily:['Red Hat Text'], color:'white'}}
+              style={{fontFamily:['Red Hat Text']}}
             >
               Create
             </Button>
