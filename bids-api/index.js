@@ -73,7 +73,8 @@ const upload = multer({ storage })
 
 // Need to pass in 'file' because the input in the form is called 'file'
 app.post('/upload', upload.single('file'), (req, res) => {
-  return ({ file: req.file })
+  // this will be used to pass information into the bid create call
+  res.json({ file: req.file })
 })
 
 app.get('/files/:filename', (req, res) => {

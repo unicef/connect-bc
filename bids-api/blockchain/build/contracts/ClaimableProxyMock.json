@@ -1,0 +1,683 @@
+{
+  "contractName": "ClaimableProxyMock",
+  "abi": [
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "claimOwnership",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "renounceOwnership",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "pendingOwner",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "transferOwnership",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "previousOwner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnershipRenounced",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "previousOwner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnershipTransferred",
+      "type": "event"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "pause",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "unpause",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x608060405260405180807f6f72672e6d6f6e657468612e70726f78792e706175736564000000000000000081525060180190506040518091039020600019167f9e7945c55c116aa3404b99fe56db7af9613d3b899554a437c2616a4749a94d8a6001026000191614151561006f57fe5b60405180807f6f72672e6d6f6e657468612e70726f78792e6f776e657200000000000000000081525060170190506040518091039020600019167f3ca57e4b51fc2e18497b219410298879868edada7e6fe5132c8feceb0a080d22600102600019161415156100da57fe5b6100f233610162640100000000026401000000009004565b60405180807f6f72672e6d6f6e657468612e70726f78792e70656e64696e674f776e65720000815250601e0190506040518091039020600019167fcfd0c6ea5352192d7d4c5d4e7a73c5da12c871730cb60ff57879cbe7b403bb526001026000191614151561015d57fe5b610191565b60007f3ca57e4b51fc2e18497b219410298879868edada7e6fe5132c8feceb0a080d2260010290508181555050565b610677806101a06000396000f300608060405260043610610083576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680633f4ba83a146100885780634e71e0c81461009f578063715018a6146100b65780638456cb59146100cd5780638da5cb5b146100e4578063e30c39781461013b578063f2fde38b14610192575b600080fd5b34801561009457600080fd5b5061009d6101d5565b005b3480156100ab57600080fd5b506100b46101e1565b005b3480156100c257600080fd5b506100cb610323565b005b3480156100d957600080fd5b506100e2610437565b005b3480156100f057600080fd5b506100f9610443565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34801561014757600080fd5b50610150610452565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34801561019e57600080fd5b506101d3600480360381019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610461565b005b6101df600061052b565b565b6101e961055a565b73ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561022257600080fd5b61022a61058b565b15151561029f576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040180806020018281038252601d8152602001807f636f6e74726163742073686f756c64206e6f742062652070617573656400000081525060200191505060405180910390fd5b6102a761055a565b73ffffffffffffffffffffffffffffffffffffffff166102c56105bc565b73ffffffffffffffffffffffffffffffffffffffff167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e060405160405180910390a361031761031261055a565b6105ed565b610321600061061c565b565b61032b6105bc565b73ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561036457600080fd5b61036c61058b565b1515156103e1576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040180806020018281038252601d8152602001807f636f6e74726163742073686f756c64206e6f742062652070617573656400000081525060200191505060405180910390fd5b6103e96105bc565b73ffffffffffffffffffffffffffffffffffffffff167ff8df31144d9c2f0f6b59d69b8b98abd5459d07f2742c4df920b25aae33c6482060405160405180910390a261043560006105ed565b565b610441600161052b565b565b600061044d6105bc565b905090565b600061045c61055a565b905090565b6104696105bc565b73ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161415156104a257600080fd5b6104aa61058b565b15151561051f576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040180806020018281038252601d8152602001807f636f6e74726163742073686f756c64206e6f742062652070617573656400000081525060200191505060405180910390fd5b6105288161061c565b50565b60007f9e7945c55c116aa3404b99fe56db7af9613d3b899554a437c2616a4749a94d8a60010290508181555050565b6000807fcfd0c6ea5352192d7d4c5d4e7a73c5da12c871730cb60ff57879cbe7b403bb526001029050805491505090565b6000807f9e7945c55c116aa3404b99fe56db7af9613d3b899554a437c2616a4749a94d8a6001029050805491505090565b6000807f3ca57e4b51fc2e18497b219410298879868edada7e6fe5132c8feceb0a080d226001029050805491505090565b60007f3ca57e4b51fc2e18497b219410298879868edada7e6fe5132c8feceb0a080d2260010290508181555050565b60007fcfd0c6ea5352192d7d4c5d4e7a73c5da12c871730cb60ff57879cbe7b403bb52600102905081815550505600a165627a7a723058201d6735e2d0990e2a39e2d187c72c93085fe0684eaa542b68a65725697d02eeaf0029",
+  "deployedBytecode": "0x608060405260043610610083576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680633f4ba83a146100885780634e71e0c81461009f578063715018a6146100b65780638456cb59146100cd5780638da5cb5b146100e4578063e30c39781461013b578063f2fde38b14610192575b600080fd5b34801561009457600080fd5b5061009d6101d5565b005b3480156100ab57600080fd5b506100b46101e1565b005b3480156100c257600080fd5b506100cb610323565b005b3480156100d957600080fd5b506100e2610437565b005b3480156100f057600080fd5b506100f9610443565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34801561014757600080fd5b50610150610452565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34801561019e57600080fd5b506101d3600480360381019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610461565b005b6101df600061052b565b565b6101e961055a565b73ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561022257600080fd5b61022a61058b565b15151561029f576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040180806020018281038252601d8152602001807f636f6e74726163742073686f756c64206e6f742062652070617573656400000081525060200191505060405180910390fd5b6102a761055a565b73ffffffffffffffffffffffffffffffffffffffff166102c56105bc565b73ffffffffffffffffffffffffffffffffffffffff167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e060405160405180910390a361031761031261055a565b6105ed565b610321600061061c565b565b61032b6105bc565b73ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561036457600080fd5b61036c61058b565b1515156103e1576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040180806020018281038252601d8152602001807f636f6e74726163742073686f756c64206e6f742062652070617573656400000081525060200191505060405180910390fd5b6103e96105bc565b73ffffffffffffffffffffffffffffffffffffffff167ff8df31144d9c2f0f6b59d69b8b98abd5459d07f2742c4df920b25aae33c6482060405160405180910390a261043560006105ed565b565b610441600161052b565b565b600061044d6105bc565b905090565b600061045c61055a565b905090565b6104696105bc565b73ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161415156104a257600080fd5b6104aa61058b565b15151561051f576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040180806020018281038252601d8152602001807f636f6e74726163742073686f756c64206e6f742062652070617573656400000081525060200191505060405180910390fd5b6105288161061c565b50565b60007f9e7945c55c116aa3404b99fe56db7af9613d3b899554a437c2616a4749a94d8a60010290508181555050565b6000807fcfd0c6ea5352192d7d4c5d4e7a73c5da12c871730cb60ff57879cbe7b403bb526001029050805491505090565b6000807f9e7945c55c116aa3404b99fe56db7af9613d3b899554a437c2616a4749a94d8a6001029050805491505090565b6000807f3ca57e4b51fc2e18497b219410298879868edada7e6fe5132c8feceb0a080d226001029050805491505090565b60007f3ca57e4b51fc2e18497b219410298879868edada7e6fe5132c8feceb0a080d2260010290508181555050565b60007fcfd0c6ea5352192d7d4c5d4e7a73c5da12c871730cb60ff57879cbe7b403bb52600102905081815550505600a165627a7a723058201d6735e2d0990e2a39e2d187c72c93085fe0684eaa542b68a65725697d02eeaf0029",
+  "sourceMap": "69:177:9:-;;;638:37:8;;;;;;;;;;;;;;;;;;;617:58;;;408:66;617:17;;:58;;;;610:66;;;;;;791:36:53;;;;;;;;;;;;;;;;;;;777:50;;;537:66;777:10;;:50;;;;770:58;;;;;;839:21;849:10;839:9;;;:21;;;:::i;:::-;752:43:52;;;;;;;;;;;;;;;;;;;730:65;;;521:66;730:18;;:65;;;;723:73;;;;;;69:177:9;;2574:155:53;2631:12;537:66;2646:10;;2631:25;;2703:9;2697:4;2690:23;2676:47;;:::o;69:177:9:-;;;;;;;",
+  "deployedSourceMap": "69:177:9:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;184:60;;8:9:-1;5:2;;;30:1;27;20:12;5:2;184:60:9;;;;;;1470:216:52;;8:9:-1;5:2;;;30:1;27;20:12;5:2;1470:216:52;;;;;;1316:144:53;;8:9:-1;5:2;;;30:1;27;20:12;5:2;1316:144:53;;;;;;121:57:9;;8:9:-1;5:2;;;30:1;27;20:12;5:2;121:57:9;;;;;;2150:82:53;;8:9:-1;5:2;;;30:1;27;20:12;5:2;2150:82:53;;;;;;;;;;;;;;;;;;;;;;;;;;;809:96:52;;8:9:-1;5:2;;;30:1;27;20:12;5:2;809:96:52;;;;;;;;;;;;;;;;;;;;;;;;;;;1259:119;;8:9:-1;5:2;;;30:1;27;20:12;5:2;1259:119:52;;;;;;;;;;;;;;;;;;;;;;;;;;;;184:60:9;220:17;231:5;220:10;:17::i;:::-;184:60::o;1470:216:52:-;1069:18;:16;:18::i;:::-;1055:32;;:10;:32;;;1047:41;;;;;;;;836:12:8;:10;:12::i;:::-;835:13;827:55;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1583:18:52;:16;:18::i;:::-;1549:53;;1570:11;:9;:11::i;:::-;1549:53;;;;;;;;;;;;1612:29;1622:18;:16;:18::i;:::-;1612:9;:29::i;:::-;1651:28;1676:1;1651:16;:28::i;:::-;1470:216::o;1316:144:53:-;1008:11;:9;:11::i;:::-;994:25;;:10;:25;;;986:34;;;;;;;;836:12:8;:10;:12::i;:::-;835:13;827:55;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1410:11:53;:9;:11::i;:::-;1391:31;;;;;;;;;;;;1432:21;1450:1;1432:9;:21::i;:::-;1316:144::o;121:57:9:-;155:16;166:4;155:10;:16::i;:::-;121:57::o;2150:82:53:-;2188:7;2214:11;:9;:11::i;:::-;2207:18;;2150:82;:::o;809:96:52:-;854:7;880:18;:16;:18::i;:::-;873:25;;809:96;:::o;1259:119::-;1008:11:53;:9;:11::i;:::-;994:25;;:10;:25;;;986:34;;;;;;;;836:12:8;:10;:12::i;:::-;835:13;827:55;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1345:26:52;1362:8;1345:16;:26::i;:::-;1259:119;:::o;1443:155:8:-;1496:12;408:66;1511:17;;1496:32;;1574:7;1568:4;1561:21;1547:45;;:::o;1750:180:52:-;1801:14;1827:12;521:66;1842:18;;1827:33;;1909:4;1903:11;1893:21;;1879:45;;:::o;1176:170:8:-;1221:11;1244:12;408:66;1259:17;;1244:32;;1325:4;1319:11;1309:21;;1295:45;;:::o;2288:159:53:-;2332:11;2355:12;537:66;2370:10;;2355:25;;2426:4;2420:11;2413:18;;2399:42;;:::o;2574:155::-;2631:12;537:66;2646:10;;2631:25;;2703:9;2697:4;2690:23;2676:47;;:::o;2068:184:52:-;2139:12;521:66;2154:18;;2139:33;;2219:16;2213:4;2206:30;2192:54;;:::o",
+  "source": "pragma solidity ^0.4.24;\n\nimport \"../ownership/ClaimableProxy.sol\";\n\ncontract ClaimableProxyMock is ClaimableProxy {\n    function pause() public {\n        _setPaused(true);\n    }\n\n    function unpause() public {\n        _setPaused(false);\n    }\n}",
+  "sourcePath": "/Users/mehranhydary/Desktop/dev/connect-bc/bids-api/blockchain/contracts/mocks/ClaimableProxyMock.sol",
+  "ast": {
+    "absolutePath": "/Users/mehranhydary/Desktop/dev/connect-bc/bids-api/blockchain/contracts/mocks/ClaimableProxyMock.sol",
+    "exportedSymbols": {
+      "ClaimableProxyMock": [
+        791
+      ]
+    },
+    "id": 792,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 771,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".24"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:9"
+      },
+      {
+        "absolutePath": "/Users/mehranhydary/Desktop/dev/connect-bc/bids-api/blockchain/contracts/ownership/ClaimableProxy.sol",
+        "file": "../ownership/ClaimableProxy.sol",
+        "id": 772,
+        "nodeType": "ImportDirective",
+        "scope": 792,
+        "sourceUnit": 4172,
+        "src": "26:41:9",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 773,
+              "name": "ClaimableProxy",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 4171,
+              "src": "100:14:9",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_ClaimableProxy_$4171",
+                "typeString": "contract ClaimableProxy"
+              }
+            },
+            "id": 774,
+            "nodeType": "InheritanceSpecifier",
+            "src": "100:14:9"
+          }
+        ],
+        "contractDependencies": [
+          769,
+          4171,
+          4307
+        ],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 791,
+        "linearizedBaseContracts": [
+          791,
+          4171,
+          4307,
+          769
+        ],
+        "name": "ClaimableProxyMock",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": {
+              "id": 781,
+              "nodeType": "Block",
+              "src": "145:33:9",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "hexValue": "74727565",
+                        "id": 778,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "bool",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "166:4:9",
+                        "subdenomination": null,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        "value": "true"
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      ],
+                      "id": 777,
+                      "name": "_setPaused",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 768,
+                      "src": "155:10:9",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_internal_nonpayable$_t_bool_$returns$__$",
+                        "typeString": "function (bool)"
+                      }
+                    },
+                    "id": 779,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "155:16:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 780,
+                  "nodeType": "ExpressionStatement",
+                  "src": "155:16:9"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 782,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "pause",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 775,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "135:2:9"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 776,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "145:0:9"
+            },
+            "scope": 791,
+            "src": "121:57:9",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 789,
+              "nodeType": "Block",
+              "src": "210:34:9",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "hexValue": "66616c7365",
+                        "id": 786,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "bool",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "231:5:9",
+                        "subdenomination": null,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        "value": "false"
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      ],
+                      "id": 785,
+                      "name": "_setPaused",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 768,
+                      "src": "220:10:9",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_internal_nonpayable$_t_bool_$returns$__$",
+                        "typeString": "function (bool)"
+                      }
+                    },
+                    "id": 787,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "220:17:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 788,
+                  "nodeType": "ExpressionStatement",
+                  "src": "220:17:9"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 790,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "unpause",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 783,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "200:2:9"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 784,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "210:0:9"
+            },
+            "scope": 791,
+            "src": "184:60:9",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 792,
+        "src": "69:177:9"
+      }
+    ],
+    "src": "0:246:9"
+  },
+  "legacyAST": {
+    "absolutePath": "/Users/mehranhydary/Desktop/dev/connect-bc/bids-api/blockchain/contracts/mocks/ClaimableProxyMock.sol",
+    "exportedSymbols": {
+      "ClaimableProxyMock": [
+        791
+      ]
+    },
+    "id": 792,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 771,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".24"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:9"
+      },
+      {
+        "absolutePath": "/Users/mehranhydary/Desktop/dev/connect-bc/bids-api/blockchain/contracts/ownership/ClaimableProxy.sol",
+        "file": "../ownership/ClaimableProxy.sol",
+        "id": 772,
+        "nodeType": "ImportDirective",
+        "scope": 792,
+        "sourceUnit": 4172,
+        "src": "26:41:9",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 773,
+              "name": "ClaimableProxy",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 4171,
+              "src": "100:14:9",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_ClaimableProxy_$4171",
+                "typeString": "contract ClaimableProxy"
+              }
+            },
+            "id": 774,
+            "nodeType": "InheritanceSpecifier",
+            "src": "100:14:9"
+          }
+        ],
+        "contractDependencies": [
+          769,
+          4171,
+          4307
+        ],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 791,
+        "linearizedBaseContracts": [
+          791,
+          4171,
+          4307,
+          769
+        ],
+        "name": "ClaimableProxyMock",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": {
+              "id": 781,
+              "nodeType": "Block",
+              "src": "145:33:9",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "hexValue": "74727565",
+                        "id": 778,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "bool",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "166:4:9",
+                        "subdenomination": null,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        "value": "true"
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      ],
+                      "id": 777,
+                      "name": "_setPaused",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 768,
+                      "src": "155:10:9",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_internal_nonpayable$_t_bool_$returns$__$",
+                        "typeString": "function (bool)"
+                      }
+                    },
+                    "id": 779,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "155:16:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 780,
+                  "nodeType": "ExpressionStatement",
+                  "src": "155:16:9"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 782,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "pause",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 775,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "135:2:9"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 776,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "145:0:9"
+            },
+            "scope": 791,
+            "src": "121:57:9",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 789,
+              "nodeType": "Block",
+              "src": "210:34:9",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "hexValue": "66616c7365",
+                        "id": 786,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "bool",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "231:5:9",
+                        "subdenomination": null,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        "value": "false"
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      ],
+                      "id": 785,
+                      "name": "_setPaused",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 768,
+                      "src": "220:10:9",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_internal_nonpayable$_t_bool_$returns$__$",
+                        "typeString": "function (bool)"
+                      }
+                    },
+                    "id": 787,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "220:17:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 788,
+                  "nodeType": "ExpressionStatement",
+                  "src": "220:17:9"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 790,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "unpause",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 783,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "200:2:9"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 784,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "210:0:9"
+            },
+            "scope": 791,
+            "src": "184:60:9",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 792,
+        "src": "69:177:9"
+      }
+    ],
+    "src": "0:246:9"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.25+commit.59dbf8f1.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.0.0",
+  "updatedAt": "2019-09-20T21:39:24.002Z",
+  "devdoc": {
+    "methods": {
+      "claimOwnership()": {
+        "details": "Allows the pendingOwner address to finalize the transfer."
+      },
+      "owner()": {
+        "return": "The owner address."
+      },
+      "renounceOwnership()": {
+        "details": "Allows the current owner to relinquish control of the contract."
+      },
+      "transferOwnership(address)": {
+        "details": "Allows the current owner to set the pendingOwner address.",
+        "params": {
+          "newOwner": "The address to transfer ownership to."
+        }
+      }
+    }
+  },
+  "userdoc": {
+    "methods": {
+      "renounceOwnership()": {
+        "notice": "Renouncing to ownership will leave the contract without an owner. It will not be possible to call the functions with the `onlyOwner` modifier anymore."
+      }
+    }
+  }
+}

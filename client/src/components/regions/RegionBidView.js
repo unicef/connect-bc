@@ -2,18 +2,12 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { listRegions, getRegion } from "../../actions/regionActions";
-import QRCode from 'qrcode.react';
-import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-import Link from '@material-ui/core/Link';
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import Button from '@material-ui/core/Button';
-
-import RegionMapForManage from './RegionMapForManage';
 
 import { withStyles } from '@material-ui/core/styles';
+
+import BidTable from './bid/BidTable'
+import BidForm from './bid/BidForm'
 
 const useStyles = (theme => ({
   '@global': {
@@ -25,8 +19,8 @@ const useStyles = (theme => ({
     // flexGrow: 1,
   },
   paper: {
-    display: 'flex',
-    flexDirection: 'column',
+    // display: 'flex',
+    // flexDirection: 'column',
   },
   map: {
     marginTop: theme.spacing(3),
@@ -44,7 +38,6 @@ class RegionBidView extends Component {
   }
   
   render() {
-    console.log(this.props)
     const { classes } = this.props;
     return (
       <div className={classes.root}>
@@ -52,10 +45,12 @@ class RegionBidView extends Component {
           <Typography component='h1' variant='h5'>
               Bid page for {this.props.countryName}
           </Typography>
-          <Typography component='h3' variant='body1'>
-              Upload bids from various internet service providers with this page. The bid is composed of the following parameters: bid (PDF), bid creator (text), etc.
-          </Typography>
-
+          <BidForm
+          
+          />
+          <BidTable 
+          
+          />
         </div>
       </div>
     );

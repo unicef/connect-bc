@@ -53,11 +53,11 @@ const theme = createMuiTheme({
       main: '#ffffff !important'
     },
     primary: {
-      main: '#42a5f5',
+      main: '#ffae12',
       contrastText: '#fff'
     },
     secondary: {
-      main: '#536dfe'
+      main: '#333'
     },    
   },
   typography: {  

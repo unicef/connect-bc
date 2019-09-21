@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { postRegion } from '../../actions/regionActions'
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
@@ -32,18 +30,16 @@ const useStyles = (theme => ({
     alignItems: 'center',
   },
   map: {
-    // // width: '200%', // Fix IE 11 issue.
     marginTop: theme.spacing(3),
   },
   form: {
-    // width: '100%', // Fix IE 11 issue.
     marginTop: theme.spacing(3),
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
   },
   button: {
-    marginTop: theme.spacing(2),
+    marginTop: theme.spacing(8),
   },
   extraText: {
     marginTop: theme.spacing(1),
@@ -73,8 +69,8 @@ class CreateRegions extends Component {
     e.preventDefault()
     const regionData = {
       name: this.state.name,
-      numberOfSchools: this.state.numberOfSchools,
-      areaOfRegion: this.state.areaOfRegion,
+      numberOfSchools: 50,
+      areaOfRegion: 50,
       addressForMultiSig1: this.state.addressForMultiSig1,
       addressForMultiSig2: this.state.addressForMultiSig2,
       addressForMultiSig3: this.state.addressForMultiSig3

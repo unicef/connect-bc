@@ -3,8 +3,8 @@ const express = require('express')
 , BidController = require('../controllers/bidController')
 
 router.post('/', BidController.create)
-router.get('/', BidController.get)
-router.put('/', BidController.update)
-router.delete('/', BidController.delete)
+router.get('/:id', BidController.get)
+router.put('/:id', BidController.update)
+router.delete('/:id', BidController.delete)
 
 module.exports = router

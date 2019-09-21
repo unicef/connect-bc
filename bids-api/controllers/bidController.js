@@ -27,11 +27,23 @@ exports.get = async (req, res) => {
 }
 
 exports.update = async (req, res) => {
-
+    _update(req.params.id, updatesRequired)
+    .then(response => {
+        res.json(response)
+    })
+    .catch(err => {
+        console.log(err)
+    })
 }
 
 exports.delete = async (req, res) => {
-
+    _delete(req.params.id)
+    .then(response => {
+        res.json(response)
+    })
+    .catch(err => {
+        console.log(err)
+    })
 }
 
 
@@ -46,7 +58,7 @@ _create = (name, email, fileInfo, country) => {
     })
     newBid.save()
     .then(response => {
-        console.log(response)
+        console.log('New bid added to database')
     })
     .catch(err => {
         console.log(err)
@@ -67,6 +79,7 @@ _get = (id) => {
         // Pass back all bids
         Bid.find()
         .then(response => {
+            console.logO('Getting bids from database')
             if(response)
                 res.json(response)
         })
@@ -75,9 +88,20 @@ _get = (id) => {
         })
     }
 }
-_update = () => {
-    return true
+_update = (id, updatesRequired) => {
+    Bid.update({_id: id}, updatesRequired, function(err, doc) {
+        if(err)
+            console.log('Error updating the bid')
+        else 
+            console.log('Bid updated in the database')
+    })
 }
-_delete = () => {
-    return true
+_delete = (id) => {
+    Bid.remove({_id: id}, function(err) {
+        if(!err){
+            console.log('Bid deleted from the database.')
+        } else {
+            console.log('Error deleting bid from the database')
+        }
+    })
 }
