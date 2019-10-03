@@ -44,6 +44,7 @@ _addWhitelisted = (regionName, addressToAddToWhitelist) => {
         throw err
     })
 }
+// _addWhitelisted('Norway', '0x67de9ef95992666ec7f2ccf1ad766aec4d4bceb4')
 exports.addWhitelistAdmin = (req, res) => {
     _addWhitelistAdmin(req.body.regionName, req.body.addressToAddToAdminWhiteList) 
         .then(methodResponse => {
@@ -52,6 +53,50 @@ exports.addWhitelistAdmin = (req, res) => {
         .catch(err => {
             console.log(err)
         })
+}
+exports.checkWhitelist = (req, res) => {
+    _checkWhitelist(req.body.regionName, req.body.address) 
+        .then(methodResponse => {
+            console.log(methodResponse)
+            res.json(methodResponse)
+        })
+        .catch(err => {
+            console.log(err)
+        })
+}
+
+
+_checkWhitelist = (regionName, address) => {
+    return ContractCreationController._get(regionName)
+    .then(async result => {
+        console.log('starting here first')
+        let RegionContract = new web3.eth.Contract(abi, result[0].contractAddress)
+        return await RegionContract.methods.isWhitelisted(address).call({
+            // from: result[0].createdBy
+        })
+        .then(receipt => {
+            console.log('Am i called?')
+            return receipt
+        })
+        .catch(err => {
+            return false
+        })
+    })
+    .catch(err => {
+        console.log('Error getting checking if the person is whitelisted in the contract')
+        return false
+    })
+}
+_getBalanceOfContractAddress = (regionName) => {
+    return ContractCreationController._get(regionName)
+    .then(async result => {
+        let balance = await web3.eth.getBalance(result[0].contractAddress)
+        // console.log((balance))
+        return balance
+    })
+    .catch(err => {
+        console.log(err)
+    })
 }
 _addWhitelistAdmin = (regionName, addressToAddToAdminWhiteList) => {
     return ContractCreationController._get(regionName)
@@ -173,6 +218,7 @@ exports.fallbackFromMultiSig = (req, res) => {
 _fallbackFromMultiSig = (regionName, deposit) => {
     return ContractCreationController._get(regionName)
     .then(result => {
+        console.log(result)
         web3.eth.sendTransaction({
             from: result[0].createdBy,
             to: result[0].contractAddress,
@@ -191,6 +237,9 @@ _fallbackFromMultiSig = (regionName, deposit) => {
         throw err
     })
 }
+
+// _fallbackFromMultiSig('Norway', 5000000000000000000)
+
 exports.addOwnerToMultiSig = (req, res) => {
     _addOwnerToMultiSig(regionName, addressToAddToMultiSig)
         .then(methodResponse => {
@@ -543,4 +592,26 @@ _getConfirmations = (regionName, transactionNumber) => {
         console.log('Error getting contract details from the database')
         throw err
     })        
+}
+
+exports.getBalanceOfContractAddress = (req, res) => {
+    _getBalanceOfContractAddress(req.body.regionName)
+        .then(methodResponse => {
+            console.log(methodResponse)
+            res.json(methodResponse)
+        })
+        .catch(err => {
+            console.log(err)
+        })
+}
+_getBalanceOfContractAddress = (regionName) => {
+    return ContractCreationController._get(regionName)
+    .then(async result => {
+        let balance = await web3.eth.getBalance(result[0].contractAddress)
+        // console.log((balance))
+        return balance
+    })
+    .catch(err => {
+        console.log(err)
+    })
 }

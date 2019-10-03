@@ -1,17 +1,18 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { listRegions, getRegion } from "../../actions/regionActions";
-import QRCode from 'qrcode.react';
+import { listRegions, getRegion, getTotalDonationsForRegion } from "../../actions/regionActions";
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-import Link from '@material-ui/core/Link';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 
 import RegionMapForManage from './RegionMapForManage';
+
+import DonationsRaised from './learn/DonationsRaised'
+import NumberOfDonors from './learn/NumberOfDonors'
 
 import { withStyles } from '@material-ui/core/styles';
 
@@ -41,28 +42,22 @@ const useStyles = (theme => ({
 class RegionSpecific extends Component {
   componentWillMount = () => {
     this.getRegion(this.props.countryName)
+    this.getBalanceForRegion(this.props.countryName)
   }
   getRegion = (regionName) => {
     this.props.getRegion(regionName)
   }
+
+  getBalanceForRegion = (regionName) => {
+    this.props.getTotalDonationsForRegion(regionName)
+  }
   
   render() {
-    console.log(this.props)
+    console.log(this.props.region)
     const { classes } = this.props;
     return (
         <div className={classes.root}>
             <div className={classes.paper}>
-            {/* <Typography component='h1' variant='h5'>
-                Details for {this.props.countryName}
-            </Typography>
-            <Typography component='h3' variant='body1'>
-                See the funding and connectivity details for this region.
-            </Typography>
-            <Typography component='h3' variant='body1'>
-                <Link href="/manage-regions" variant="body2">
-                Go back to view information for another region.
-                </Link>
-            </Typography> */}
             <Grid container spacing={0}>
                 <Grid container xs={12}sm={6}md={4}lg={4}>
                     <Card elevation={0} className={classes.card}>
@@ -71,14 +66,15 @@ class RegionSpecific extends Component {
                             Donations raised
                             </Typography>
                             <Typography variant="h5" component="h2">
-                                500 ETH
+                                {(parseFloat(this.props.region.donationsForRegion)/1000000000000000000).toFixed(2) } ETH
                             </Typography>
                             <Typography className={classes.pos} color="textSecondary">
                                 since 8 Aug 2019
                             </Typography>
                         </CardContent>
                         <CardActions>
-                            <Button size="small">Learn More</Button>
+                            {/* <Button size="small">Learn More</Button> */}
+                            <DonationsRaised />
                         </CardActions>
                     </Card>
                     <Card elevation={0} className={classes.card}>
@@ -94,7 +90,8 @@ class RegionSpecific extends Component {
                             </Typography>
                         </CardContent>
                         <CardActions>
-                            <Button size="small">Learn More</Button>
+                            {/* <Button size="small">Learn More</Button> */}
+                            <NumberOfDonors />
                         </CardActions>
                     </Card>
                 </Grid>
@@ -119,6 +116,7 @@ RegionSpecific.propTypes = {
   classes: PropTypes.object.isRequired,
   listRegions: PropTypes.func.isRequired,
   getRegion: PropTypes.func.isRequired,
+  getTotalDonationsForRegion: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
@@ -128,5 +126,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { listRegions, getRegion }
+  { listRegions, getRegion, getTotalDonationsForRegion }
 ) (withStyles(useStyles)(RegionSpecific));

@@ -77,7 +77,7 @@ export default function RegionBarcode(props) {
           Donate to {props.countryName}
         </DialogTitle>
         <DialogContent dividers >
-          <Grid container display='flex'alignItems='center' justifyContent='center'>
+          <Grid container display='flex'alignItems='center'>
             <Grid item xs={12} >
               <Typography component='h5' variant='body1'>
                 Please send your funds to the address represented by this QR code. You can confirm the address with the text displayed below.

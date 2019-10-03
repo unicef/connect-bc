@@ -10,6 +10,7 @@ import "./Passport.sol";
  * @dev This contract works as a passport factory.
  */
 contract PassportFactory is Ownable, HasNoEther, HasNoTokens {
+    // IPassportLogicRegistry private registry;
     IPassportLogicRegistry private registry;
 
     /**

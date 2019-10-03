@@ -1,13 +1,16 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
+import TableBody from '@material-ui/core/TableBody';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 import { Typography } from '@material-ui/core';
+import axios from 'axios';
+import moment from 'moment';
+import CreateContractBetweenISPAndRegionModal from './contract/CreateContractBetweenISPAndRegionModal'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -20,34 +23,47 @@ const useStyles = makeStyles(theme => ({
     marginBottom: theme.spacing(2),
   },
   table: {
-    // minWidth: 650,
+    minWidth: '100%',
   },
   tablecell: {
     fontSize: '12px'
   }
 }));
 
-function createData(name, email, date, status) {
-  return { name, email, date, status };
-}
 
-const rows = [
-  createData('Bid from Virgin Mobile', 'admin@virginmobile.com', '2019-03-12', 'Denied'),
-  createData('Bid from AT&T  ', 'admin@att.com', '2019-03-15', 'Denied'),
-  createData('Bid from Telus', 'admin@telus.com', '2019-03-13', 'Approved'),
-  createData('Bid from Amazon', 'admin@amazon.com', '2019-03-11', 'Pending'),
-];
-
-export default function BidTable() {
+export default function BidTable(props) {
   const classes = useStyles();
-  const handleApproval = () => {
-      console.log('Approved!')
-      // Pass in bid id and then update the status in db
-
+  const [rows, setRows] = useState([])
+  useEffect(() => {
+    axios.get(`http://localhost:3003/api/bids/country/${props.countryName}`)
+    .then(response => {
+      console.log(response.data)
+      setRows(response.data)
+    })
+    .catch(err => {
+      console.log(err)
+    })
+  }, [])
+  const handleApproval = (id) => {
+      console.log('Approved!', id)
+      axios.put(`http://localhost:3003/api/bids/${id}`, {updatesRequired:{status: 'Approved'}} )
+      .then(response => {
+        console.log(response.data)
+      })
+      .catch(err => {
+        console.log(err)
+      })
   }
-  const handleDenial = () => {
+  const handleDenial = (id) => {
     console.log('Denied!')
       // Pass in bid id and then update the status in db
+      axios.put(`http://localhost:3003/api/bids/${id}`, {updatesRequired:{status: 'Denied'}} )
+      .then(response => {
+        console.log(response.data)
+      })
+      .catch(err => {
+        console.log(err)
+      })
   }
   return (
     <div className={classes.root}>
@@ -58,8 +74,8 @@ export default function BidTable() {
               <TableCell className={classes.tablecell} align='left'>Name</TableCell>
               <TableCell className={classes.tablecell} align="left">Email</TableCell>
               <TableCell className={classes.tablecell} align="left">Date Submitted</TableCell>
+              <TableCell className={classes.tablecell} align="left">View Submission</TableCell>
               <TableCell className={classes.tablecell} align="left">Status</TableCell>
-              <TableCell className={classes.tablecell} align="left"></TableCell>
               <TableCell className={classes.tablecell} align="left"></TableCell>
             </TableRow>
           </TableHead>
@@ -68,22 +84,41 @@ export default function BidTable() {
               <TableRow key={row.name}>
                 <TableCell className={classes.tablecell} component="th" scope="row">{row.name}</TableCell>
                 <TableCell className={classes.tablecell} align="left"><a href={`mailto:${row.email}`}>{row.email}</a></TableCell>
-                <TableCell className={classes.tablecell} align="left">{row.date}</TableCell>
-                <TableCell className={classes.tablecell} align="left">{row.status}</TableCell>
+                <TableCell className={classes.tablecell} align="left">{moment(row.createdAt).format('LLLL')}</TableCell>
+                <TableCell className={classes.tablecell} align="left"><a href={row.fileInfo}>Link to Submission</a></TableCell>
+                <TableCell className={classes.tablecell} align="left">{
+                  row.status === 'false'
+                  ? (
+                    'Pending'
+                  )
+                  : row.status === 'Denied'
+                  ? (
+                    'Denied'
+                  )
+                  : (
+                    'Approved'
+                  )
+                  
+                }</TableCell>
                 {
-                    row.status === 'Pending' ? (
+                    row.status === 'false' ? (
                         <div>
                             <TableCell className={classes.tablecell} align="left">
-                                    <Button onClick={handleApproval} variant='outlined' color='primary'>Approve</Button>
+                                    <Button onClick={() => handleApproval(row._id)} variant='outlined' color='primary'>Approve</Button>
                             </TableCell>
                             <TableCell className={classes.tablecell} align="left">
-                                    <Button onClick={handleDenial} variant='outlined' color='secondary'>Deny</Button>
+                                    <Button onClick={() => handleDenial(row._id)} variant='outlined' color='secondary'>Deny</Button>
                             </TableCell>
                         </div>
-                    ) :  (
+                    ) : row.status === 'Approved' ? (
+                      <div>
+                        <TableCell className={classes.tablecell} align="left"><CreateContractBetweenISPAndRegionModal contractAddress={props.contractAddress} /></TableCell>
+                      </div>
+                    )
+                    : (
                         <div>
-                            <TableCell className={classes.tablecell} align="left"><Button variant='outlined' color='primary' disabled>Approve</Button></TableCell>
-                            <TableCell className={classes.tablecell} align="left"><Button variant='outlined' color='secondary' disabled>Deny</Button></TableCell>
+                            <TableCell className={classes.tablecell} align="left"><Button variant='outlined' disabled>Denied</Button></TableCell>
+                            <TableCell className={classes.tablecell} align="left"></TableCell>
                         </div>
                     ) 
                 }

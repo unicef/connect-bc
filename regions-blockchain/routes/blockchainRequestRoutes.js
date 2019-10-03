@@ -21,4 +21,8 @@ router.post('/multi-sig/owner/all-owners', BlockchainRequestController.getOwners
 router.post('/multi-sig/transaction/confirmation-count', BlockchainRequestController.getConfirmationCount)
 router.post('/multi-sig/transaction/number-of-confirmations', BlockchainRequestController.getConfirmations)
 
+// New Routes:
+router.post('/contract/get-balance', BlockchainRequestController.getBalanceOfContractAddress)
+router.post('/whitelist/check/', BlockchainRequestController.checkWhitelist)
+
 module.exports = router

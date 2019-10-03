@@ -12,6 +12,8 @@ import Button from '@material-ui/core/Button';
 import RegionFundDash from './RegionFundDash'
 import RegionBarcode from './RegionBarcode'
 
+import { listWhitelistUsers, addWhitelistUser } from '../../actions/whitelistUserActions'
+
 import { withStyles } from '@material-ui/core/styles';
 
 const useStyles = (theme => ({
@@ -20,25 +22,16 @@ const useStyles = (theme => ({
       backgroundColor: theme.palette.common.white,
     },
   },
-  root: {
-    // flexGrow: 1,
-  },
   paper: {
     display: 'flex',
     flexDirection: 'column',
-    // alignItems: 'center',
   },
   card: {
-    // minWidth: 400,
-    // maxWidth: 400,
     marginTop: theme.spacing(2),
   },
   dashboard: {
-    // minWidth: 400,
-    // maxWidth: 400,
     marginTop: theme.spacing(2),
   },
-
 }));
 
 class RegionFundingView extends Component {
@@ -130,7 +123,7 @@ class RegionFundingView extends Component {
             </Typography>
             <Grid container spacing={0} xs={12}sm={12}md={12}lg={12}>
                 <Grid container xs={12}sm={12}md={6}lg={6}>
-                    <Card elevation={0} className={classes.card}>
+                    {/* <Card elevation={0} className={classes.card}>
                         <CardContent>
                             <Typography variant="h5" component="h2">
                                 Owners
@@ -144,7 +137,7 @@ class RegionFundingView extends Component {
                             <Button onClick={this.handleAddOwnerFlag} size="small">Add</Button>
                             <Button onClick={this.handleRemoveOwnerFlag} size="small">Remove</Button>
                         </CardActions>
-                    </Card>
+                    </Card> */}
                     <Card elevation={0} className={classes.card}>
                         <CardContent>
                             <Typography variant="h5" component="h2">
@@ -157,7 +150,7 @@ class RegionFundingView extends Component {
                         <CardActions>
                             <Button onClick={this.handleViewWhitelistFlag} size="small">View</Button>
                             <Button onClick={this.handleAddWhitelistFlag} size="small">Add</Button>
-                            <Button onClick={this.handleRemoveWhitelistFlag} size="small">Remove</Button>
+                            {/* <Button onClick={this.handleRemoveWhitelistFlag} size="small">Remove</Button> */}
                         </CardActions>
                     </Card>
                 </Grid>
@@ -168,7 +161,11 @@ class RegionFundingView extends Component {
                       removeOwnerFlag={this.state.removeOwnerFlag}
                       viewWhitelistFlag={this.state.viewWhitelistFlag}
                       addWhitelistFlag={this.state.addWhitelistFlag}
-                      removeWhitelistFlag={this.state.removeWhitelistFlag}
+                      // removeWhitelistFlag={this.state.removeWhitelistFlag}
+                      countryName={this.props.countryName}
+                      listWhitelistUsers={this.props.listWhitelistUsers}
+                      addWhitelistUser={this.props.addWhitelistUser}
+
                     />
                 </Grid>
                 {/* <Grid spacing={1} container xs={12}sm={12}md={12}lg={12}> */}
@@ -196,6 +193,8 @@ RegionFundingView.propTypes = {
   classes: PropTypes.object.isRequired,
   listRegions: PropTypes.func.isRequired,
   getRegion: PropTypes.func.isRequired,
+  listWhitelistUsers: PropTypes.func.isRequired, 
+  addWhitelistUser: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
@@ -205,5 +204,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { listRegions, getRegion }
+  { listRegions, getRegion, listWhitelistUsers, addWhitelistUser }
 ) (withStyles(useStyles)(RegionFundingView));

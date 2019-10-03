@@ -21,7 +21,7 @@ exports.list = (req, res) => {
     })
 }    
 exports.get = (req, res) => {
-    _get(req.params.regionName)
+    exports._get(req.params.regionName)
     .then(result => {
         console.log(result)
         res.json(result)
@@ -59,7 +59,7 @@ _list = () => {
             throw err
         })
 }
-_get = (regionName) => {
+exports._get = (regionName) => {
     return ContractCreation.find({regionName})
         .then(contractInfo => {
             return contractInfo

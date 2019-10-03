@@ -27,6 +27,7 @@ export default function AddOwner() {
   const [values, setValues] = React.useState({
       name: 'New User',
       blockchainAddress: '0x0',
+      email: 'sample@sample.com'
   })
   const handleChange = name => event => {
       setValues({...values, [name]: event.target.value })
@@ -61,6 +62,17 @@ export default function AddOwner() {
                 onChange={handleChange('blockchainAddress')}
             />
         </Grid>
+        <Grid item xs={12}>
+            <TextField
+                fullWidth
+                id="email"
+                value={values.email}
+                label="Email"
+                className={classes.textField}
+                margin="normal"
+                onChange={handleChange('email')}
+            />
+        </Grid>        
         <Grid item xs={6} style = {{marginTop: '20px'}}>
         <Button variant="outlined" color="secondary">
             Add

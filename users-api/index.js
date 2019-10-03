@@ -3,11 +3,13 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const passport = require("passport");
 const dotenv = require("dotenv");
+const cors = require('cors')
 
 const users = require("./routes/userRoutes");
+const whitelistUsers = require("./routes/whitelistUserRoutes");
 
 const app = express();
-
+app.use(cors())
 dotenv.config()
 
 const db = process.env.MONGO_URI
@@ -41,5 +43,6 @@ require("./config/passport")(passport);
 
 // Routes
 app.use("/api/users", users);
+app.use("/api/whitelist-users", whitelistUsers);
 
 app.listen(port, () => console.log(`Server for users api up and running on port ${port} !`));

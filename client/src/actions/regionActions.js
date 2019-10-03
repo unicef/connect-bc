@@ -6,7 +6,8 @@ import {
   // LIST_REGIONS, 
   // UPDATE_REGION, 
   // CREATE_REGION, 
-  GET_REGION } from './types'
+  GET_REGION, 
+  GET_REGION_DONATION} from './types'
 
 export const listRegions = () => dispatch => {
   return axios
@@ -20,7 +21,7 @@ export const listRegions = () => dispatch => {
     })
 }
 export const getRegion = (regionName) => dispatch => {
-  console.log('Getting information about a region')
+  console.log('Getting information about a region', regionName)
   axios
     .get(`http://localhost:3001/api/contract-creations/region/${regionName}`)
     .then(response => {
@@ -31,9 +32,10 @@ export const getRegion = (regionName) => dispatch => {
       })
     })
     .catch(err => {
+      console.log(err)
       dispatch({
         type: GET_ERRORS,
-        payload: err.response.data
+        payload: err
       })
     })
 }
@@ -42,6 +44,24 @@ export const postRegion = (regionData) => dispatch => {
     .post(`http://localhost:3001/api/contract-creations/region`, regionData)
     .then()
     .catch()
+}
+
+export const getTotalDonationsForRegion = (regionName) => dispatch => {
+  axios
+    .post(`http://localhost:3001/api/blockchain-requests/contract/get-balance`, { regionName})
+    .then(response => {
+      console.log('XXX', response)
+      dispatch({
+        type: GET_REGION_DONATION,
+        payload: response
+      })
+    })
+    .catch(err => {
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      })
+    })
 }
 /** These are for the regions-api... might not need this if we decide to make everything decentralized
   export const removeRegion = (regionId) => dispatch => {

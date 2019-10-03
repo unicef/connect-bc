@@ -9,6 +9,7 @@ import { withStyles } from '@material-ui/core/styles';
 import BidTable from './bid/BidTable'
 import BidForm from './bid/BidForm'
 
+
 const useStyles = (theme => ({
   '@global': {
     body: {
@@ -37,6 +38,7 @@ class RegionBidView extends Component {
     this.props.getRegion(regionName)
   }
   
+  
   render() {
     const { classes } = this.props;
     return (
@@ -45,11 +47,13 @@ class RegionBidView extends Component {
           <Typography component='h1' variant='h5'>
               Bid page for {this.props.countryName}
           </Typography>
+ 
           <BidForm
-          
+            countryName={this.props.countryName}
           />
           <BidTable 
-          
+            countryName={this.props.countryName}
+            contractAddress={this.props.contractAddress}
           />
         </div>
       </div>

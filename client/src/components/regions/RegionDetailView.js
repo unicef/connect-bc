@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
+import { connect } from "react-redux";
+import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
@@ -52,7 +54,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function RegionDetailView(props) {
+function RegionDetailView(props) {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
   const [countryName, setCountryName] = React.useState(props.match.params.countryName)
@@ -63,6 +65,7 @@ export default function RegionDetailView(props) {
   
   return (
     <div className={classes.root}>
+      { console.log(props) }
       <AppBar position="static">
         <Tabs value={value} onChange={handleChange} aria-label="simple tabs example">
           <Tab className={classes.tabFormat} label="Details" {...a11yProps(0)} />
@@ -83,8 +86,22 @@ export default function RegionDetailView(props) {
       <TabPanel value={value} index={2}>
         <RegionBidView
           countryName={countryName}
+          contractAddress={props.region.contractAddress}
         />
       </TabPanel>
     </div>
   );
 }
+
+RegionFundingView.propTypes = {
+  region: PropTypes.object.isRequired,
+  classes: PropTypes.object.isRequired,
+};
+
+const mapStateToProps = state => ({
+  region: state.region
+});
+
+export default connect(
+  mapStateToProps,
+) (RegionDetailView);

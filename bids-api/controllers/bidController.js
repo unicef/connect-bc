@@ -1,6 +1,7 @@
 const Bid = require('../models/Bid')
 
 exports.create = async (req, res) => {
+    console.log('External function to create bids')
     _create(
         req.body.name,
         req.body.email,
@@ -8,6 +9,7 @@ exports.create = async (req, res) => {
         req.body.country
     )
     .then(response => {
+        console.log(response)
         res.json(response)
     })
     .catch(err => {
@@ -24,10 +26,20 @@ exports.get = async (req, res) => {
     .catch(err => {
         console.log(err)
     })
+} 
+
+exports.getBidsByCountry = async(req, res) => {
+    _getBidsByCountry(req.params.country) 
+    .then(response => {
+        res.json(response)
+    })
+    .catch(err => {
+        console.log(err)
+    })
 }
 
 exports.update = async (req, res) => {
-    _update(req.params.id, updatesRequired)
+    _update(req.params.id, req.body.updatesRequired)
     .then(response => {
         res.json(response)
     })
@@ -47,7 +59,8 @@ exports.delete = async (req, res) => {
 }
 
 
-_create = (name, email, fileInfo, country) => {
+_create = async (name, email, fileInfo, country) => {
+    console.log('Function to create bids')
     const newBid = new Bid({
         name,
         email,
@@ -56,21 +69,24 @@ _create = (name, email, fileInfo, country) => {
         createdAt: new Date(),
         status: false
     })
-    newBid.save()
+    console.log('Bid to create:', newBid)
+     return await newBid.save()
     .then(response => {
         console.log('New bid added to database')
+        return response
     })
     .catch(err => {
-        console.log(err)
+        console.log('Bid not created:', err)
+        throw err
     })
 }
-_get = (id) => {
+_get = async (id) => {
     if(id) {
         // Pass back one
-        Bid.find({_id: id})
+        return await Bid.find({_id: id})
         .then(response => {
             if(response)
-                res.json(response)
+                return(response)
         })
         .catch(err => {
             console.log(err)
@@ -79,29 +95,46 @@ _get = (id) => {
         // Pass back all bids
         Bid.find()
         .then(response => {
-            console.logO('Getting bids from database')
+            console.log('Getting bids from database')
             if(response)
-                res.json(response)
+                return(response)
         })
         .catch(err => {
             console.log(err)
         })
     }
 }
-_update = (id, updatesRequired) => {
-    Bid.update({_id: id}, updatesRequired, function(err, doc) {
+
+_getBidsByCountry = async (country) => {
+    if(country) {
+        return await Bid.find({country})
+        .then(response => {
+            if(response) 
+                return response
+        })
+        .catch(err => {
+            console.log(err)
+        })
+    }
+}
+_update = async (id, updatesRequired) => {
+    console.log(id, updatesRequired)
+    return await Bid.updateOne({_id: id}, updatesRequired, function(err, doc) {
         if(err)
             console.log('Error updating the bid')
-        else 
+        else { 
             console.log('Bid updated in the database')
+            return doc
+        }
     })
 }
-_delete = (id) => {
-    Bid.remove({_id: id}, function(err) {
+_delete = async (id) => {
+    return await Bid.remove({_id: id}, function(err) {
         if(!err){
             console.log('Bid deleted from the database.')
         } else {
             console.log('Error deleting bid from the database')
+            return ({ message:'Bid deleted from the database' })
         }
     })
 }

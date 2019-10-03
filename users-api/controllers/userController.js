@@ -13,6 +13,7 @@ exports.register = (req, res) => {
 }
 
 exports.login = async (req, res) => {
+    console.log('Yolo')
     _login(req.body.email, req.body.password)
     .then(response => {
         bcrypt.compare(req.body.password, response.password)

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from "prop-types";
 import Card from '@material-ui/core/Card'
+import { connect } from "react-redux";
 import CardActions from '@material-ui/core/CardActions'
 import CardContent from '@material-ui/core/CardContent'
 import Button from '@material-ui/core/Button'
@@ -17,7 +18,6 @@ import RemoveWhitelist from './fund/RemoveWhitelist'
 const useStyles = (theme => ({
     dashboard: {
       minWidth: 400,
-      // maxWidth: 400,
       marginTop: theme.spacing(2),
     }
   }));
@@ -29,8 +29,15 @@ class RegionFundDash extends Component {
             
         }
     }
+    componentDidMount() {
+        this.listWhitelistUsers(this.props.countryName)
+    }
+    listWhitelistUsers(countryName) {
+        this.props.listWhitelistUsers(countryName)
+    }
     render() {
         const { classes } = this.props
+        console.log(this.props, this.state)
         return (
             <Card elevation={0}>
                 <CardContent>
@@ -42,9 +49,15 @@ class RegionFundDash extends Component {
                         : this.props.removeOwnerFlag ? 
                             <RemoveOwner />
                         : this.props.viewWhitelistFlag ? 
-                            <WhitelistTable />
+                            <WhitelistTable 
+                                funders={this.props.whitelist.whitelistForCountry}
+                                countryName={this.props.countryName}
+                            />
                         : this.props.addWhitelistFlag ? 
-                            <AddWhiteList />
+                            <AddWhiteList
+                                addWhitelistUser={this.props.addWhitelistUser}
+                                countryName={this.props.countryName}
+                            />
                         : this.props.removeWhitelistFlag ? 
                             <RemoveWhitelist />
                     : ('Please select one of the options on the left.')}
@@ -53,9 +66,13 @@ class RegionFundDash extends Component {
         )
     }
 }
-
 RegionFundDash.propTypes = {
-    classes: PropTypes.object.isRequired
+    classes: PropTypes.object.isRequired,
+    whitelist: PropTypes.object.isRequired
 }
 
-export default withStyles(useStyles)(RegionFundDash)
+const mapStateToProps = state => ({
+    whitelist: state.whitelist
+})
+
+export default connect(mapStateToProps) (withStyles(useStyles)(RegionFundDash))

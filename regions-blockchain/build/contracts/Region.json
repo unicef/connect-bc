@@ -3517,10 +3517,16 @@
       "links": {},
       "address": "0x810b1feCE8c6e624B593fa2d24a84BbcfF81bf7d",
       "transactionHash": "0x43a998431d52697d75ba6d63650e2d05a36fdffab4a6a6ccd304cae8ea24c423"
+    },
+    "1569253149484": {
+      "events": {},
+      "links": {},
+      "address": "0xE2A77f74648E4821edDaE5aE906AcB60cA66423b",
+      "transactionHash": "0xa1e5dbdbda82add347e24a91ee8171de71802980ff2ec4e2cce35b127bf25731"
     }
   },
   "schemaVersion": "3.0.0",
-  "updatedAt": "2019-08-28T21:16:53.783Z",
+  "updatedAt": "2019-09-23T15:39:58.663Z",
   "devdoc": {
     "details": "Region is responsible for creating fundable region.  The region will have money / funds sent to it and the funds will be managed by a ConditionalEscrow smart contract.  This smart contract will only release funds when a specific condition is met (still TBD).  The Region smart contract also inherits a WhitelistedRole smart contract and with this contract, the Region smart contract can control who is sending funds to the region.",
     "methods": {

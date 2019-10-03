@@ -24,7 +24,10 @@ const BidSchema = new Schema({
   },
   country: {
     type: String
-  }    
+  },
+  blockchainAddress: {
+    type: String
+  }
 });
 
 module.exports = Bid = mongoose.model("bids", BidSchema);

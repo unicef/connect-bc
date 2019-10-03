@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
 import jwt_decode from "jwt-decode";
 import setAuthToken from "./utils/setAuthToken";
 
@@ -11,6 +9,7 @@ import store from "./store";
 
 import { createMuiTheme } from '@material-ui/core/styles'
 import { ThemeProvider } from '@material-ui/styles'
+import { MuiPickersUtilsProvider } from '@material-ui/pickers';
 
 import Navbar from "./components/layout/Navbar";
 import BottomNavbar from "./components/layout/BottomNavbar";
@@ -23,9 +22,9 @@ import Dashboard from "./components/dashboard/Dashboard";
 import Regions from "./components/regions/Regions";
 import CreateRegions from "./components/regions/CreateRegions";
 import ManageRegions from "./components/regions/ManageRegions";
+import DateFnsUtils from '@date-io/date-fns';
 
 import "./App.css";
-// import RegionSpecific from "./components/regions/RegionSpecific";
 import RegionDetailView from './components/regions/RegionDetailView';
 
 // Check for token to keep user logged in
@@ -57,7 +56,7 @@ const theme = createMuiTheme({
       contrastText: '#fff'
     },
     secondary: {
-      main: '#333'
+      main: '#b0bec5'
     },    
   },
   typography: {  
@@ -99,6 +98,7 @@ class App extends Component {
   };
   render() {
     return (
+      <MuiPickersUtilsProvider utils={DateFnsUtils}>
       <ThemeProvider theme={theme}>
         <Provider store={store}>
           <Router>
@@ -121,6 +121,7 @@ class App extends Component {
           </Router>
         </Provider>
       </ThemeProvider>
+      </MuiPickersUtilsProvider>
     );
   }
 }

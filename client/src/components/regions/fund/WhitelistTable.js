@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useReducer } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -7,6 +7,8 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import { Typography } from '@material-ui/core';
+import axios from 'axios';
+
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -18,54 +20,65 @@ const useStyles = makeStyles(theme => ({
     overflowX: 'auto',
     marginBottom: theme.spacing(2),
   },
-  table: {
-    // minWidth: 650,
-  },
   tablecell: {
     fontSize: '12px'
   }
 }));
 
-function createData(name, email, contractAddress) {
-  return { name, email, contractAddress };
-}
-
-const rows = [
-  createData('Chris Fabian', 'cfabian@unicef.org', '0x45876b7DF4E3d6672b7F0c7735D60638C6Cab2eB'),
-  createData('Sunita Grote', 'sgrote@unicef.org', '0x635c217A06fA76050baE6D798fFfe7af02230a5d'),
-  createData('Prateek Upreti', 'pupreti@unicef.org', '0xD2DfDc03C2185c50A592080fc9fa7b70DbF38540'),
-];
-
-export default function WhitelistTable() {
+export default function WhitelistTable(props) {
   const classes = useStyles();
-
+  async function checkStatusOfAddress (address) {
+    return await axios.post(
+      `http://localhost:3001/api/blockchain-requests/whitelist/check`, {
+        regionName: props.countryName, address
+      }
+    )
+    .then(res => {
+      console.log(res)
+      return res.data
+    })
+    .catch(err => {
+      return false
+    })
+    
+  }
   return (
-    <div className={classes.root}>
-      <Typography component='h1' variant='h5'>
-        Users that have control over the fund for this region
-      </Typography>
-      <Paper elevation={0} className={classes.paper}>
-        <Table className={classes.table} size="small">
-          <TableHead>
-            <TableRow>
-              <TableCell className={classes.tablecell}>Name</TableCell>
-              <TableCell className={classes.tablecell} align="left">Email</TableCell>
-              <TableCell className={classes.tablecell} align="left">Contract Address</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {rows.map(row => (
-              <TableRow key={row.name}>
-                <TableCell className={classes.tablecell} component="th" scope="row">
-                  {row.name}
-                </TableCell>
-                <TableCell className={classes.tablecell} align="left"><a href={`mailto:${row.email}`}>{row.email}</a></TableCell>
-                <TableCell className={classes.tablecell} align="left">{row.contractAddress}</TableCell>
+      <div className={classes.root}>
+        <Typography component='h1' variant='h5'>
+          Users that are allowed to send ether to this region
+        </Typography>
+        <Paper elevation={0} className={classes.paper}>
+          <Table className={classes.table} size="small">
+            <TableHead>
+              <TableRow>
+                <TableCell className={classes.tablecell}>Name</TableCell>
+                <TableCell className={classes.tablecell} align="left">Email</TableCell>
+                <TableCell className={classes.tablecell} align="left">Contract Address</TableCell>
               </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </Paper>
-    </div>
+            </TableHead>
+            <TableBody>
+              {props.funders.map((row, i) => {
+                let check = checkStatusOfAddress(row.wallet)
+                check
+              .then(response => {
+                  return (<h1>{response}</h1>)
+                })
+                  return (
+                    
+                    <TableRow key={i}>
+                      <TableCell className={classes.tablecell} component="th" scope="row">
+                        {row.name}
+                      </TableCell>
+                      <TableCell className={classes.tablecell} align="left"><a href={`mailto:${row.email}`}>{row.email}</a></TableCell>
+                      <TableCell className={classes.tablecell} align="left">{row.wallet}</TableCell>
+                      {/* <TableCell value={row.wallet} className={classes.tablecell} align="left">{check}</TableCell> */}
+                    </TableRow>
+                  )
+                }
+              )}
+            </TableBody>
+          </Table>
+        </Paper>
+      </div>
   );
 }
