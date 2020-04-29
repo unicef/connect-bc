@@ -83,14 +83,15 @@
       "type": "function"
     }
   ],
+  "metadata": "",
   "bytecode": "0x",
   "deployedBytecode": "0x",
   "sourceMap": "",
   "deployedSourceMap": "",
-  "source": "pragma solidity ^0.4.24;\n\ninterface IPassportLogicRegistry {\n    /**\n     * @dev This event will be emitted every time a new passport logic implementation is registered\n     * @param version representing the version name of the registered passport logic implementation\n     * @param implementation representing the address of the registered passport logic implementation\n     */\n    event PassportLogicAdded(string version, address implementation);\n\n    /**\n     * @dev This event will be emitted every time a new passport logic implementation is set as current one\n     * @param version representing the version name of the current passport logic implementation\n     * @param implementation representing the address of the current passport logic implementation\n     */\n    event CurrentPassportLogicSet(string version, address implementation);\n\n    /**\n     * @dev Tells the address of the passport logic implementation for a given version\n     * @param _version to query the implementation of\n     * @return address of the passport logic implementation registered for the given version\n     */\n    function getPassportLogic(string _version) external view returns (address);\n\n    /**\n     * @dev Tells the version of the current passport logic implementation\n     * @return version of the current passport logic implementation\n     */\n    function getCurrentPassportLogicVersion() external view returns (string memory);\n\n    /**\n     * @dev Tells the address of the current passport logic implementation\n     * @return address of the current passport logic implementation\n     */\n    function getCurrentPassportLogic() external view returns (address);\n}",
-  "sourcePath": "/Users/mehranhydary/Desktop/dev/connect-bc/bids-api/blockchain/contracts/IPassportLogicRegistry.sol",
+  "source": "pragma solidity ^0.4.24;\r\n\r\ninterface IPassportLogicRegistry {\r\n    /**\r\n     * @dev This event will be emitted every time a new passport logic implementation is registered\r\n     * @param version representing the version name of the registered passport logic implementation\r\n     * @param implementation representing the address of the registered passport logic implementation\r\n     */\r\n    event PassportLogicAdded(string version, address implementation);\r\n\r\n    /**\r\n     * @dev This event will be emitted every time a new passport logic implementation is set as current one\r\n     * @param version representing the version name of the current passport logic implementation\r\n     * @param implementation representing the address of the current passport logic implementation\r\n     */\r\n    event CurrentPassportLogicSet(string version, address implementation);\r\n\r\n    /**\r\n     * @dev Tells the address of the passport logic implementation for a given version\r\n     * @param _version to query the implementation of\r\n     * @return address of the passport logic implementation registered for the given version\r\n     */\r\n    function getPassportLogic(string _version) external view returns (address);\r\n\r\n    /**\r\n     * @dev Tells the version of the current passport logic implementation\r\n     * @return version of the current passport logic implementation\r\n     */\r\n    function getCurrentPassportLogicVersion() external view returns (string memory);\r\n\r\n    /**\r\n     * @dev Tells the address of the current passport logic implementation\r\n     * @return address of the current passport logic implementation\r\n     */\r\n    function getCurrentPassportLogic() external view returns (address);\r\n}",
+  "sourcePath": "c:\\UNICEF\\dev\\connect-bc\\bids-api\\blockchain\\contracts\\IPassportLogicRegistry.sol",
   "ast": {
-    "absolutePath": "/Users/mehranhydary/Desktop/dev/connect-bc/bids-api/blockchain/contracts/IPassportLogicRegistry.sol",
+    "absolutePath": "/c/UNICEF/dev/connect-bc/bids-api/blockchain/contracts/IPassportLogicRegistry.sol",
     "exportedSymbols": {
       "IPassportLogicRegistry": [
         223
@@ -125,7 +126,7 @@
         "nodes": [
           {
             "anonymous": false,
-            "documentation": "@dev This event will be emitted every time a new passport logic implementation is registered\n@param version representing the version name of the registered passport logic implementation\n@param implementation representing the address of the registered passport logic implementation",
+            "documentation": "@dev This event will be emitted every time a new passport logic implementation is registered\r\n@param version representing the version name of the registered passport logic implementation\r\n@param implementation representing the address of the registered passport logic implementation\r",
             "id": 199,
             "name": "PassportLogicAdded",
             "nodeType": "EventDefinition",
@@ -140,7 +141,7 @@
                   "name": "version",
                   "nodeType": "VariableDeclaration",
                   "scope": 199,
-                  "src": "408:14:1",
+                  "src": "416:14:1",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -151,7 +152,7 @@
                     "id": 194,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
-                    "src": "408:6:1",
+                    "src": "416:6:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage_ptr",
                       "typeString": "string"
@@ -167,7 +168,7 @@
                   "name": "implementation",
                   "nodeType": "VariableDeclaration",
                   "scope": 199,
-                  "src": "424:22:1",
+                  "src": "432:22:1",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -178,7 +179,7 @@
                     "id": 196,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "424:7:1",
+                    "src": "432:7:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
@@ -188,13 +189,13 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "407:40:1"
+              "src": "415:40:1"
             },
-            "src": "383:65:1"
+            "src": "391:65:1"
           },
           {
             "anonymous": false,
-            "documentation": "@dev This event will be emitted every time a new passport logic implementation is set as current one\n@param version representing the version name of the current passport logic implementation\n@param implementation representing the address of the current passport logic implementation",
+            "documentation": "@dev This event will be emitted every time a new passport logic implementation is set as current one\r\n@param version representing the version name of the current passport logic implementation\r\n@param implementation representing the address of the current passport logic implementation\r",
             "id": 205,
             "name": "CurrentPassportLogicSet",
             "nodeType": "EventDefinition",
@@ -209,7 +210,7 @@
                   "name": "version",
                   "nodeType": "VariableDeclaration",
                   "scope": 205,
-                  "src": "804:14:1",
+                  "src": "819:14:1",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -220,7 +221,7 @@
                     "id": 200,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
-                    "src": "804:6:1",
+                    "src": "819:6:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage_ptr",
                       "typeString": "string"
@@ -236,7 +237,7 @@
                   "name": "implementation",
                   "nodeType": "VariableDeclaration",
                   "scope": 205,
-                  "src": "820:22:1",
+                  "src": "835:22:1",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -247,7 +248,7 @@
                     "id": 202,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "820:7:1",
+                    "src": "835:7:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
@@ -257,13 +258,13 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "803:40:1"
+              "src": "818:40:1"
             },
-            "src": "774:70:1"
+            "src": "789:70:1"
           },
           {
             "body": null,
-            "documentation": "@dev Tells the address of the passport logic implementation for a given version\n@param _version to query the implementation of\n@return address of the passport logic implementation registered for the given version",
+            "documentation": "@dev Tells the address of the passport logic implementation for a given version\r\n@param _version to query the implementation of\r\n@return address of the passport logic implementation registered for the given version\r",
             "id": 212,
             "implemented": false,
             "isConstructor": false,
@@ -281,7 +282,7 @@
                   "name": "_version",
                   "nodeType": "VariableDeclaration",
                   "scope": 212,
-                  "src": "1126:15:1",
+                  "src": "1148:15:1",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -292,7 +293,7 @@
                     "id": 206,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1126:6:1",
+                    "src": "1148:6:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage_ptr",
                       "typeString": "string"
@@ -302,7 +303,7 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1125:17:1"
+              "src": "1147:17:1"
             },
             "payable": false,
             "returnParameters": {
@@ -315,7 +316,7 @@
                   "name": "",
                   "nodeType": "VariableDeclaration",
                   "scope": 212,
-                  "src": "1166:7:1",
+                  "src": "1188:7:1",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -326,7 +327,7 @@
                     "id": 209,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1166:7:1",
+                    "src": "1188:7:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
@@ -336,17 +337,17 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1165:9:1"
+              "src": "1187:9:1"
             },
             "scope": 223,
-            "src": "1100:75:1",
+            "src": "1122:75:1",
             "stateMutability": "view",
             "superFunction": null,
             "visibility": "external"
           },
           {
             "body": null,
-            "documentation": "@dev Tells the version of the current passport logic implementation\n@return version of the current passport logic implementation",
+            "documentation": "@dev Tells the version of the current passport logic implementation\r\n@return version of the current passport logic implementation\r",
             "id": 217,
             "implemented": false,
             "isConstructor": false,
@@ -358,7 +359,7 @@
               "id": 213,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1379:2:1"
+              "src": "1407:2:1"
             },
             "payable": false,
             "returnParameters": {
@@ -371,7 +372,7 @@
                   "name": "",
                   "nodeType": "VariableDeclaration",
                   "scope": 217,
-                  "src": "1405:6:1",
+                  "src": "1433:6:1",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
@@ -382,7 +383,7 @@
                     "id": 214,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1405:6:1",
+                    "src": "1433:6:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage_ptr",
                       "typeString": "string"
@@ -392,17 +393,17 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1404:15:1"
+              "src": "1432:15:1"
             },
             "scope": 223,
-            "src": "1340:80:1",
+            "src": "1368:80:1",
             "stateMutability": "view",
             "superFunction": null,
             "visibility": "external"
           },
           {
             "body": null,
-            "documentation": "@dev Tells the address of the current passport logic implementation\n@return address of the current passport logic implementation",
+            "documentation": "@dev Tells the address of the current passport logic implementation\r\n@return address of the current passport logic implementation\r",
             "id": 222,
             "implemented": false,
             "isConstructor": false,
@@ -414,7 +415,7 @@
               "id": 218,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1617:2:1"
+              "src": "1651:2:1"
             },
             "payable": false,
             "returnParameters": {
@@ -427,7 +428,7 @@
                   "name": "",
                   "nodeType": "VariableDeclaration",
                   "scope": 222,
-                  "src": "1643:7:1",
+                  "src": "1677:7:1",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -438,7 +439,7 @@
                     "id": 219,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1643:7:1",
+                    "src": "1677:7:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
@@ -448,23 +449,23 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1642:9:1"
+              "src": "1676:9:1"
             },
             "scope": 223,
-            "src": "1585:67:1",
+            "src": "1619:67:1",
             "stateMutability": "view",
             "superFunction": null,
             "visibility": "external"
           }
         ],
         "scope": 224,
-        "src": "26:1628:1"
+        "src": "28:1661:1"
       }
     ],
-    "src": "0:1654:1"
+    "src": "0:1689:1"
   },
   "legacyAST": {
-    "absolutePath": "/Users/mehranhydary/Desktop/dev/connect-bc/bids-api/blockchain/contracts/IPassportLogicRegistry.sol",
+    "absolutePath": "/c/UNICEF/dev/connect-bc/bids-api/blockchain/contracts/IPassportLogicRegistry.sol",
     "exportedSymbols": {
       "IPassportLogicRegistry": [
         223
@@ -499,7 +500,7 @@
         "nodes": [
           {
             "anonymous": false,
-            "documentation": "@dev This event will be emitted every time a new passport logic implementation is registered\n@param version representing the version name of the registered passport logic implementation\n@param implementation representing the address of the registered passport logic implementation",
+            "documentation": "@dev This event will be emitted every time a new passport logic implementation is registered\r\n@param version representing the version name of the registered passport logic implementation\r\n@param implementation representing the address of the registered passport logic implementation\r",
             "id": 199,
             "name": "PassportLogicAdded",
             "nodeType": "EventDefinition",
@@ -514,7 +515,7 @@
                   "name": "version",
                   "nodeType": "VariableDeclaration",
                   "scope": 199,
-                  "src": "408:14:1",
+                  "src": "416:14:1",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -525,7 +526,7 @@
                     "id": 194,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
-                    "src": "408:6:1",
+                    "src": "416:6:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage_ptr",
                       "typeString": "string"
@@ -541,7 +542,7 @@
                   "name": "implementation",
                   "nodeType": "VariableDeclaration",
                   "scope": 199,
-                  "src": "424:22:1",
+                  "src": "432:22:1",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -552,7 +553,7 @@
                     "id": 196,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "424:7:1",
+                    "src": "432:7:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
@@ -562,13 +563,13 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "407:40:1"
+              "src": "415:40:1"
             },
-            "src": "383:65:1"
+            "src": "391:65:1"
           },
           {
             "anonymous": false,
-            "documentation": "@dev This event will be emitted every time a new passport logic implementation is set as current one\n@param version representing the version name of the current passport logic implementation\n@param implementation representing the address of the current passport logic implementation",
+            "documentation": "@dev This event will be emitted every time a new passport logic implementation is set as current one\r\n@param version representing the version name of the current passport logic implementation\r\n@param implementation representing the address of the current passport logic implementation\r",
             "id": 205,
             "name": "CurrentPassportLogicSet",
             "nodeType": "EventDefinition",
@@ -583,7 +584,7 @@
                   "name": "version",
                   "nodeType": "VariableDeclaration",
                   "scope": 205,
-                  "src": "804:14:1",
+                  "src": "819:14:1",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -594,7 +595,7 @@
                     "id": 200,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
-                    "src": "804:6:1",
+                    "src": "819:6:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage_ptr",
                       "typeString": "string"
@@ -610,7 +611,7 @@
                   "name": "implementation",
                   "nodeType": "VariableDeclaration",
                   "scope": 205,
-                  "src": "820:22:1",
+                  "src": "835:22:1",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -621,7 +622,7 @@
                     "id": 202,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "820:7:1",
+                    "src": "835:7:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
@@ -631,13 +632,13 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "803:40:1"
+              "src": "818:40:1"
             },
-            "src": "774:70:1"
+            "src": "789:70:1"
           },
           {
             "body": null,
-            "documentation": "@dev Tells the address of the passport logic implementation for a given version\n@param _version to query the implementation of\n@return address of the passport logic implementation registered for the given version",
+            "documentation": "@dev Tells the address of the passport logic implementation for a given version\r\n@param _version to query the implementation of\r\n@return address of the passport logic implementation registered for the given version\r",
             "id": 212,
             "implemented": false,
             "isConstructor": false,
@@ -655,7 +656,7 @@
                   "name": "_version",
                   "nodeType": "VariableDeclaration",
                   "scope": 212,
-                  "src": "1126:15:1",
+                  "src": "1148:15:1",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -666,7 +667,7 @@
                     "id": 206,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1126:6:1",
+                    "src": "1148:6:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage_ptr",
                       "typeString": "string"
@@ -676,7 +677,7 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1125:17:1"
+              "src": "1147:17:1"
             },
             "payable": false,
             "returnParameters": {
@@ -689,7 +690,7 @@
                   "name": "",
                   "nodeType": "VariableDeclaration",
                   "scope": 212,
-                  "src": "1166:7:1",
+                  "src": "1188:7:1",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -700,7 +701,7 @@
                     "id": 209,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1166:7:1",
+                    "src": "1188:7:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
@@ -710,17 +711,17 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1165:9:1"
+              "src": "1187:9:1"
             },
             "scope": 223,
-            "src": "1100:75:1",
+            "src": "1122:75:1",
             "stateMutability": "view",
             "superFunction": null,
             "visibility": "external"
           },
           {
             "body": null,
-            "documentation": "@dev Tells the version of the current passport logic implementation\n@return version of the current passport logic implementation",
+            "documentation": "@dev Tells the version of the current passport logic implementation\r\n@return version of the current passport logic implementation\r",
             "id": 217,
             "implemented": false,
             "isConstructor": false,
@@ -732,7 +733,7 @@
               "id": 213,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1379:2:1"
+              "src": "1407:2:1"
             },
             "payable": false,
             "returnParameters": {
@@ -745,7 +746,7 @@
                   "name": "",
                   "nodeType": "VariableDeclaration",
                   "scope": 217,
-                  "src": "1405:6:1",
+                  "src": "1433:6:1",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
@@ -756,7 +757,7 @@
                     "id": 214,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1405:6:1",
+                    "src": "1433:6:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage_ptr",
                       "typeString": "string"
@@ -766,17 +767,17 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1404:15:1"
+              "src": "1432:15:1"
             },
             "scope": 223,
-            "src": "1340:80:1",
+            "src": "1368:80:1",
             "stateMutability": "view",
             "superFunction": null,
             "visibility": "external"
           },
           {
             "body": null,
-            "documentation": "@dev Tells the address of the current passport logic implementation\n@return address of the current passport logic implementation",
+            "documentation": "@dev Tells the address of the current passport logic implementation\r\n@return address of the current passport logic implementation\r",
             "id": 222,
             "implemented": false,
             "isConstructor": false,
@@ -788,7 +789,7 @@
               "id": 218,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1617:2:1"
+              "src": "1651:2:1"
             },
             "payable": false,
             "returnParameters": {
@@ -801,7 +802,7 @@
                   "name": "",
                   "nodeType": "VariableDeclaration",
                   "scope": 222,
-                  "src": "1643:7:1",
+                  "src": "1677:7:1",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -812,7 +813,7 @@
                     "id": 219,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1643:7:1",
+                    "src": "1677:7:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
@@ -822,44 +823,44 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1642:9:1"
+              "src": "1676:9:1"
             },
             "scope": 223,
-            "src": "1585:67:1",
+            "src": "1619:67:1",
             "stateMutability": "view",
             "superFunction": null,
             "visibility": "external"
           }
         ],
         "scope": 224,
-        "src": "26:1628:1"
+        "src": "28:1661:1"
       }
     ],
-    "src": "0:1654:1"
+    "src": "0:1689:1"
   },
   "compiler": {
     "name": "solc",
     "version": "0.4.25+commit.59dbf8f1.Emscripten.clang"
   },
   "networks": {},
-  "schemaVersion": "3.0.0",
-  "updatedAt": "2019-09-20T21:39:23.997Z",
+  "schemaVersion": "3.0.23",
+  "updatedAt": "2020-04-28T17:42:08.477Z",
   "devdoc": {
     "methods": {
       "getCurrentPassportLogic()": {
-        "details": "Tells the address of the current passport logic implementation",
-        "return": "address of the current passport logic implementation"
+        "details": "Tells the address of the current passport logic implementation\r",
+        "return": "address of the current passport logic implementation\r"
       },
       "getCurrentPassportLogicVersion()": {
-        "details": "Tells the version of the current passport logic implementation",
-        "return": "version of the current passport logic implementation"
+        "details": "Tells the version of the current passport logic implementation\r",
+        "return": "version of the current passport logic implementation\r"
       },
       "getPassportLogic(string)": {
-        "details": "Tells the address of the passport logic implementation for a given version",
+        "details": "Tells the address of the passport logic implementation for a given version\r",
         "params": {
-          "_version": "to query the implementation of"
+          "_version": "to query the implementation of\r"
         },
-        "return": "address of the passport logic implementation registered for the given version"
+        "return": "address of the passport logic implementation registered for the given version\r"
       }
     }
   },

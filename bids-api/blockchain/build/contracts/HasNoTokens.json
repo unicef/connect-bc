@@ -83,24 +83,25 @@
       "type": "function"
     }
   ],
-  "bytecode": "0x6080604052336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055506105c4806100536000396000f300608060405260043610610062576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806317ffc320146100675780638da5cb5b146100aa578063c0ee0b8a14610101578063f2fde38b14610166575b600080fd5b34801561007357600080fd5b506100a8600480360381019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506101a9565b005b3480156100b657600080fd5b506100bf61032e565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34801561010d57600080fd5b50610164600480360381019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919080359060200190929190803590602001908201803590602001919091929391929390505050610353565b005b34801561017257600080fd5b506101a7600480360381019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610358565b005b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561020657600080fd5b8173ffffffffffffffffffffffffffffffffffffffff166370a08231306040518263ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001915050602060405180830381600087803b1580156102a157600080fd5b505af11580156102b5573d6000803e3d6000fd5b505050506040513d60208110156102cb57600080fd5b8101908080519060200190929190505050905061032a6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff16828473ffffffffffffffffffffffffffffffffffffffff166104ad9092919063ffffffff16565b5050565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b600080fd5b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161415156103b357600080fd5b600073ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff16141515156103ef57600080fd5b8073ffffffffffffffffffffffffffffffffffffffff166000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e060405160405180910390a3806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555050565b8273ffffffffffffffffffffffffffffffffffffffff1663a9059cbb83836040518363ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200182815260200192505050602060405180830381600087803b15801561055057600080fd5b505af1158015610564573d6000803e3d6000fd5b505050506040513d602081101561057a57600080fd5b8101908080519060200190929190505050151561059357fe5b5050505600a165627a7a72305820b36438f161f46a388ce07922164f50369e759a70f980aec8e5d7b78f99551e0a0029",
-  "deployedBytecode": "0x608060405260043610610062576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806317ffc320146100675780638da5cb5b146100aa578063c0ee0b8a14610101578063f2fde38b14610166575b600080fd5b34801561007357600080fd5b506100a8600480360381019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506101a9565b005b3480156100b657600080fd5b506100bf61032e565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34801561010d57600080fd5b50610164600480360381019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919080359060200190929190803590602001908201803590602001919091929391929390505050610353565b005b34801561017257600080fd5b506101a7600480360381019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610358565b005b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561020657600080fd5b8173ffffffffffffffffffffffffffffffffffffffff166370a08231306040518263ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001915050602060405180830381600087803b1580156102a157600080fd5b505af11580156102b5573d6000803e3d6000fd5b505050506040513d60208110156102cb57600080fd5b8101908080519060200190929190505050905061032a6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff16828473ffffffffffffffffffffffffffffffffffffffff166104ad9092919063ffffffff16565b5050565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b600080fd5b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161415156103b357600080fd5b600073ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff16141515156103ef57600080fd5b8073ffffffffffffffffffffffffffffffffffffffff166000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e060405160405180910390a3806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555050565b8273ffffffffffffffffffffffffffffffffffffffff1663a9059cbb83836040518363ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200182815260200192505050602060405180830381600087803b15801561055057600080fd5b505af1158015610564573d6000803e3d6000fd5b505050506040513d602081101561057a57600080fd5b8101908080519060200190929190505050151561059357fe5b5050505600a165627a7a72305820b36438f161f46a388ce07922164f50369e759a70f980aec8e5d7b78f99551e0a0029",
-  "sourceMap": "350:382:37:-;;;502:10:39;494:5;;:18;;;;;;;;;;;;;;;;;;350:382:37;;;;;;",
-  "deployedSourceMap": "350:382:37:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;585:149:32;;8:9:-1;5:2;;;30:1;27;20:12;5:2;585:149:32;;;;;;;;;;;;;;;;;;;;;;;;;;;;238:20:39;;8:9:-1;5:2;;;30:1;27;20:12;5:2;238:20:39;;;;;;;;;;;;;;;;;;;;;;;;;;;634:95:37;;8:9:-1;5:2;;;30:1;27;20:12;5:2;634:95:37;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;827:169:39;;8:9:-1;5:2;;;30:1;27;20:12;5:2;827:169:39;;;;;;;;;;;;;;;;;;;;;;;;;;;;585:149:32;650:15;647:5:39;;;;;;;;;;;633:19;;:10;:19;;;625:28;;;;;;;;668:5:32;:15;;;684:4;668:21;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;668:21:32;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;668:21:32;;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;668:21:32;;;;;;;;;;;;;;;;650:39;;695:34;714:5;;;;;;;;;;;721:7;695:5;:18;;;;:34;;;;;:::i;:::-;585:149;;:::o;238:20:39:-;;;;;;;;;;;;;:::o;634:95:37:-;716:8;;;827:169:39;647:5;;;;;;;;;;;633:19;;:10;:19;;;625:28;;;;;;;;923:1;903:22;;:8;:22;;;;895:31;;;;;;;;960:8;932:37;;953:5;;;;;;;;;;;932:37;;;;;;;;;;;;983:8;975:5;;:16;;;;;;;;;;;;;;;;;;827:169;:::o;367:120:48:-;456:5;:14;;;471:2;475:5;456:25;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;456:25:48;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;456:25:48;;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;456:25:48;;;;;;;;;;;;;;;;449:33;;;;;;367:120;;;:::o",
-  "source": "pragma solidity ^0.4.11;\n\nimport \"./CanReclaimToken.sol\";\n\n/**\n * @title Contracts that should not own Tokens\n * @author Remco Bloemen <remco@2π.com>\n * @dev This blocks incoming ERC23 tokens to prevent accidental loss of tokens.\n * Should tokens (any ERC20Basic compatible) end up in the contract, it allows the\n * owner to reclaim the tokens.\n */\ncontract HasNoTokens is CanReclaimToken {\n\n /**\n  * @dev Reject all ERC23 compatible tokens\n  * @param from_ address The address that is transferring the tokens\n  * @param value_ uint256 the amount of the specified token\n  * @param data_ Bytes The data passed from the caller.\n  */\n  function tokenFallback(address from_, uint256 value_, bytes data_) external {\n    revert();\n  }\n\n}\n",
-  "sourcePath": "/Users/mehranhydary/Desktop/dev/connect-bc/bids-api/blockchain/contracts/openzeppelin-solidity/contracts/ownership/HasNoTokens.sol",
+  "metadata": "{\"compiler\":{\"version\":\"0.4.25+commit.59dbf8f1\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":false,\"inputs\":[{\"name\":\"token\",\"type\":\"address\"}],\"name\":\"reclaimToken\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"from_\",\"type\":\"address\"},{\"name\":\"value_\",\"type\":\"uint256\"},{\"name\":\"data_\",\"type\":\"bytes\"}],\"name\":\"tokenFallback\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"}],\"devdoc\":{\"author\":\"Remco Bloemen <remco@2\\u03c0.com>\\r\",\"methods\":{\"reclaimToken(address)\":{\"details\":\"Reclaim all ERC20Basic compatible tokens\\r\",\"params\":{\"token\":\"ERC20Basic The address of the token contract\\r\"}},\"tokenFallback(address,uint256,bytes)\":{\"details\":\"Reject all ERC23 compatible tokens\\r\",\"params\":{\"data_\":\"Bytes The data passed from the caller.\\r\",\"from_\":\"address The address that is transferring the tokens\\r\",\"value_\":\"uint256 the amount of the specified token\\r\"}},\"transferOwnership(address)\":{\"details\":\"Allows the current owner to transfer control of the contract to a newOwner.\\r\",\"params\":{\"newOwner\":\"The address to transfer ownership to.\\r\"}}},\"title\":\"Contracts that should not own Tokens\\r\"},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/c/UNICEF/dev/connect-bc/bids-api/blockchain/contracts/openzeppelin-solidity/contracts/ownership/HasNoTokens.sol\":\"HasNoTokens\"},\"evmVersion\":\"byzantium\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/c/UNICEF/dev/connect-bc/bids-api/blockchain/contracts/openzeppelin-solidity/contracts/ownership/CanReclaimToken.sol\":{\"keccak256\":\"0xb528b2842462f9d3aee0bde457ff3d30e373cf78935c1a7e3727b16dad75856e\",\"urls\":[\"bzzr://4b257cbe950d5d440fe60b5067d698ebd12a58f304ae0956093a8b540d965ced\"]},\"/c/UNICEF/dev/connect-bc/bids-api/blockchain/contracts/openzeppelin-solidity/contracts/ownership/HasNoTokens.sol\":{\"keccak256\":\"0xb25fea2fe6025b6f1c6ea7951179fdba0ba771d493d81193177f9612618a76ff\",\"urls\":[\"bzzr://8d140a9e8523407d9558876107c0dae97721a7bddfb819578da42c82bb4898c8\"]},\"/c/UNICEF/dev/connect-bc/bids-api/blockchain/contracts/openzeppelin-solidity/contracts/ownership/Ownable.sol\":{\"keccak256\":\"0x121061e0cd5da8776179b3bedc5844e8c9f79ef33c5f5c0e958fbd6d4fc3670c\",\"urls\":[\"bzzr://846540111c4d0e4ad95bf72201d1802ab337724ab718174ed047536100d972d4\"]},\"/c/UNICEF/dev/connect-bc/bids-api/blockchain/contracts/openzeppelin-solidity/contracts/token/ERC20.sol\":{\"keccak256\":\"0xbd3c05c3f208392ef3b629c809cc3ea564c64f11541c96380f4e731964b9009c\",\"urls\":[\"bzzr://8a9c5ba9c614eb7b7bc019497c027f2e12ee4c18869940f74c617160758224c5\"]},\"/c/UNICEF/dev/connect-bc/bids-api/blockchain/contracts/openzeppelin-solidity/contracts/token/ERC20Basic.sol\":{\"keccak256\":\"0x2d8956ad12279d1510bcc84bc58b6ef6f85d57aafc10ec19d5aff56cef443e06\",\"urls\":[\"bzzr://e3e97d5b6a2417e26d6fe3fbd8aebe05dcc0c380938c9c3f6763104400d83f6e\"]},\"/c/UNICEF/dev/connect-bc/bids-api/blockchain/contracts/openzeppelin-solidity/contracts/token/SafeERC20.sol\":{\"keccak256\":\"0x6bc5ee7b210b36f4dd5ddf7fd8610d494aef80daf99760695ad1c6ffe7d7e9d3\",\"urls\":[\"bzzr://1051683e4d6d222f58949a76f3c68ded92f5e79c48482796ef979a40c0b28349\"]}},\"version\":1}",
+  "bytecode": "0x6080604052336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055506105c4806100536000396000f300608060405260043610610062576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806317ffc320146100675780638da5cb5b146100aa578063c0ee0b8a14610101578063f2fde38b14610166575b600080fd5b34801561007357600080fd5b506100a8600480360381019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506101a9565b005b3480156100b657600080fd5b506100bf61032e565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34801561010d57600080fd5b50610164600480360381019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919080359060200190929190803590602001908201803590602001919091929391929390505050610353565b005b34801561017257600080fd5b506101a7600480360381019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610358565b005b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561020657600080fd5b8173ffffffffffffffffffffffffffffffffffffffff166370a08231306040518263ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001915050602060405180830381600087803b1580156102a157600080fd5b505af11580156102b5573d6000803e3d6000fd5b505050506040513d60208110156102cb57600080fd5b8101908080519060200190929190505050905061032a6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff16828473ffffffffffffffffffffffffffffffffffffffff166104ad9092919063ffffffff16565b5050565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b600080fd5b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161415156103b357600080fd5b600073ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff16141515156103ef57600080fd5b8073ffffffffffffffffffffffffffffffffffffffff166000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e060405160405180910390a3806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555050565b8273ffffffffffffffffffffffffffffffffffffffff1663a9059cbb83836040518363ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200182815260200192505050602060405180830381600087803b15801561055057600080fd5b505af1158015610564573d6000803e3d6000fd5b505050506040513d602081101561057a57600080fd5b8101908080519060200190929190505050151561059357fe5b5050505600a165627a7a723058207f7385d34d97d38b17756dbd69949ff5a1d0a5aa40087865a0779edffb20f9ac0029",
+  "deployedBytecode": "0x608060405260043610610062576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806317ffc320146100675780638da5cb5b146100aa578063c0ee0b8a14610101578063f2fde38b14610166575b600080fd5b34801561007357600080fd5b506100a8600480360381019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506101a9565b005b3480156100b657600080fd5b506100bf61032e565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34801561010d57600080fd5b50610164600480360381019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919080359060200190929190803590602001908201803590602001919091929391929390505050610353565b005b34801561017257600080fd5b506101a7600480360381019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610358565b005b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561020657600080fd5b8173ffffffffffffffffffffffffffffffffffffffff166370a08231306040518263ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001915050602060405180830381600087803b1580156102a157600080fd5b505af11580156102b5573d6000803e3d6000fd5b505050506040513d60208110156102cb57600080fd5b8101908080519060200190929190505050905061032a6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff16828473ffffffffffffffffffffffffffffffffffffffff166104ad9092919063ffffffff16565b5050565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b600080fd5b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161415156103b357600080fd5b600073ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff16141515156103ef57600080fd5b8073ffffffffffffffffffffffffffffffffffffffff166000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e060405160405180910390a3806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555050565b8273ffffffffffffffffffffffffffffffffffffffff1663a9059cbb83836040518363ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200182815260200192505050602060405180830381600087803b15801561055057600080fd5b505af1158015610564573d6000803e3d6000fd5b505050506040513d602081101561057a57600080fd5b8101908080519060200190929190505050151561059357fe5b5050505600a165627a7a723058207f7385d34d97d38b17756dbd69949ff5a1d0a5aa40087865a0779edffb20f9ac0029",
+  "sourceMap": "361:394:38:-;;;522:10:40;514:5;;:18;;;;;;;;;;;;;;;;;;361:394:38;;;;;;",
+  "deployedSourceMap": "361:394:38:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;604:152:33;;8:9:-1;5:2;;;30:1;27;20:12;5:2;604:152:33;;;;;;;;;;;;;;;;;;;;;;;;;;;;247:20:40;;8:9:-1;5:2;;;30:1;27;20:12;5:2;247:20:40;;;;;;;;;;;;;;;;;;;;;;;;;;;653:97:38;;8:9:-1;5:2;;;30:1;27;20:12;5:2;653:97:38;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;864:173:40;;8:9:-1;5:2;;;30:1;27;20:12;5:2;864:173:40;;;;;;;;;;;;;;;;;;;;;;;;;;;;604:152:33;670:15;675:5:40;;;;;;;;;;;661:19;;:10;:19;;;653:28;;;;;;;;688:5:33;:15;;;704:4;688:21;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;688:21:33;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;688:21:33;;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;688:21:33;;;;;;;;;;;;;;;;670:39;;716:34;735:5;;;;;;;;;;;742:7;716:5;:18;;;;:34;;;;;:::i;:::-;604:152;;:::o;247:20:40:-;;;;;;;;;;;;;:::o;653:97:38:-;736:8;;;864:173:40;675:5;;;;;;;;;;;661:19;;:10;:19;;;653:28;;;;;;;;961:1;941:22;;:8;:22;;;;933:31;;;;;;;;999:8;971:37;;992:5;;;;;;;;;;;971:37;;;;;;;;;;;;1023:8;1015:5;;:16;;;;;;;;;;;;;;;;;;864:173;:::o;379:122:49:-;469:5;:14;;;484:2;488:5;469:25;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;469:25:49;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;469:25:49;;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;469:25:49;;;;;;;;;;;;;;;;462:33;;;;;;379:122;;;:::o",
+  "source": "pragma solidity ^0.4.11;\r\n\r\nimport \"./CanReclaimToken.sol\";\r\n\r\n/**\r\n * @title Contracts that should not own Tokens\r\n * @author Remco Bloemen <remco@2π.com>\r\n * @dev This blocks incoming ERC23 tokens to prevent accidental loss of tokens.\r\n * Should tokens (any ERC20Basic compatible) end up in the contract, it allows the\r\n * owner to reclaim the tokens.\r\n */\r\ncontract HasNoTokens is CanReclaimToken {\r\n\r\n /**\r\n  * @dev Reject all ERC23 compatible tokens\r\n  * @param from_ address The address that is transferring the tokens\r\n  * @param value_ uint256 the amount of the specified token\r\n  * @param data_ Bytes The data passed from the caller.\r\n  */\r\n  function tokenFallback(address from_, uint256 value_, bytes data_) external {\r\n    revert();\r\n  }\r\n\r\n}\r\n",
+  "sourcePath": "c:\\UNICEF\\dev\\connect-bc\\bids-api\\blockchain\\contracts\\openzeppelin-solidity\\contracts\\ownership\\HasNoTokens.sol",
   "ast": {
-    "absolutePath": "/Users/mehranhydary/Desktop/dev/connect-bc/bids-api/blockchain/contracts/openzeppelin-solidity/contracts/ownership/HasNoTokens.sol",
+    "absolutePath": "/c/UNICEF/dev/connect-bc/bids-api/blockchain/contracts/openzeppelin-solidity/contracts/ownership/HasNoTokens.sol",
     "exportedSymbols": {
       "HasNoTokens": [
-        2523
+        2701
       ]
     },
-    "id": 2524,
+    "id": 2702,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 2506,
+        "id": 2684,
         "literals": [
           "solidity",
           "^",
@@ -108,16 +109,16 @@
           ".11"
         ],
         "nodeType": "PragmaDirective",
-        "src": "0:24:37"
+        "src": "0:24:38"
       },
       {
-        "absolutePath": "/Users/mehranhydary/Desktop/dev/connect-bc/bids-api/blockchain/contracts/openzeppelin-solidity/contracts/ownership/CanReclaimToken.sol",
+        "absolutePath": "/c/UNICEF/dev/connect-bc/bids-api/blockchain/contracts/openzeppelin-solidity/contracts/ownership/CanReclaimToken.sol",
         "file": "./CanReclaimToken.sol",
-        "id": 2507,
+        "id": 2685,
         "nodeType": "ImportDirective",
-        "scope": 2524,
-        "sourceUnit": 2374,
-        "src": "26:31:37",
+        "scope": 2702,
+        "sourceUnit": 2552,
+        "src": "28:31:38",
         "symbolAliases": [],
         "unitAlias": ""
       },
@@ -127,42 +128,42 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 2508,
+              "id": 2686,
               "name": "CanReclaimToken",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 2373,
-              "src": "374:15:37",
+              "referencedDeclaration": 2551,
+              "src": "385:15:38",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_CanReclaimToken_$2373",
+                "typeIdentifier": "t_contract$_CanReclaimToken_$2551",
                 "typeString": "contract CanReclaimToken"
               }
             },
-            "id": 2509,
+            "id": 2687,
             "nodeType": "InheritanceSpecifier",
-            "src": "374:15:37"
+            "src": "385:15:38"
           }
         ],
         "contractDependencies": [
-          2373,
-          2591
+          2551,
+          2769
         ],
         "contractKind": "contract",
-        "documentation": "@title Contracts that should not own Tokens\n@author Remco Bloemen <remco@2π.com>\n@dev This blocks incoming ERC23 tokens to prevent accidental loss of tokens.\nShould tokens (any ERC20Basic compatible) end up in the contract, it allows the\nowner to reclaim the tokens.",
+        "documentation": "@title Contracts that should not own Tokens\r\n@author Remco Bloemen <remco@2π.com>\r\n@dev This blocks incoming ERC23 tokens to prevent accidental loss of tokens.\r\nShould tokens (any ERC20Basic compatible) end up in the contract, it allows the\r\nowner to reclaim the tokens.\r",
         "fullyImplemented": true,
-        "id": 2523,
+        "id": 2701,
         "linearizedBaseContracts": [
-          2523,
-          2373,
-          2591
+          2701,
+          2551,
+          2769
         ],
         "name": "HasNoTokens",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "body": {
-              "id": 2521,
+              "id": 2699,
               "nodeType": "Block",
-              "src": "710:19:37",
+              "src": "729:21:38",
               "statements": [
                 {
                   "expression": {
@@ -170,21 +171,21 @@
                     "arguments": [],
                     "expression": {
                       "argumentTypes": [],
-                      "id": 2518,
+                      "id": 2696,
                       "name": "revert",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        6382,
-                        6383
+                        6560,
+                        6561
                       ],
-                      "referencedDeclaration": 6382,
-                      "src": "716:6:37",
+                      "referencedDeclaration": 6560,
+                      "src": "736:6:38",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_revert_pure$__$returns$__$",
                         "typeString": "function () pure"
                       }
                     },
-                    "id": 2519,
+                    "id": 2697,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -192,20 +193,20 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "716:8:37",
+                    "src": "736:8:38",
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 2520,
+                  "id": 2698,
                   "nodeType": "ExpressionStatement",
-                  "src": "716:8:37"
+                  "src": "736:8:38"
                 }
               ]
             },
-            "documentation": "@dev Reject all ERC23 compatible tokens\n@param from_ address The address that is transferring the tokens\n@param value_ uint256 the amount of the specified token\n@param data_ Bytes The data passed from the caller.",
-            "id": 2522,
+            "documentation": "@dev Reject all ERC23 compatible tokens\r\n@param from_ address The address that is transferring the tokens\r\n@param value_ uint256 the amount of the specified token\r\n@param data_ Bytes The data passed from the caller.\r",
+            "id": 2700,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -213,16 +214,16 @@
             "name": "tokenFallback",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2516,
+              "id": 2694,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2511,
+                  "id": 2689,
                   "name": "from_",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2522,
-                  "src": "657:13:37",
+                  "scope": 2700,
+                  "src": "676:13:38",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -230,10 +231,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2510,
+                    "id": 2688,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "657:7:37",
+                    "src": "676:7:38",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
@@ -244,11 +245,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 2513,
+                  "id": 2691,
                   "name": "value_",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2522,
-                  "src": "672:14:37",
+                  "scope": 2700,
+                  "src": "691:14:38",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -256,10 +257,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2512,
+                    "id": 2690,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "672:7:37",
+                    "src": "691:7:38",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -270,11 +271,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 2515,
+                  "id": 2693,
                   "name": "data_",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2522,
-                  "src": "688:11:37",
+                  "scope": 2700,
+                  "src": "707:11:38",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -282,10 +283,10 @@
                     "typeString": "bytes"
                   },
                   "typeName": {
-                    "id": 2514,
+                    "id": 2692,
                     "name": "bytes",
                     "nodeType": "ElementaryTypeName",
-                    "src": "688:5:37",
+                    "src": "707:5:38",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes_storage_ptr",
                       "typeString": "bytes"
@@ -295,40 +296,40 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "656:44:37"
+              "src": "675:44:38"
             },
             "payable": false,
             "returnParameters": {
-              "id": 2517,
+              "id": 2695,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "710:0:37"
+              "src": "729:0:38"
             },
-            "scope": 2523,
-            "src": "634:95:37",
+            "scope": 2701,
+            "src": "653:97:38",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "external"
           }
         ],
-        "scope": 2524,
-        "src": "350:382:37"
+        "scope": 2702,
+        "src": "361:394:38"
       }
     ],
-    "src": "0:733:37"
+    "src": "0:757:38"
   },
   "legacyAST": {
-    "absolutePath": "/Users/mehranhydary/Desktop/dev/connect-bc/bids-api/blockchain/contracts/openzeppelin-solidity/contracts/ownership/HasNoTokens.sol",
+    "absolutePath": "/c/UNICEF/dev/connect-bc/bids-api/blockchain/contracts/openzeppelin-solidity/contracts/ownership/HasNoTokens.sol",
     "exportedSymbols": {
       "HasNoTokens": [
-        2523
+        2701
       ]
     },
-    "id": 2524,
+    "id": 2702,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 2506,
+        "id": 2684,
         "literals": [
           "solidity",
           "^",
@@ -336,16 +337,16 @@
           ".11"
         ],
         "nodeType": "PragmaDirective",
-        "src": "0:24:37"
+        "src": "0:24:38"
       },
       {
-        "absolutePath": "/Users/mehranhydary/Desktop/dev/connect-bc/bids-api/blockchain/contracts/openzeppelin-solidity/contracts/ownership/CanReclaimToken.sol",
+        "absolutePath": "/c/UNICEF/dev/connect-bc/bids-api/blockchain/contracts/openzeppelin-solidity/contracts/ownership/CanReclaimToken.sol",
         "file": "./CanReclaimToken.sol",
-        "id": 2507,
+        "id": 2685,
         "nodeType": "ImportDirective",
-        "scope": 2524,
-        "sourceUnit": 2374,
-        "src": "26:31:37",
+        "scope": 2702,
+        "sourceUnit": 2552,
+        "src": "28:31:38",
         "symbolAliases": [],
         "unitAlias": ""
       },
@@ -355,42 +356,42 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 2508,
+              "id": 2686,
               "name": "CanReclaimToken",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 2373,
-              "src": "374:15:37",
+              "referencedDeclaration": 2551,
+              "src": "385:15:38",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_CanReclaimToken_$2373",
+                "typeIdentifier": "t_contract$_CanReclaimToken_$2551",
                 "typeString": "contract CanReclaimToken"
               }
             },
-            "id": 2509,
+            "id": 2687,
             "nodeType": "InheritanceSpecifier",
-            "src": "374:15:37"
+            "src": "385:15:38"
           }
         ],
         "contractDependencies": [
-          2373,
-          2591
+          2551,
+          2769
         ],
         "contractKind": "contract",
-        "documentation": "@title Contracts that should not own Tokens\n@author Remco Bloemen <remco@2π.com>\n@dev This blocks incoming ERC23 tokens to prevent accidental loss of tokens.\nShould tokens (any ERC20Basic compatible) end up in the contract, it allows the\nowner to reclaim the tokens.",
+        "documentation": "@title Contracts that should not own Tokens\r\n@author Remco Bloemen <remco@2π.com>\r\n@dev This blocks incoming ERC23 tokens to prevent accidental loss of tokens.\r\nShould tokens (any ERC20Basic compatible) end up in the contract, it allows the\r\nowner to reclaim the tokens.\r",
         "fullyImplemented": true,
-        "id": 2523,
+        "id": 2701,
         "linearizedBaseContracts": [
-          2523,
-          2373,
-          2591
+          2701,
+          2551,
+          2769
         ],
         "name": "HasNoTokens",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "body": {
-              "id": 2521,
+              "id": 2699,
               "nodeType": "Block",
-              "src": "710:19:37",
+              "src": "729:21:38",
               "statements": [
                 {
                   "expression": {
@@ -398,21 +399,21 @@
                     "arguments": [],
                     "expression": {
                       "argumentTypes": [],
-                      "id": 2518,
+                      "id": 2696,
                       "name": "revert",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        6382,
-                        6383
+                        6560,
+                        6561
                       ],
-                      "referencedDeclaration": 6382,
-                      "src": "716:6:37",
+                      "referencedDeclaration": 6560,
+                      "src": "736:6:38",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_revert_pure$__$returns$__$",
                         "typeString": "function () pure"
                       }
                     },
-                    "id": 2519,
+                    "id": 2697,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -420,20 +421,20 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "716:8:37",
+                    "src": "736:8:38",
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 2520,
+                  "id": 2698,
                   "nodeType": "ExpressionStatement",
-                  "src": "716:8:37"
+                  "src": "736:8:38"
                 }
               ]
             },
-            "documentation": "@dev Reject all ERC23 compatible tokens\n@param from_ address The address that is transferring the tokens\n@param value_ uint256 the amount of the specified token\n@param data_ Bytes The data passed from the caller.",
-            "id": 2522,
+            "documentation": "@dev Reject all ERC23 compatible tokens\r\n@param from_ address The address that is transferring the tokens\r\n@param value_ uint256 the amount of the specified token\r\n@param data_ Bytes The data passed from the caller.\r",
+            "id": 2700,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -441,16 +442,16 @@
             "name": "tokenFallback",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2516,
+              "id": 2694,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2511,
+                  "id": 2689,
                   "name": "from_",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2522,
-                  "src": "657:13:37",
+                  "scope": 2700,
+                  "src": "676:13:38",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -458,10 +459,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2510,
+                    "id": 2688,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "657:7:37",
+                    "src": "676:7:38",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
@@ -472,11 +473,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 2513,
+                  "id": 2691,
                   "name": "value_",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2522,
-                  "src": "672:14:37",
+                  "scope": 2700,
+                  "src": "691:14:38",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -484,10 +485,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2512,
+                    "id": 2690,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "672:7:37",
+                    "src": "691:7:38",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -498,11 +499,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 2515,
+                  "id": 2693,
                   "name": "data_",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2522,
-                  "src": "688:11:37",
+                  "scope": 2700,
+                  "src": "707:11:38",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -510,10 +511,10 @@
                     "typeString": "bytes"
                   },
                   "typeName": {
-                    "id": 2514,
+                    "id": 2692,
                     "name": "bytes",
                     "nodeType": "ElementaryTypeName",
-                    "src": "688:5:37",
+                    "src": "707:5:38",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes_storage_ptr",
                       "typeString": "bytes"
@@ -523,60 +524,60 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "656:44:37"
+              "src": "675:44:38"
             },
             "payable": false,
             "returnParameters": {
-              "id": 2517,
+              "id": 2695,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "710:0:37"
+              "src": "729:0:38"
             },
-            "scope": 2523,
-            "src": "634:95:37",
+            "scope": 2701,
+            "src": "653:97:38",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "external"
           }
         ],
-        "scope": 2524,
-        "src": "350:382:37"
+        "scope": 2702,
+        "src": "361:394:38"
       }
     ],
-    "src": "0:733:37"
+    "src": "0:757:38"
   },
   "compiler": {
     "name": "solc",
     "version": "0.4.25+commit.59dbf8f1.Emscripten.clang"
   },
   "networks": {},
-  "schemaVersion": "3.0.0",
-  "updatedAt": "2019-09-20T21:39:24.019Z",
+  "schemaVersion": "3.0.23",
+  "updatedAt": "2020-04-28T17:42:08.662Z",
   "devdoc": {
-    "author": "Remco Bloemen <remco@2π.com>",
+    "author": "Remco Bloemen <remco@2π.com>\r",
     "methods": {
       "reclaimToken(address)": {
-        "details": "Reclaim all ERC20Basic compatible tokens",
+        "details": "Reclaim all ERC20Basic compatible tokens\r",
         "params": {
-          "token": "ERC20Basic The address of the token contract"
+          "token": "ERC20Basic The address of the token contract\r"
         }
       },
       "tokenFallback(address,uint256,bytes)": {
-        "details": "Reject all ERC23 compatible tokens",
+        "details": "Reject all ERC23 compatible tokens\r",
         "params": {
-          "data_": "Bytes The data passed from the caller.",
-          "from_": "address The address that is transferring the tokens",
-          "value_": "uint256 the amount of the specified token"
+          "data_": "Bytes The data passed from the caller.\r",
+          "from_": "address The address that is transferring the tokens\r",
+          "value_": "uint256 the amount of the specified token\r"
         }
       },
       "transferOwnership(address)": {
-        "details": "Allows the current owner to transfer control of the contract to a newOwner.",
+        "details": "Allows the current owner to transfer control of the contract to a newOwner.\r",
         "params": {
-          "newOwner": "The address to transfer ownership to."
+          "newOwner": "The address to transfer ownership to.\r"
         }
       }
     },
-    "title": "Contracts that should not own Tokens"
+    "title": "Contracts that should not own Tokens\r"
   },
   "userdoc": {
     "methods": {}
