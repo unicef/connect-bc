@@ -29,7 +29,7 @@ Install as service if running on Windows
     PORT=3003
     # New blockchain variables:
     # ADMIN_ADDRESS should be one of the addresses you get from the local blockchain that you run
-    ADMIN_ADDRESS=0x3ef8be7e5ad18469fdc3e4942915ec9073a7732c
+    ADMIN_ADDRESS=0xYOURADMINADDRESSHERE
     GAS_TO_DEPLOY_CONTRACT=4712388
     GAS_PRICE_TO_DEPLOY_CONTRACT=1000000000000
     BLOCKCHAIN_PROVIDER=http://localhost:8545
@@ -40,7 +40,7 @@ Install as service if running on Windows
     MONGO_URI=mongodb://localhost:27017/
     DB_NAME=regions_blockchain_api
     PORT=3001
-    REGION_CONTRACT_DEPLOYING_ADDRESS=0x3ef8be7e5ad18469fdc3e4942915ec9073a7732c
+    REGION_CONTRACT_DEPLOYING_ADDRESS=0xTHEREGIONCONTRACTDEPLOYINGADDRESS
     GAS_TO_DEPLOY_REGION_CONTRACT=4712388
     GAS_PRICE_TO_DEPLOY_REGION_CONTRACT=100000000000
     BLOCKCHAIN_PROVIDER=http://localhost:8545
