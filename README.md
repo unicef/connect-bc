@@ -18,7 +18,8 @@ Project connect consists of 4 micro-apps as follows:
 2. Install MongoDB community server on your machine. Download from https://www.mongodb.com/download-center/community.
 Install as service if running on Windows
 
-3. For Windows: After ensuring service is running (i.e.by opening up the services dashboard from start->services), run mongo.exe from power shell or cmd with admin privileges.
+3. For Windows: After ensuring service is running (i.e.by opening up the services dashboard from start->services), run mongo.exe from 
+power shell or cmd with admin privileges.
 
 4. Add environment files (.env) to the root directories of each micro-app each containing as follows:
 
