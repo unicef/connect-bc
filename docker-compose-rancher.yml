@@ -1,0 +1,57 @@
+version: "3.4"
+services:
+  db:
+    image: mongo
+    restart: always
+    volumes:
+      - ./data-node:/data/db
+    ports:
+      - 27017:27017
+  client:
+    image: mehranunicef/connect-bc_client:v0
+    restart: always
+    ports:
+      - "80:80"
+    volumes:
+      - ./client:/client
+      - /client/node_modules
+    links:
+      - bids_api
+      - users_api
+      - regions_api
+  bids_api:
+    image: mehranunicef/connect-bc_bids_api:v0
+    restart: always
+    ports:
+      - "3001:3001"
+    volumes:
+      - ./bids-api:/bids-api
+      - /bids-api/node_modules
+    links:
+      - db
+    depends_on:
+      - db
+  users_api:
+    image: mehranunicef/connect-bc_users_api:v0
+    restart: always
+    ports:
+      - "3002:3002"
+    volumes:
+      - ./users-api:/users-api
+      - /users-api/node_modules
+    links:
+      - db
+    depends_on:
+      - db
+  regions_api:
+    image: mehranunicef/connect-bc_regions_api:v0
+    restart: always
+    ports:
+      - "3003:3003"
+    volumes:
+      - ./regions-blockchain:/regions-blockchain
+      - /regions-blockchain/node_modules
+    links:
+      - db
+    depends_on:
+      - db

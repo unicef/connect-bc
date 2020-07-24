@@ -1,68 +1,72 @@
-import axios from 'axios'
+import axios from "axios";
 
-import { 
-  GET_ERRORS, 
-  // REMOVE_REGION, 
-  // LIST_REGIONS, 
-  // UPDATE_REGION, 
-  // CREATE_REGION, 
-  GET_REGION, 
-  GET_REGION_DONATION} from './types'
+import {
+  GET_ERRORS,
+  // REMOVE_REGION,
+  // LIST_REGIONS,
+  // UPDATE_REGION,
+  // CREATE_REGION,
+  GET_REGION,
+  GET_REGION_DONATION,
+} from "./types";
 
-export const listRegions = () => dispatch => {
+export const listRegions = () => (dispatch) => {
   return axios
-    .get(`http://localhost:3001/api/contract-creations/region`)
-    .then(res => res.data)
-    .catch(err => {
+    .get(`http://localhost:3003/api/contract-creations/region`)
+    .then((res) => res.data)
+    .catch((err) => {
       dispatch({
         type: GET_ERRORS,
-        payload: err.response.data
-      })
-    })
-}
-export const getRegion = (regionName) => dispatch => {
-  console.log('Getting information about a region', regionName)
+        payload: err.response.data,
+      });
+    });
+};
+export const getRegion = (regionName) => (dispatch) => {
+  console.log("Getting information about a region", regionName);
   axios
-    .get(`http://localhost:3001/api/contract-creations/region/${regionName}`)
-    .then(response => {
-      console.log(response)
+    .get(`http://localhost:3003/api/contract-creations/region/${regionName}`)
+    .then((response) => {
+      console.log(response);
       dispatch({
         type: GET_REGION,
-        payload: response.data[0]
-      })
+        payload: response.data[0],
+      });
     })
-    .catch(err => {
-      console.log(err)
+    .catch((err) => {
+      console.log(err);
       dispatch({
         type: GET_ERRORS,
-        payload: err
-      })
-    })
-}
-export const postRegion = (regionData) => dispatch => {
+        payload: err,
+      });
+    });
+};
+export const postRegion = (regionData) => (dispatch) => {
   axios
-    .post(`http://localhost:3001/api/contract-creations/region`, regionData)
+    .post(`http://localhost:3003/api/contract-creations/region`, regionData)
     .then()
-    .catch()
-}
+    .catch();
+};
 
-export const getTotalDonationsForRegion = (regionName) => dispatch => {
+export const getTotalDonationsForRegion = (regionName) => (dispatch) => {
   axios
-    .post(`http://localhost:3001/api/blockchain-requests/contract/get-balance`, { regionName})
-    .then(response => {
-      console.log('XXX', response)
+    .post(
+      `http://localhost:3003/api/blockchain-requests/contract/get-balance`,
+      { regionName }
+    )
+    .then((response) => {
+      console.log("XXX", response);
       dispatch({
         type: GET_REGION_DONATION,
-        payload: response
-      })
+        payload: response,
+      });
     })
-    .catch(err => {
+    .catch((err) => {
       dispatch({
         type: GET_ERRORS,
-        payload: err.response.data
-      })
-    })
-}
+        payload: err.response.data,
+      });
+    });
+};
 /** These are for the regions-api... might not need this if we decide to make everything decentralized
   export const removeRegion = (regionId) => dispatch => {
       axios
