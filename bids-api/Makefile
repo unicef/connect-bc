@@ -4,12 +4,12 @@ DOCKER_CONTAINER_BIND_PORT=3001
 default:
 
 install_dependencies: 
-	yarn install
+	npm install
 
 run: install_dependencies
-	yarn start
+	node index.js
 
-build_docker: build
+build_docker: 
 	docker build --rm -f Dockerfile -t mehranunicef/devcon-bids-api:$(shell git rev-parse HEAD) .
 
 run_docker: build_docker
