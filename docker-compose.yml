@@ -1,10 +1,17 @@
-version: "3"
+version: "3.4"
 services:
+  db:
+    image: mongo
+    restart: always
+    volumes:
+      - ./data-node:/data/db
+    ports:
+      - 27017:27017
   client:
     build: ./client
     restart: always
     ports:
-      - "3000:3000"
+      - "80:80"
     volumes:
       - ./client:/client
       - /client/node_modules
@@ -12,8 +19,6 @@ services:
       - bids_api
       - users_api
       - regions_api
-    networks:
-      - webappnetwork
   bids_api:
     build: ./bids-api
     restart: always
@@ -22,10 +27,10 @@ services:
     volumes:
       - ./bids-api:/bids-api
       - /bids-api/node_modules
+    links:
+      - db
     depends_on:
-      - mongodb
-    networks:
-      - webappnetwork
+      - db
   users_api:
     build: ./users-api
     restart: always
@@ -34,10 +39,10 @@ services:
     volumes:
       - ./users-api:/users-api
       - /users-api/node_modules
+    links:
+      - db
     depends_on:
-      - mongodb
-    networks:
-      - webappnetwork
+      - db
   regions_api:
     build: ./regions-blockchain
     restart: always
@@ -46,22 +51,7 @@ services:
     volumes:
       - ./regions-blockchain:/regions-blockchain
       - /regions-blockchain/node_modules
+    links:
+      - db
     depends_on:
-      - mongodb
-    networks:
-      - webappnetwork
-  mongodb:
-    image: mongo
-    restart: always
-    container_name: mongodb
-    volumes:
-      - ./data-node:/data/db
-    ports:
-      - 27017:27017
-    command: mongod --noauth --smallfiles
-    networks:
-      - webappnetwork
-
-networks:
-  webappnetwork:
-    driver: bridge
+      - db
