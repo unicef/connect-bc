@@ -3,23 +3,24 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const passport = require("passport");
 const dotenv = require("dotenv");
-const cors = require('cors')
+const cors = require("cors");
 
 const users = require("./routes/userRoutes");
 const whitelistUsers = require("./routes/whitelistUserRoutes");
 
 const app = express();
-app.use(cors())
-dotenv.config()
+app.use(cors());
+dotenv.config();
 
-const db = process.env.MONGO_URI
-, db_name = process.env.DB_NAME
-, port = process.env.PORT
+const db = process.env.MONGO_URI,
+  db_name = process.env.DB_NAME,
+  port = process.env.PORT;
 
+console.log(db, db_name, port);
 // Bodyparser middleware
 app.use(
   bodyParser.urlencoded({
-    extended: false
+    extended: false,
   })
 );
 app.use(bodyParser.json());
@@ -28,12 +29,9 @@ app.use(bodyParser.json());
 
 // Connect to MongoDB
 mongoose
-  .connect(
-    db + db_name,
-    { useNewUrlParser: true }
-  )
+  .connect(db + db_name, { useNewUrlParser: true })
   .then(() => console.log("MongoDB successfully connected"))
-  .catch(err => console.log(err));
+  .catch((err) => console.log(err));
 
 // Passport middleware
 app.use(passport.initialize());
@@ -45,4 +43,6 @@ require("./config/passport")(passport);
 app.use("/api/users", users);
 app.use("/api/whitelist-users", whitelistUsers);
 
-app.listen(port, () => console.log(`Server for users api up and running on port ${port} !`));
+app.listen(port, () =>
+  console.log(`Server for users api up and running on port ${port} !`)
+);

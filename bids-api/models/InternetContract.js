@@ -39,6 +39,9 @@ const InternetContractSchema = new Schema({
   },
   contractAddress: {
     type: String
+  },
+  eventDetails: {
+    type: String
   }
 });
 

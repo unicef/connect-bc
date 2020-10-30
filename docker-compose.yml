@@ -1,0 +1,75 @@
+version: "3.4"
+services:
+  db:
+    image: mongo
+    restart: always
+    volumes:
+      - ./data-node:/data/db
+    ports:
+      - 27017:27017
+  blockchain:
+    image: trufflesuite/ganache-cli
+    volumes:
+      - ./ganache_data:/ganache_data
+    ports:
+      - 8545:8545
+    entrypoint:
+      - node
+      - /app/ganache-core.docker.cli.js
+      - --deterministic
+      - --db=/ganache_data
+      - --mnemonic
+      - "minimum symptom minute gloom tragic situate silver mechanic salad amused elite beef"
+      - --networkId
+      - "5777"
+      - --hostname
+      - "0.0.0.0"
+      - --debug
+  client:
+    build: ./client
+    restart: always
+    ports:
+      - "80:80"
+    volumes:
+      - ./client:/client
+      - /client/node_modules
+    links:
+      - bids_api
+      - users_api
+      - regions_api
+  bids_api:
+    build: ./bids-api
+    restart: always
+    ports:
+      - "3001:3001"
+    volumes:
+      - ./bids-api:/bids-api
+      - /bids-api/node_modules
+    links:
+      - db
+    depends_on:
+      - db
+  users_api:
+    build: ./users-api
+    restart: always
+    ports:
+      - "3002:3002"
+    volumes:
+      - ./users-api:/users-api
+      - /users-api/node_modules
+    links:
+      - db
+    depends_on:
+      - db
+  regions_api:
+    build: ./regions-blockchain
+    restart: always
+    ports:
+      - "3003:3003"
+    volumes:
+      - ./regions-blockchain:/regions-blockchain
+      - /regions-blockchain/node_modules
+    links:
+      - db
+    depends_on:
+      - db
