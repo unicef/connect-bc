@@ -1,18 +1,12 @@
 import axios from "axios";
 
-import {
-  GET_ERRORS,
-  // REMOVE_REGION,
-  // LIST_REGIONS,
-  // UPDATE_REGION,
-  // CREATE_REGION,
-  GET_REGION,
-  GET_REGION_DONATION,
-} from "./types";
+import { GET_ERRORS, GET_REGION, GET_REGION_DONATION } from "./types";
 
 export const listRegions = () => (dispatch) => {
   return axios
-    .get(`http://localhost:3003/api/contract-creations/region`)
+    .get(
+      `${process.env.REACT_APP_SERVER_URL}:3003/api/contract-creations/region`
+    )
     .then((res) => res.data)
     .catch((err) => {
       dispatch({
@@ -24,7 +18,9 @@ export const listRegions = () => (dispatch) => {
 export const getRegion = (regionName) => (dispatch) => {
   console.log("Getting information about a region", regionName);
   axios
-    .get(`http://localhost:3003/api/contract-creations/region/${regionName}`)
+    .get(
+      `${process.env.REACT_APP_SERVER_URL}:3003/api/contract-creations/region/${regionName}`
+    )
     .then((response) => {
       console.log(response);
       dispatch({
@@ -42,7 +38,10 @@ export const getRegion = (regionName) => (dispatch) => {
 };
 export const postRegion = (regionData) => (dispatch) => {
   axios
-    .post(`http://localhost:3003/api/contract-creations/region`, regionData)
+    .post(
+      `${process.env.REACT_APP_SERVER_URL}:3003/api/contract-creations/region`,
+      regionData
+    )
     .then()
     .catch();
 };
@@ -50,7 +49,7 @@ export const postRegion = (regionData) => (dispatch) => {
 export const getTotalDonationsForRegion = (regionName) => (dispatch) => {
   axios
     .post(
-      `http://localhost:3003/api/blockchain-requests/contract/get-balance`,
+      `${process.env.REACT_APP_SERVER_URL}:3003/api/blockchain-requests/contract/get-balance`,
       { regionName }
     )
     .then((response) => {
@@ -67,53 +66,3 @@ export const getTotalDonationsForRegion = (regionName) => (dispatch) => {
       });
     });
 };
-/** These are for the regions-api... might not need this if we decide to make everything decentralized
-  export const removeRegion = (regionId) => dispatch => {
-      axios
-          .delete(`http://localhost:3003/api/regions/${regionId}`)
-          // Figure out what to be done after the a region is deleted
-          .then()
-          .catch(err =>
-              dispatch({
-                type: GET_ERRORS,
-                payload: err.response.data
-              })
-            )
-  }
-
-  export const listRegions = () => dispatch => {
-      axios
-          .get(`http://localhost:3003/api/regions`)
-          .then()
-          .catch(err =>
-              dispatch({
-                type: GET_ERRORS,
-                payload: err.response.data
-              })
-            )
-  }
-
-  export const updateRegion = (regionId) => dispatch => {
-      axios
-          .patch(`http://localhost:3003/api/regions/${regionId}`)
-          .then()
-          .catch(err =>
-              dispatch({
-                type: GET_ERRORS,
-                payload: err.response.data
-              })
-            )
-  }
-
-  export const createRegion = (regionData) => dispatch => {
-      axios
-          .post(`http://localhost:3003/api/regions`, regionData)
-          .then()
-          .catch(err =>
-              dispatch({
-                type: GET_ERRORS,
-                payload: err.response.data
-              })
-            )
-  }
-*/

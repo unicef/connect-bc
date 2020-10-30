@@ -50,16 +50,20 @@ export default function BidForm(props) {
   const sendFileToServer = () => {
     console.log(values.fileData);
     axios
-      .post("http://localhost:3001/upload", values.fileData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      })
+      .post(
+        `${process.env.REACT_APP_SERVER_URL}:3001/upload`,
+        values.fileData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      )
       .then((response) => {
         console.log("File uploaded!", response);
         setValues({
           ...values,
-          linkToFile: `http://localhost:3001/pdf/${response.data.file.filename}`,
+          linkToFile: `${process.env.REACT_APP_SERVER_URL}:3001/pdf/${response.data.file.filename}`,
         });
         setFlags({ ...flags, flagToShowFileName: true });
       })
@@ -75,7 +79,7 @@ export default function BidForm(props) {
       country: props.countryName,
     });
     axios
-      .post("http://localhost:3001/api/bids", {
+      .post(`${process.env.REACT_APP_SERVER_URL}:3001/api/bids`, {
         name: values.name,
         email: values.email,
         fileInfo: values.linkToFile,

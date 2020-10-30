@@ -4,7 +4,9 @@ import { GET_ERRORS, GET_WHITELIST_FOR_COUNTRY } from "./types";
 
 export const listWhitelistUsers = (countryName) => (dispatch) => {
   return axios
-    .get(`http://localhost:3002/api/whitelist-users/all/${countryName}`)
+    .get(
+      `${process.env.REACT_APP_SERVER_URL}:3002/api/whitelist-users/all/${countryName}`
+    )
     .then((res) => {
       console.log(res);
       dispatch({
@@ -27,15 +29,21 @@ export const addWhitelistUser = (whitelistUserData) => (dispatch) => {
   // to the whitelist as well
   console.log("Adding whitelist user to ", whitelistUserData);
   return axios
-    .post(`http://localhost:3002/api/whitelist-users/`, whitelistUserData)
+    .post(
+      `${process.env.REACT_APP_SERVER_URL}:3002/api/whitelist-users/`,
+      whitelistUserData
+    )
     .then((res) => {
       console.log(res);
       // Need to add the user here
       return axios
-        .post(`http://localhost:3003/api/blockchain-requests/whitelist/add`, {
-          regionName: whitelistUserData.country,
-          addressToAddToWhitelist: whitelistUserData.wallet,
-        })
+        .post(
+          `${process.env.REACT_APP_SERVER_URL}:3003/api/blockchain-requests/whitelist/add`,
+          {
+            regionName: whitelistUserData.country,
+            addressToAddToWhitelist: whitelistUserData.wallet,
+          }
+        )
         .then((res) => {
           console.log(res);
         })
@@ -65,7 +73,9 @@ export const deleteWhitelistUser = (blockchainAddress) => (dispatch) => {
   // Once that is complete, then we need to update the database to
   // reflect that this user is not on the whitelist
   return axios
-    .delete(`http://localhost:3002/api/whitelist-users/${blockchainAddress}`)
+    .delete(
+      `${process.env.REACT_APP_SERVER_URL}:3002/api/whitelist-users/${blockchainAddress}`
+    )
     .then((res) => {
       console.log(res);
     })

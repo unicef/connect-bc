@@ -37,7 +37,7 @@ export default function AddingISPContractAddress(props) {
     console.log("Adding ISP address!");
     console.log(values.blockchainAddressForISP);
     axios
-      .put(`http://localhost:3001/api/bids/${props.id}`, {
+      .put(`${process.env.REACT_APP_SERVER_URL}:3001/api/bids/${props.id}`, {
         updatesRequired: { blockchainAddress: values.blockchainAddressForISP },
       })
       .then((response) => {

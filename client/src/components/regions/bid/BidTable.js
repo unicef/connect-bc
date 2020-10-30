@@ -35,7 +35,9 @@ export default function BidTable(props) {
   const [rows, setRows] = useState([]);
   useEffect(() => {
     axios
-      .get(`http://localhost:3001/api/bids/country/${props.countryName}`)
+      .get(
+        `${process.env.REACT_APP_SERVER_URL}:3001/api/bids/country/${props.countryName}`
+      )
       .then((response) => {
         console.log(response.data);
         setRows(response.data);
@@ -47,7 +49,7 @@ export default function BidTable(props) {
   const handleApproval = (id) => {
     console.log("Approved!", id);
     axios
-      .put(`http://localhost:3001/api/bids/${id}`, {
+      .put(`${process.env.REACT_APP_SERVER_URL}:3001/api/bids/${id}`, {
         updatesRequired: { status: "Approved" },
       })
       .then((response) => {
@@ -61,7 +63,7 @@ export default function BidTable(props) {
     console.log("Denied!");
     // Pass in bid id and then update the status in db
     axios
-      .put(`http://localhost:3001/api/bids/${id}`, {
+      .put(`${process.env.REACT_APP_SERVER_URL}:3001/api/bids/${id}`, {
         updatesRequired: { status: "Denied" },
       })
       .then((response) => {

@@ -42,7 +42,7 @@ class Navbar extends Component {
   };
 
   navbarLinks() {
-    if(this.props.auth.isAuthenticated) {
+    // if(this.props.auth.isAuthenticated) {
       return [
         <div style={{flexGrow:1, textAlign:'right'}}>
           {/* <Button style={{fontFamily: ['Red Hat Text']}} color="inherit">Learn</Button> */}
@@ -51,13 +51,13 @@ class Navbar extends Component {
           <Button style={{fontFamily: ['Red Hat Text']}} href='/manage-regions' color="inherit">Manage</Button>
         </div>
       ]
-    }
-    return [
-      <div style={{flexGrow:1, textAlign:'right'}}>
-      <Button  style={{fontFamily: ['Red Hat Text']}} href='/register' color="inherit">Register</Button>
-      <Button  style={{fontFamily: ['Red Hat Text']}} href='/login' color="inherit">Login</Button>
-    </div>
-    ]
+    // }
+    // return [
+    //   <div style={{flexGrow:1, textAlign:'right'}}>
+    //   <Button  style={{fontFamily: ['Red Hat Text']}} href='/register' color="inherit">Register</Button>
+    //   <Button  style={{fontFamily: ['Red Hat Text']}} href='/login' color="inherit">Login</Button>
+    // </div>
+    // ]
   }
   render() {
     const { classes } = this.props;

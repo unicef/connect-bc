@@ -7,6 +7,10 @@ services:
       - ./data-node:/data/db
     ports:
       - 27017:27017
+  blockchain:
+    trufflesuite/ganache-client
+    volumes: 
+      -./ganache_data:/ganache_data
   client:
     image: mehranunicef/connect-bc_client:v0
     restart: always
