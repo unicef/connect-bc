@@ -10,9 +10,69 @@ In addition to node js, react js, and mongo db, there is also a blockchain compo
 
 ## Bids API
 
+This is a node js application. This allows users to upload PDF documents and users on the platform can review the document and provide feedback.
+
+To run the application
+
+1. From the root folder, `cd bids-api`
+2. Run `npm install`
+3. Run `npm start`
+
+Ensure that your `.env file is updated in this folder:
+
+```
+MONGO_URI=mongodb://db:27017/
+DB_NAME=bid_api
+PORT=3001
+ADMIN_ADDRESS=0x3ef8be7e5ad18469fdc3e4942915ec9073a7732c
+GAS_TO_DEPLOY_CONTRACT=4712388
+GAS_PRICE_TO_DEPLOY_CONTRACT=1000000000000
+BLOCKCHAIN_PROVIDER=http://localhost:8545
+```
+
 ## Regions API
 
+This is a node js application. This allows users to create multi-sig smart contracts to hold funds for countries.
+
+To run the application
+
+1. From the root folder, `cd regions-blockchain`
+2. Run `npm install`
+3. Run `npm start`
+
+Ensure that your `.env file is updated in this folder:
+
+```
+MONGO_URI=mongodb://db:27017/
+DB_NAME=bid_api
+PORT=3001
+ADMIN_ADDRESS=0x3ef8be7e5ad18469fdc3e4942915ec9073a7732c
+GAS_TO_DEPLOY_CONTRACT=4712388
+GAS_PRICE_TO_DEPLOY_CONTRACT=1000000000000
+BLOCKCHAIN_PROVIDER=http://localhost:8545
+```
+
 ## Users API
+
+This is a node js application. This allows users access the platform.
+
+To run the application
+
+1. From the root folder, `cd users-api`
+2. Run `npm install`
+3. Run `npm start`
+
+Ensure that your `.env file is updated in this folder:
+
+```
+MONGO_URI=mongodb://db:27017/
+DB_NAME=bid_api
+PORT=3001
+ADMIN_ADDRESS=0x3ef8be7e5ad18469fdc3e4942915ec9073a7732c
+GAS_TO_DEPLOY_CONTRACT=4712388
+GAS_PRICE_TO_DEPLOY_CONTRACT=1000000000000
+BLOCKCHAIN_PROVIDER=http://localhost:8545
+```
 
 ## Client
 
