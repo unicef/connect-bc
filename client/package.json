@@ -13,7 +13,7 @@
     "date-fns": "^2.0.0-beta.5",
     "is-empty": "^1.2.0",
     "jwt-decode": "^2.2.0",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "qrcode.react": "^0.9.3",
     "re-carousel": "^2.4.0",
     "react": "^16.9.0",
